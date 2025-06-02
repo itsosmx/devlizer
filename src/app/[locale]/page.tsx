@@ -7,7 +7,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Smartphone, Globe, Code, Palette, Zap, Users, ArrowRight, CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
-import { sendEmail } from "@/actions";
 import { toast } from "sonner";
 
 export default function HomePage() {
@@ -111,12 +110,18 @@ export default function HomePage() {
   function handleSendEmail(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    
-    toast.promise(sendEmail(formData), {
-      loading: "Sending email...",
-      success: () => "Email sent successfully!",
-      error: (error) => `Error sending email: ${error.message}`,
-    });
+
+    toast.promise(
+      fetch("/api", {
+        method: "POST",
+        body: formData,
+      }),
+      {
+        loading: "Sending email...",
+        success: () => "Email sent successfully!",
+        error: (error) => `Error sending email: ${error.message}`,
+      }
+    );
   }
 
   return (

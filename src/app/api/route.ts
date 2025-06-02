@@ -1,7 +1,7 @@
-"use server";
+import { NextRequest } from "next/server";
 import nodemailer from 'nodemailer';
+import path from "path";
 import fs from 'fs/promises';
-import path from 'path';
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -12,29 +12,29 @@ const transporter = nodemailer.createTransport({
     pass: process.env.SMTP_PASS,
   }
 });
-
-export async function sendEmail(formData: FormData) {
-  // "use server";
-
-  const firstName = formData.get("firstName") as string;
-  const lastName = formData.get("lastName") as string;
-  const email = formData.get("email") as string;
-  const projectType = formData.get("projectType") as string;
-  const message = formData.get("message") as string;
-  console.log("Received form data:", {
-    firstName,
-    lastName,
-    email,
-    projectType,
-    message
-  });
-
-  // Validation
-  if (!firstName || !lastName || !email || !projectType || !message) {
-    throw new Error("All fields are required.");
-  }
-
+export async function POST(req: NextRequest) {
   try {
+    const formData = await req.formData();
+
+    const firstName = formData.get("firstName") as string;
+    const lastName = formData.get("lastName") as string;
+    const email = formData.get("email") as string;
+    const projectType = formData.get("projectType") as string;
+    const message = formData.get("message") as string;
+    console.log("Received form data:", {
+      firstName,
+      lastName,
+      email,
+      projectType,
+      message
+    });
+
+    // Validation
+    if (!firstName || !lastName || !email || !projectType || !message) {
+      throw new Error("All fields are required.");
+    }
+
+
     // Read the HTML template
     const templatePath = path.join(process.cwd(), 'email-template.html');
     let htmlTemplate = await fs.readFile(templatePath, 'utf-8');
@@ -80,13 +80,12 @@ Received: ${timestamp}
     // Send the email
     const info = await transporter.sendMail(mailOptions);
 
-    console.log("Email sent successfully:", info.messageId);
-    return { success: true, message: "Email sent successfully!" };
+    return new Response("Email sent successfully!", {
+      status: 200
+    })
 
   } catch (error) {
-    console.error("Error sending email:", error);
-    throw new Error("Failed to send email. Please try again.");
+    console.error("Error in POST request:", error);
+    return new Response("Internal Server Error", { status: 500 });
   }
-
-
 }

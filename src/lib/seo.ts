@@ -143,14 +143,14 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
         'x-default': defaultConfig.siteUrl,
       },
     },
-    verification: {
-      google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
-      yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
-      yahoo: process.env.NEXT_PUBLIC_YAHOO_VERIFICATION,
-      other: {
-        'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION || '',
-      },
-    },
+    // verification: {
+    //   google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+    //   yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+    //   yahoo: process.env.NEXT_PUBLIC_YAHOO_VERIFICATION,
+    //   other: {
+    //     'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION || '',
+    //   },
+    // },
     category,
     classification: 'Business',
     referrer: 'origin-when-cross-origin',

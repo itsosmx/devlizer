@@ -1,12 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Smartphone, Globe, Code, Palette, Zap, Users, ArrowRight, CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
+import { sendEmail } from "@/actions";
+import { toast } from "sonner";
 
 export default function HomePage() {
   const fadeInUp = {
@@ -105,6 +107,17 @@ export default function HomePage() {
     "Scalable Architecture",
     "24/7 Support",
   ];
+
+  function handleSendEmail(event: FormEvent<HTMLFormElement>): void {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    
+    toast.promise(sendEmail(formData), {
+      loading: "Sending email...",
+      success: () => "Email sent successfully!",
+      error: (error) => `Error sending email: ${error.message}`,
+    });
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 overflow-x-hidden">
@@ -1077,11 +1090,11 @@ export default function HomePage() {
                     Send us a message
                   </motion.h3>
 
-                  <form className="space-y-6 relative z-10">
+                  <form onSubmit={handleSendEmail} className="space-y-6 relative z-10">
                     <div className="grid md:grid-cols-2 gap-4">
                       {[
-                        { label: "First Name", placeholder: "John", type: "text" },
-                        { label: "Last Name", placeholder: "Doe", type: "text" },
+                        { label: "First Name", placeholder: "John", type: "text", name: "firstName" },
+                        { label: "Last Name", placeholder: "Doe", type: "text", name: "lastName" },
                       ].map((field, index) => (
                         <motion.div
                           key={index}
@@ -1094,6 +1107,7 @@ export default function HomePage() {
                           <motion.input
                             id={`field-${index}`}
                             type={field.type}
+                            name={field.name}
                             className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                             placeholder={field.placeholder}
                             whileFocus={{
@@ -1112,6 +1126,7 @@ export default function HomePage() {
                       <motion.input
                         id="email"
                         type="email"
+                        name="email"
                         className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                         placeholder="john@example.com"
                         whileFocus={{
@@ -1126,6 +1141,7 @@ export default function HomePage() {
                         Project Type
                       </label>
                       <motion.select
+                        name="projectType"
                         id="project-type"
                         className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                         whileFocus={{
@@ -1146,6 +1162,7 @@ export default function HomePage() {
                       </label>
                       <motion.textarea
                         id="message"
+                        name="message"
                         rows={4}
                         className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
                         placeholder="Tell us about your project..."
@@ -1163,7 +1180,9 @@ export default function HomePage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5, duration: 0.5 }}
                       style={{ transformStyle: "preserve-3d" }}>
-                      <Button className="w-full py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                      <Button
+                        type="submit"
+                        className="w-full py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
                         <motion.span
                           className="absolute inset-0 bg-gradient-to-r from-accent/30 to-primary/30"
                           initial={{ x: "-100%" }}

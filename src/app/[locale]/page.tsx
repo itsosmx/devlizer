@@ -2,10 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Smartphone, Globe, Code, Palette, Zap, Users, ArrowRight, CheckCircle, Star } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   const fadeInUp = {
@@ -119,7 +120,7 @@ export default function HomePage() {
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -132,7 +133,7 @@ export default function HomePage() {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
         />
         <motion.div
@@ -145,7 +146,7 @@ export default function HomePage() {
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
       </div>
@@ -155,55 +156,44 @@ export default function HomePage() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        style={{ 
+        style={{
           transform: "translateZ(0)",
-          perspective: "1000px"
-        }}
-      >
+          perspective: "1000px",
+        }}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <motion.div 
-            className="flex items-center space-x-2" 
-            whileHover={{ 
+          <motion.div
+            className="flex items-center space-x-2"
+            whileHover={{
               scale: 1.05,
               rotateY: 5,
               rotateX: 5,
             }}
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            <motion.img 
-              src="/logo-text-dark.png" 
-              alt="Devlizer" 
-              className="h-12 w-auto drop-shadow-xl"
-              whileHover={{
-                filter: "drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))"
-              }}
-            />
+            style={{ transformStyle: "preserve-3d" }}>
+            <motion.img src="/logo-text-dark.png" alt="Devlizer" className="h-12 w-auto drop-shadow-xl" />
           </motion.div>
 
-          <motion.nav 
-            className="hidden md:flex items-center space-x-8" 
-            variants={stagger} 
-            initial="initial" 
+          <motion.nav
+            className="hidden md:flex items-center space-x-8"
+            variants={stagger}
+            initial="initial"
             animate="animate"
-            style={{ transformStyle: "preserve-3d" }}
-          >
+            style={{ transformStyle: "preserve-3d" }}>
             {["Services", "About", "Contact"].map((item, index) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 className="text-muted-foreground hover:text-primary transition-all duration-300 relative"
                 variants={fadeInUp}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.1,
                   rotateX: 10,
                   z: 50,
                 }}
-                style={{ 
+                style={{
                   transformStyle: "preserve-3d",
-                  textShadow: "0 0 10px rgba(0,0,0,0.3)"
+                  textShadow: "0 0 10px rgba(0,0,0,0.3)",
                 }}
-                whileTap={{ scale: 0.95 }}
-              >
+                whileTap={{ scale: 0.95 }}>
                 <span className="relative z-10">{item}</span>
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur-sm"
@@ -215,24 +205,28 @@ export default function HomePage() {
             ))}
           </motion.nav>
 
-          <motion.div 
-            whileHover={{ 
+          <motion.div
+            whileHover={{
               scale: 1.05,
               rotateY: -5,
               rotateX: 5,
-            }} 
+            }}
             whileTap={{ scale: 0.95 }}
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            <Button className="shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+            style={{ transformStyle: "preserve-3d" }}>
+            <Link
+              href="#contact"
+              className={buttonVariants({
+                size: "lg",
+                className: "shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden",
+              })}>
               <motion.span
                 className="absolute inset-0 bg-gradient-to-r from-accent/50 to-primary/50"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.5 }}
               />
-              <span className="relative z-10">Get Started</span>
-            </Button>
+              <span className="relative z-10">Get In Touch</span>
+            </Link>
           </motion.div>
         </div>
       </motion.header>
@@ -240,55 +234,40 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="px-6 py-20 md:py-32 relative">
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.div
-            variants={stagger}
-            initial="initial"
-            animate="animate"
-            className="space-y-8"
-            style={{ perspective: "1000px" }}
-          >
-            <motion.div 
-              variants={fadeInUp}
-              style={{ transformStyle: "preserve-3d" }}
-            >
+          <motion.div variants={stagger} initial="initial" animate="animate" className="space-y-8" style={{ perspective: "1000px" }}>
+            <motion.div variants={fadeInUp} style={{ transformStyle: "preserve-3d" }}>
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   rotateX: 10,
                   rotateY: 10,
                   scale: 1.05,
                 }}
-                style={{ transformStyle: "preserve-3d" }}
-              >
+                style={{ transformStyle: "preserve-3d" }}>
                 <Badge variant="secondary" className="mb-4 shadow-lg backdrop-blur-sm bg-background/50 border border-primary/20">
-                  <motion.div
-                    animate={{ rotate: [0, 360] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                  >
+                  <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }}>
                     <Star className="h-4 w-4 mr-1" />
                   </motion.div>
-                  Now Live
+                  Welcome to Devlizer
                 </Badge>
               </motion.div>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               variants={fadeInUp}
               className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
-              style={{ 
+              style={{
                 transformStyle: "preserve-3d",
-                textShadow: "0 10px 30px rgba(0,0,0,0.3)"
-              }}
-            >
+                textShadow: "0 10px 30px rgba(0,0,0,0.3)",
+              }}>
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   rotateX: 5,
                   scale: 1.02,
                 }}
-                style={{ transformStyle: "preserve-3d" }}
-              >
+                style={{ transformStyle: "preserve-3d" }}>
                 Building Tomorrow's
                 <br />
-                <motion.span 
+                <motion.span
                   className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent relative"
                   animate={{
                     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
@@ -296,12 +275,11 @@ export default function HomePage() {
                   transition={{
                     duration: 5,
                     repeat: Infinity,
-                    ease: "linear"
+                    ease: "linear",
                   }}
                   style={{
                     backgroundSize: "200% 200%",
-                  }}
-                >
+                  }}>
                   Digital Experiences
                   <motion.div
                     className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 blur-xl rounded-lg"
@@ -312,45 +290,44 @@ export default function HomePage() {
                     transition={{
                       duration: 3,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                   />
                 </motion.span>
               </motion.div>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               variants={fadeInUp}
               className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-              style={{ 
+              style={{
                 transformStyle: "preserve-3d",
-                textShadow: "0 5px 15px rgba(0,0,0,0.2)"
+                textShadow: "0 5px 15px rgba(0,0,0,0.2)",
               }}
               whileHover={{
                 rotateX: 2,
                 scale: 1.01,
-              }}
-            >
+              }}>
               We craft exceptional web and mobile applications that bring your vision to life. From concept to deployment, we're your trusted
               development partner.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <motion.div 
-                whileHover={{ 
+              style={{ transformStyle: "preserve-3d" }}>
+              <motion.div
+                whileHover={{
                   scale: 1.05,
                   rotateX: 10,
                   rotateY: 5,
                   z: 50,
-                }} 
+                }}
                 whileTap={{ scale: 0.95 }}
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <Button size="lg" className="text-lg px-8 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden group">
+                style={{ transformStyle: "preserve-3d" }}>
+                <Button
+                  size="lg"
+                  className="text-lg px-8 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden group">
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-accent/30 to-primary/30"
                     initial={{ x: "-100%" }}
@@ -359,27 +336,26 @@ export default function HomePage() {
                   />
                   <span className="relative z-10 flex items-center">
                     Start Your Project
-                    <motion.div
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
+                    <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </motion.div>
                   </span>
                 </Button>
               </motion.div>
 
-              <motion.div 
-                whileHover={{ 
+              <motion.div
+                whileHover={{
                   scale: 1.05,
                   rotateX: 10,
                   rotateY: -5,
                   z: 50,
-                }} 
+                }}
                 whileTap={{ scale: 0.95 }}
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <Button variant="outline" size="lg" className="text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm bg-background/50 border-2 border-primary/20 hover:border-primary/40">
+                style={{ transformStyle: "preserve-3d" }}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm bg-background/50 border-2 border-primary/20 hover:border-primary/40">
                   Learn More
                 </Button>
               </motion.div>
@@ -392,9 +368,9 @@ export default function HomePage() {
           className="absolute top-1/4 left-10 w-4 h-4 bg-primary rounded-full"
           variants={float}
           animate="animate"
-          style={{ 
+          style={{
             filter: "drop-shadow(0 0 10px rgba(59, 130, 246, 0.8))",
-            transformStyle: "preserve-3d"
+            transformStyle: "preserve-3d",
           }}
         />
         <motion.div
@@ -402,9 +378,9 @@ export default function HomePage() {
           variants={float}
           animate="animate"
           transition={{ delay: 1 }}
-          style={{ 
+          style={{
             filter: "drop-shadow(0 0 15px rgba(236, 72, 153, 0.8))",
-            transformStyle: "preserve-3d"
+            transformStyle: "preserve-3d",
           }}
         />
         <motion.div
@@ -412,9 +388,9 @@ export default function HomePage() {
           variants={float}
           animate="animate"
           transition={{ delay: 2 }}
-          style={{ 
+          style={{
             filter: "drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))",
-            transformStyle: "preserve-3d"
+            transformStyle: "preserve-3d",
           }}
         />
       </section>
@@ -423,37 +399,38 @@ export default function HomePage() {
       <section id="services" className="px-6 py-20 bg-muted/30 relative overflow-hidden">
         {/* 3D Background Grid */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
                              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-            transform: 'perspective(500px) rotateX(60deg)',
-            transformOrigin: 'top center'
-          }}></div>
+              backgroundSize: "50px 50px",
+              transform: "perspective(500px) rotateX(60deg)",
+              transformOrigin: "top center",
+            }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div 
-            variants={stagger} 
-            initial="initial" 
-            whileInView="animate" 
-            viewport={{ once: true }} 
+          <motion.div
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
             className="text-center mb-16"
-            style={{ perspective: "1000px" }}
-          >
-            <motion.h2 
+            style={{ perspective: "1000px" }}>
+            <motion.h2
               variants={fadeInUp}
               className="text-3xl md:text-5xl font-bold mb-4"
-              style={{ 
+              style={{
                 transformStyle: "preserve-3d",
-                textShadow: "0 10px 30px rgba(0,0,0,0.3)"
+                textShadow: "0 10px 30px rgba(0,0,0,0.3)",
               }}
               whileHover={{
                 rotateX: 5,
                 scale: 1.02,
-              }}
-            >
-              What We <span className="text-primary relative">
+              }}>
+              What We{" "}
+              <span className="text-primary relative">
                 Create
                 <motion.div
                   className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 blur-lg rounded"
@@ -464,16 +441,15 @@ export default function HomePage() {
                   transition={{
                     duration: 2,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
                   }}
                 />
               </span>
             </motion.h2>
-            <motion.p 
+            <motion.p
               variants={fadeInUp}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
-              style={{ textShadow: "0 5px 15px rgba(0,0,0,0.2)" }}
-            >
+              style={{ textShadow: "0 5px 15px rgba(0,0,0,0.2)" }}>
               Comprehensive digital solutions tailored to your needs
             </motion.p>
           </motion.div>
@@ -484,24 +460,18 @@ export default function HomePage() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            style={{ perspective: "1000px" }}
-          >
+            style={{ perspective: "1000px" }}>
             {services.map((service, index) => (
-              <motion.div 
-                key={index} 
-                variants={fadeInUp}
-                style={{ transformStyle: "preserve-3d" }}
-              >
+              <motion.div key={index} variants={fadeInUp} style={{ transformStyle: "preserve-3d" }}>
                 <motion.div
-                  whileHover={{ 
+                  whileHover={{
                     rotateY: 10,
                     rotateX: 10,
                     scale: 1.05,
                     z: 100,
                   }}
                   style={{ transformStyle: "preserve-3d" }}
-                  transition={{ duration: 0.3 }}
-                >
+                  transition={{ duration: 0.3 }}>
                   <Card className="h-full border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 group backdrop-blur-sm bg-background/80 relative overflow-hidden">
                     {/* Animated Background */}
                     <motion.div
@@ -510,53 +480,47 @@ export default function HomePage() {
                         background: [
                           "linear-gradient(45deg, rgba(59, 130, 246, 0.05), rgba(236, 72, 153, 0.05))",
                           "linear-gradient(45deg, rgba(236, 72, 153, 0.05), rgba(59, 130, 246, 0.05))",
-                          "linear-gradient(45deg, rgba(59, 130, 246, 0.05), rgba(236, 72, 153, 0.05))"
-                        ]
+                          "linear-gradient(45deg, rgba(59, 130, 246, 0.05), rgba(236, 72, 153, 0.05))",
+                        ],
                       }}
                       transition={{
                         duration: 4,
                         repeat: Infinity,
-                        ease: "easeInOut"
+                        ease: "easeInOut",
                       }}
                     />
-                    
+
                     <CardContent className="p-8 text-center relative z-10">
-                      <motion.div 
+                      <motion.div
                         className="w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6 text-primary-foreground group-hover:scale-110 transition-transform duration-300 shadow-xl"
-                        whileHover={{ 
+                        whileHover={{
                           rotateY: 360,
                           scale: 1.2,
                         }}
                         transition={{ duration: 0.8 }}
-                        style={{ 
+                        style={{
                           transformStyle: "preserve-3d",
-                          filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))"
-                        }}
-                      >
+                          filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))",
+                        }}>
                         <motion.div
                           animate={{ rotateZ: [0, 360] }}
                           transition={{
                             duration: 10,
                             repeat: Infinity,
-                            ease: "linear"
-                          }}
-                        >
+                            ease: "linear",
+                          }}>
                           {service.icon}
                         </motion.div>
                       </motion.div>
-                      
-                      <motion.h3 
+
+                      <motion.h3
                         className="text-xl font-semibold mb-4"
                         style={{ textShadow: "0 5px 15px rgba(0,0,0,0.2)" }}
-                        whileHover={{ scale: 1.05 }}
-                      >
+                        whileHover={{ scale: 1.05 }}>
                         {service.title}
                       </motion.h3>
-                      
-                      <motion.p 
-                        className="text-muted-foreground leading-relaxed"
-                        whileHover={{ scale: 1.02 }}
-                      >
+
+                      <motion.p className="text-muted-foreground leading-relaxed" whileHover={{ scale: 1.02 }}>
                         {service.description}
                       </motion.p>
                     </CardContent>
@@ -568,15 +532,15 @@ export default function HomePage() {
                         background: "linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent, rgba(236, 72, 153, 0.1), transparent)",
                         backgroundSize: "400% 400%",
                         padding: "2px",
-                        zIndex: -1
+                        zIndex: -1,
                       }}
                       animate={{
-                        backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
+                        backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
                       }}
                       transition={{
                         duration: 3,
                         repeat: Infinity,
-                        ease: "linear"
+                        ease: "linear",
                       }}
                     />
                   </Card>
@@ -591,7 +555,7 @@ export default function HomePage() {
       <section className="px-6 py-20 relative overflow-hidden">
         {/* 3D Background Grid */}
         <div className="absolute inset-0 opacity-10">
-          <div 
+          <div
             className="absolute inset-0"
             style={{
               backgroundImage: `
@@ -634,58 +598,50 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -60, rotateY: -15 }} 
-              whileInView={{ opacity: 1, x: 0, rotateY: 0 }} 
-              viewport={{ once: true }} 
+            <motion.div
+              initial={{ opacity: 0, x: -60, rotateY: -15 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <motion.h2 
+              style={{ transformStyle: "preserve-3d" }}>
+              <motion.h2
                 className="text-3xl md:text-5xl font-bold mb-6"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   rotateX: 5,
-                  textShadow: "0 10px 20px rgba(0,0,0,0.3)"
+                  textShadow: "0 10px 20px rgba(0,0,0,0.3)",
                 }}
-                style={{ transformStyle: "preserve-3d" }}
-              >
+                style={{ transformStyle: "preserve-3d" }}>
                 Why Choose <span className="text-primary">Devlizer</span>?
               </motion.h2>
-              <motion.p 
+              <motion.p
                 className="text-xl text-muted-foreground mb-8"
                 initial={{ opacity: 0, z: -50 }}
                 whileInView={{ opacity: 1, z: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-              >
+                transition={{ delay: 0.2, duration: 0.6 }}>
                 We combine creativity with technical expertise to deliver solutions that exceed expectations.
               </motion.p>
 
-              <motion.div 
-                className="space-y-4" 
-                variants={stagger} 
-                initial="initial" 
-                whileInView="animate" 
+              <motion.div
+                className="space-y-4"
+                variants={stagger}
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
-                style={{ perspective: "1000px" }}
-              >
+                style={{ perspective: "1000px" }}>
                 {features.map((feature, index) => (
-                  <motion.div 
-                    key={index} 
-                    variants={fadeInUp} 
+                  <motion.div
+                    key={index}
+                    variants={fadeInUp}
                     className="flex items-center space-x-3 p-3 rounded-lg hover:bg-background/50 transition-all duration-300"
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
                       rotateX: 5,
                       z: 20,
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
                     }}
-                    style={{ transformStyle: "preserve-3d" }}
-                  >
-                    <motion.div
-                      animate={sparkle}
-                      transition={{ delay: index * 0.2 }}
-                    >
+                    style={{ transformStyle: "preserve-3d" }}>
+                    <motion.div animate={sparkle} transition={{ delay: index * 0.2 }}>
                       <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
                     </motion.div>
                     <span className="text-lg">{feature}</span>
@@ -700,10 +656,9 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="relative"
-              style={{ transformStyle: "preserve-3d" }}
-            >
+              style={{ transformStyle: "preserve-3d" }}>
               {/* 3D Glow Effect */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl"
                 animate={{
                   scale: [1, 1.1, 1],
@@ -715,17 +670,16 @@ export default function HomePage() {
                   ease: "easeInOut",
                 }}
               />
-              
+
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   rotateY: 10,
                   rotateX: -5,
                   scale: 1.05,
-                  z: 50
+                  z: 50,
                 }}
                 transition={{ duration: 0.5 }}
-                style={{ transformStyle: "preserve-3d" }}
-              >
+                style={{ transformStyle: "preserve-3d" }}>
                 <Card className="relative border-0 shadow-2xl overflow-hidden backdrop-blur-sm bg-background/90 hover:shadow-3xl transition-all duration-500">
                   {/* Animated Background Gradient */}
                   <motion.div
@@ -736,13 +690,13 @@ export default function HomePage() {
                         "linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(59, 130, 246, 0.1))",
                         "linear-gradient(225deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1))",
                         "linear-gradient(315deg, rgba(236, 72, 153, 0.1), rgba(59, 130, 246, 0.1))",
-                        "linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1))"
-                      ]
+                        "linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1))",
+                      ],
                     }}
                     transition={{
                       duration: 8,
                       repeat: Infinity,
-                      ease: "linear"
+                      ease: "linear",
                     }}
                   />
 
@@ -751,38 +705,33 @@ export default function HomePage() {
                       {[
                         { icon: Zap, label: "Performance", badge: "Optimized", color: "text-primary" },
                         { icon: Users, label: "User Experience", badge: "Premium", color: "text-accent" },
-                        { icon: Code, label: "Code Quality", badge: "Excellent", color: "text-primary" }
+                        { icon: Code, label: "Code Quality", badge: "Excellent", color: "text-primary" },
                       ].map((item, index) => (
-                        <motion.div 
+                        <motion.div
                           key={index}
                           className="flex items-center justify-between p-4 rounded-lg hover:bg-background/50 transition-all duration-300"
                           initial={{ opacity: 0, x: 20, rotateY: -10 }}
                           whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                           transition={{ delay: index * 0.1, duration: 0.5 }}
-                          whileHover={{ 
+                          whileHover={{
                             scale: 1.05,
                             rotateY: 5,
-                            boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
+                            boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
                           }}
-                          style={{ transformStyle: "preserve-3d" }}
-                        >
+                          style={{ transformStyle: "preserve-3d" }}>
                           <div className="flex items-center space-x-3">
                             <motion.div
                               className={`p-2 rounded-full bg-gradient-to-r from-primary/10 to-accent/10`}
-                              whileHover={{ 
+                              whileHover={{
                                 rotateY: 180,
                                 scale: 1.2,
                               }}
-                              transition={{ duration: 0.6 }}
-                            >
+                              transition={{ duration: 0.6 }}>
                               <item.icon className={`h-8 w-8 ${item.color}`} />
                             </motion.div>
                             <span className="text-xl font-semibold">{item.label}</span>
                           </div>
-                          <motion.div
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
+                          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                             <Badge variant={index === 1 ? "secondary" : "default"}>{item.badge}</Badge>
                           </motion.div>
                         </motion.div>
@@ -847,87 +796,85 @@ export default function HomePage() {
         />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div 
-            variants={stagger} 
-            initial="initial" 
-            whileInView="animate" 
-            viewport={{ once: true }} 
+          <motion.div
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
             className="text-center mb-16"
-            style={{ perspective: "1000px" }}
-          >
-            <motion.h2 
-              variants={fadeInUp} 
+            style={{ perspective: "1000px" }}>
+            <motion.h2
+              variants={fadeInUp}
               className="text-3xl md:text-5xl font-bold mb-4"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 rotateX: 5,
-                textShadow: "0 15px 30px rgba(0,0,0,0.3)"
+                textShadow: "0 15px 30px rgba(0,0,0,0.3)",
               }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
+              style={{ transformStyle: "preserve-3d" }}>
               About <span className="text-primary">Devlizer</span>
             </motion.h2>
-            <motion.p 
-              variants={fadeInUp} 
+            <motion.p
+              variants={fadeInUp}
               className="text-xl text-muted-foreground max-w-3xl mx-auto"
               initial={{ opacity: 0, z: -50 }}
               whileInView={{ opacity: 1, z: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            >
+              transition={{ delay: 0.3, duration: 0.8 }}>
               We are a passionate team of developers, designers, and innovators dedicated to transforming ideas into digital reality
             </motion.p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -60, rotateY: -10 }} 
-              whileInView={{ opacity: 1, x: 0, rotateY: 0 }} 
-              viewport={{ once: true }} 
+            <motion.div
+              initial={{ opacity: 0, x: -60, rotateY: -10 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
+              style={{ transformStyle: "preserve-3d" }}>
               <div className="space-y-6">
                 {[
                   {
                     title: "Our Mission",
-                    content: "To empower businesses and individuals by creating innovative, scalable, and user-friendly digital solutions that drive growth and success in the modern digital landscape."
+                    content:
+                      "To empower businesses and individuals by creating innovative, scalable, and user-friendly digital solutions that drive growth and success in the modern digital landscape.",
                   },
                   {
-                    title: "Our Vision", 
-                    content: "To be the leading development partner for startups and enterprises, known for our technical excellence, creative solutions, and commitment to client success."
+                    title: "Our Vision",
+                    content:
+                      "To be the leading development partner for startups and enterprises, known for our technical excellence, creative solutions, and commitment to client success.",
                   },
                   {
                     title: "Our Values",
                     content: null,
-                    values: ["Innovation in every project", "Quality without compromise", "Client-centric approach", "Continuous learning and growth"]
-                  }
+                    values: [
+                      "Innovation in every project",
+                      "Quality without compromise",
+                      "Client-centric approach",
+                      "Continuous learning and growth",
+                    ],
+                  },
                 ].map((section, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 30, rotateX: -10 }}
                     whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ delay: index * 0.2, duration: 0.6 }}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.02,
                       rotateY: 2,
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
                     }}
                     className="p-6 rounded-lg bg-background/50 backdrop-blur-sm"
-                    style={{ transformStyle: "preserve-3d" }}
-                  >
-                    <motion.h3 
-                      className="text-2xl font-semibold mb-4"
-                      whileHover={{ scale: 1.05 }}
-                    >
+                    style={{ transformStyle: "preserve-3d" }}>
+                    <motion.h3 className="text-2xl font-semibold mb-4" whileHover={{ scale: 1.05 }}>
                       {section.title}
                     </motion.h3>
                     {section.content && (
-                      <motion.p 
+                      <motion.p
                         className="text-lg text-muted-foreground leading-relaxed"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.3 }}
-                      >
+                        transition={{ delay: 0.3 }}>
                         {section.content}
                       </motion.p>
                     )}
@@ -940,16 +887,12 @@ export default function HomePage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: valueIndex * 0.1, duration: 0.5 }}
-                            whileHover={{ 
+                            whileHover={{
                               x: 10,
                               scale: 1.05,
                             }}
-                            className="flex items-center space-x-3 p-2 rounded hover:bg-background/70 transition-all duration-300"
-                          >
-                            <motion.div 
-                              className="w-3 h-3 bg-primary rounded-full"
-                              animate={pulse3D}
-                            />
+                            className="flex items-center space-x-3 p-2 rounded hover:bg-background/70 transition-all duration-300">
+                            <motion.div className="w-3 h-3 bg-primary rounded-full" animate={pulse3D} />
                             <span className="text-muted-foreground">{value}</span>
                           </motion.div>
                         ))}
@@ -966,33 +909,28 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="relative"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <motion.div 
-                className="grid grid-cols-2 gap-6"
-                style={{ perspective: "1000px" }}
-              >
+              style={{ transformStyle: "preserve-3d" }}>
+              <motion.div className="grid grid-cols-2 gap-6 grid-rows-2" style={{ perspective: "1000px" }}>
                 {[
                   { icon: Code, title: "Expert Team", desc: "Skilled developers ready to tackle any challenge", color: "from-primary to-accent" },
                   { icon: Zap, title: "Fast Delivery", desc: "Efficient processes for timely project completion", color: "from-accent to-primary" },
                   { icon: Users, title: "Collaborative", desc: "Working closely with you every step of the way", color: "from-primary to-accent" },
-                  { icon: CheckCircle, title: "Reliable", desc: "Dependable solutions you can trust", color: "from-accent to-primary" }
+                  { icon: CheckCircle, title: "Reliable", desc: "Dependable solutions you can trust", color: "from-accent to-primary" },
                 ].map((item, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 50, rotateX: -15 }}
                     whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.1,
                       rotateY: 10,
                       rotateX: 5,
                       z: 30,
                     }}
                     style={{ transformStyle: "preserve-3d" }}
-                    className="group"
-                  >
-                    <Card className="p-6 text-center border-0 shadow-lg hover:shadow-2xl transition-all duration-500 backdrop-blur-sm bg-background/90 relative overflow-hidden">
+                    className="group">
+                    <Card className="p-6 size-full text-center border-0 shadow-lg hover:shadow-2xl transition-all duration-500 backdrop-blur-sm bg-background/90 relative overflow-hidden">
                       {/* Animated Background */}
                       <motion.div
                         className="absolute inset-0 opacity-20"
@@ -1000,49 +938,43 @@ export default function HomePage() {
                           background: [
                             `linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1))`,
                             `linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(59, 130, 246, 0.1))`,
-                            `linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1))`
-                          ]
+                            `linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1))`,
+                          ],
                         }}
                         transition={{
                           duration: 6,
                           repeat: Infinity,
-                          ease: "easeInOut"
+                          ease: "easeInOut",
                         }}
                       />
 
-                      <motion.div 
+                      <motion.div
                         className={`w-12 h-12 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center mx-auto mb-4 relative z-10`}
-                        whileHover={{ 
+                        whileHover={{
                           rotateY: 180,
                           scale: 1.3,
                         }}
                         transition={{ duration: 0.8 }}
-                        style={{ transformStyle: "preserve-3d" }}
-                      >
+                        style={{ transformStyle: "preserve-3d" }}>
                         <motion.div
                           animate={{ rotateZ: [0, 360] }}
                           transition={{
                             duration: 8,
                             repeat: Infinity,
-                            ease: "linear"
-                          }}
-                        >
+                            ease: "linear",
+                          }}>
                           <item.icon className="h-6 w-6 text-primary-foreground" />
                         </motion.div>
                       </motion.div>
-                      
-                      <motion.h4 
-                        className="font-semibold mb-2 relative z-10"
-                        whileHover={{ scale: 1.1 }}
-                      >
+
+                      <motion.h4 className="font-semibold mb-2 relative z-10" whileHover={{ scale: 1.1 }}>
                         {item.title}
                       </motion.h4>
-                      <motion.p 
+                      <motion.p
                         className="text-sm text-muted-foreground relative z-10"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                      >
+                        transition={{ delay: 0.2 }}>
                         {item.desc}
                       </motion.p>
                     </Card>
@@ -1080,73 +1012,63 @@ export default function HomePage() {
         </div>
 
         {/* Floating Contact Icons */}
-        <motion.div
-          className="absolute top-20 right-20 text-primary/20"
-          animate={float}
-          style={{ transformStyle: "preserve-3d" }}
-        >
+        <motion.div className="absolute top-20 right-20 text-primary/20" animate={float} style={{ transformStyle: "preserve-3d" }}>
           <Globe className="h-16 w-16" />
         </motion.div>
         <motion.div
           className="absolute bottom-32 left-16 text-accent/20"
           animate={{
             ...float.animate,
-            transition: { ...float.animate.transition, delay: 1 }
+            transition: { ...float.animate.transition, delay: 1 },
           }}
-          style={{ transformStyle: "preserve-3d" }}
-        >
+          style={{ transformStyle: "preserve-3d" }}>
           <Smartphone className="h-12 w-12" />
         </motion.div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div 
-            variants={stagger} 
-            initial="initial" 
-            whileInView="animate" 
-            viewport={{ once: true }} 
+          <motion.div
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
             className="text-center mb-16"
-            style={{ perspective: "1000px" }}
-          >
-            <motion.h2 
-              variants={fadeInUp} 
+            style={{ perspective: "1000px" }}>
+            <motion.h2
+              variants={fadeInUp}
               className="text-3xl md:text-5xl font-bold mb-4"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 rotateX: 5,
-                textShadow: "0 15px 30px rgba(0,0,0,0.3)"
+                textShadow: "0 15px 30px rgba(0,0,0,0.3)",
               }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
+              style={{ transformStyle: "preserve-3d" }}>
               Get In <span className="text-primary">Touch</span>
             </motion.h2>
-            <motion.p 
-              variants={fadeInUp} 
+            <motion.p
+              variants={fadeInUp}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
               initial={{ opacity: 0, z: -50 }}
               whileInView={{ opacity: 1, z: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            >
+              transition={{ delay: 0.3, duration: 0.8 }}>
               Ready to start your project? We'd love to hear from you and discuss how we can bring your vision to life
             </motion.p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <motion.div 
-              initial={{ opacity: 0, x: -60, rotateY: -15 }} 
-              whileInView={{ opacity: 1, x: 0, rotateY: 0 }} 
-              viewport={{ once: true }} 
+            <motion.div
+              initial={{ opacity: 0, x: -60, rotateY: -15 }}
+              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
+              style={{ transformStyle: "preserve-3d" }}>
               <motion.div
-                whileHover={{ 
+                whileHover={{
                   rotateY: 5,
                   rotateX: -2,
                   scale: 1.02,
                 }}
                 transition={{ duration: 0.5 }}
-                style={{ transformStyle: "preserve-3d" }}
-              >
+                style={{ transformStyle: "preserve-3d" }}>
                 <Card className="p-8 border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 backdrop-blur-sm bg-background/90 relative overflow-hidden">
                   {/* Animated Background */}
                   <motion.div
@@ -1155,117 +1077,106 @@ export default function HomePage() {
                       background: [
                         "linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1))",
                         "linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(59, 130, 246, 0.1))",
-                        "linear-gradient(225deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1))"
-                      ]
+                        "linear-gradient(225deg, rgba(59, 130, 246, 0.1), rgba(236, 72, 153, 0.1))",
+                      ],
                     }}
                     transition={{
                       duration: 8,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                   />
 
-                  <motion.h3 
-                    className="text-2xl font-semibold mb-6 relative z-10"
-                    whileHover={{ scale: 1.05 }}
-                  >
+                  <motion.h3 className="text-2xl font-semibold mb-6 relative z-10" whileHover={{ scale: 1.05 }}>
                     Send us a message
                   </motion.h3>
-                  
+
                   <form className="space-y-6 relative z-10">
                     <div className="grid md:grid-cols-2 gap-4">
                       {[
                         { label: "First Name", placeholder: "John", type: "text" },
-                        { label: "Last Name", placeholder: "Doe", type: "text" }
+                        { label: "Last Name", placeholder: "Doe", type: "text" },
                       ].map((field, index) => (
-                        <motion.div 
+                        <motion.div
                           key={index}
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.1, duration: 0.5 }}
-                        >
-                          <label htmlFor={`field-${index}`} className="block text-sm font-medium mb-2">{field.label}</label>
+                          transition={{ delay: index * 0.1, duration: 0.5 }}>
+                          <label htmlFor={`field-${index}`} className="block text-sm font-medium mb-2">
+                            {field.label}
+                          </label>
                           <motion.input
                             id={`field-${index}`}
                             type={field.type}
                             className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                             placeholder={field.placeholder}
-                            whileFocus={{ 
+                            whileFocus={{
                               scale: 1.02,
-                              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
+                              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
                             }}
                           />
                         </motion.div>
                       ))}
                     </div>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2, duration: 0.5 }}
-                    >
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}>
+                      <label htmlFor="email" className="block text-sm font-medium mb-2">
+                        Email
+                      </label>
                       <motion.input
                         id="email"
                         type="email"
                         className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                         placeholder="john@example.com"
-                        whileFocus={{ 
+                        whileFocus={{
                           scale: 1.02,
-                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
+                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
                         }}
                       />
                     </motion.div>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3, duration: 0.5 }}
-                    >
-                      <label htmlFor="project-type" className="block text-sm font-medium mb-2">Project Type</label>
-                      <motion.select 
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}>
+                      <label htmlFor="project-type" className="block text-sm font-medium mb-2">
+                        Project Type
+                      </label>
+                      <motion.select
                         id="project-type"
                         className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                        whileFocus={{ 
+                        whileFocus={{
                           scale: 1.02,
-                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
-                        }}
-                      >
+                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
+                        }}>
                         <option>Select a project type</option>
                         <option>Web Development</option>
                         <option>Mobile App</option>
                         <option>Custom Software</option>
-                        <option>UI/UX Design</option>
                         <option>Other</option>
                       </motion.select>
                     </motion.div>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.5 }}
-                    >
-                      <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }}>
+                      <label htmlFor="message" className="block text-sm font-medium mb-2">
+                        Message
+                      </label>
                       <motion.textarea
                         id="message"
                         rows={4}
                         className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
                         placeholder="Tell us about your project..."
-                        whileFocus={{ 
+                        whileFocus={{
                           scale: 1.02,
-                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)"
+                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
                         }}
                       />
                     </motion.div>
 
-                    <motion.div 
-                      whileHover={{ scale: 1.05 }} 
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5, duration: 0.5 }}
-                      style={{ transformStyle: "preserve-3d" }}
-                    >
+                      style={{ transformStyle: "preserve-3d" }}>
                       <Button className="w-full py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden">
                         <motion.span
                           className="absolute inset-0 bg-gradient-to-r from-accent/30 to-primary/30"
@@ -1290,25 +1201,16 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="space-y-8"
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <motion.h3 
-                  className="text-2xl font-semibold mb-6"
-                  whileHover={{ scale: 1.05 }}
-                >
+              style={{ transformStyle: "preserve-3d" }}>
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+                <motion.h3 className="text-2xl font-semibold mb-6" whileHover={{ scale: 1.05 }}>
                   Let's connect
                 </motion.h3>
-                <motion.p 
+                <motion.p
                   className="text-lg text-muted-foreground mb-8"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
+                  transition={{ delay: 0.2 }}>
                   We're here to help you transform your ideas into reality. Choose the best way to reach us.
                 </motion.p>
               </motion.div>
@@ -1317,44 +1219,35 @@ export default function HomePage() {
                 {[
                   { icon: Globe, title: "Email", content: "hi@devlizer.com", color: "from-primary to-accent" },
                   // { icon: Smartphone, title: "Phone", content: "+1 (555) 123-4567", color: "from-accent to-primary" },
-                  { icon: Users, title: "Social Media", content: "@devlizer on all platforms", color: "from-primary to-accent" }
+                  { icon: Users, title: "Social Media", content: "@devlizer on all platforms", color: "from-primary to-accent" },
                 ].map((contact, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="flex items-center space-x-4 p-4 bg-muted/50 rounded-lg backdrop-blur-sm hover:bg-muted/70 transition-all duration-300"
                     initial={{ opacity: 0, x: 20, rotateY: -10 }}
                     whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
                       rotateY: 5,
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
                     }}
-                    style={{ transformStyle: "preserve-3d" }}
-                  >
-                    <motion.div 
+                    style={{ transformStyle: "preserve-3d" }}>
+                    <motion.div
                       className={`w-12 h-12 bg-gradient-to-r ${contact.color} rounded-full flex items-center justify-center`}
-                      whileHover={{ 
+                      whileHover={{
                         rotateY: 180,
                         scale: 1.2,
                       }}
                       transition={{ duration: 0.8 }}
-                      style={{ transformStyle: "preserve-3d" }}
-                    >
+                      style={{ transformStyle: "preserve-3d" }}>
                       <contact.icon className="h-6 w-6 text-primary-foreground" />
                     </motion.div>
                     <div>
-                      <motion.h4 
-                        className="font-semibold"
-                        whileHover={{ scale: 1.05 }}
-                      >
+                      <motion.h4 className="font-semibold" whileHover={{ scale: 1.05 }}>
                         {contact.title}
                       </motion.h4>
-                      <motion.p 
-                        className="text-muted-foreground"
-                        initial={{ opacity: 0.7 }}
-                        whileHover={{ opacity: 1 }}
-                      >
+                      <motion.p className="text-muted-foreground" initial={{ opacity: 0.7 }} whileHover={{ opacity: 1 }}>
                         {contact.content}
                       </motion.p>
                     </div>
@@ -1367,14 +1260,13 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   rotateY: 2,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
                 }}
                 className="p-6 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg border border-primary/20 backdrop-blur-sm relative overflow-hidden"
-                style={{ transformStyle: "preserve-3d" }}
-              >
+                style={{ transformStyle: "preserve-3d" }}>
                 {/* Animated Border */}
                 <motion.div
                   className="absolute inset-0 rounded-lg"
@@ -1387,31 +1279,27 @@ export default function HomePage() {
                       "linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.3), transparent)",
                       "linear-gradient(180deg, transparent, rgba(59, 130, 246, 0.3), transparent)",
                       "linear-gradient(270deg, transparent, rgba(236, 72, 153, 0.3), transparent)",
-                      "linear-gradient(360deg, transparent, rgba(59, 130, 246, 0.3), transparent)"
-                    ]
+                      "linear-gradient(360deg, transparent, rgba(59, 130, 246, 0.3), transparent)",
+                    ],
                   }}
                   transition={{
                     duration: 4,
                     repeat: Infinity,
-                    ease: "linear"
+                    ease: "linear",
                   }}
                 />
-                
+
                 <div className="relative z-10">
-                  <motion.h4 
-                    className="font-semibold mb-3"
-                    whileHover={{ scale: 1.05 }}
-                  >
+                  <motion.h4 className="font-semibold mb-3" whileHover={{ scale: 1.05 }}>
                     Quick Response Guarantee
                   </motion.h4>
-                  <motion.p 
+                  <motion.p
                     className="text-sm text-muted-foreground"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    We respond to all inquiries within 24 hours. For urgent projects, 
-                    please mention it in your message and we'll prioritize your request.
+                    transition={{ delay: 0.3 }}>
+                    We respond to all inquiries within 24 hours. For urgent projects, please mention it in your message and we'll prioritize your
+                    request.
                   </motion.p>
                 </div>
               </motion.div>
@@ -1453,71 +1341,64 @@ export default function HomePage() {
         </div>
 
         {/* Floating Code Icons */}
-        <motion.div
-          className="absolute top-20 left-20 text-white/20"
-          animate={float}
-          style={{ transformStyle: "preserve-3d" }}
-        >
+        <motion.div className="absolute top-20 left-20 text-white/20" animate={float} style={{ transformStyle: "preserve-3d" }}>
           <Code className="h-12 w-12" />
         </motion.div>
         <motion.div
           className="absolute bottom-20 right-32 text-white/15"
           animate={{
             ...rotate3D.animate,
-            transition: { ...rotate3D.animate.transition, delay: 2 }
+            transition: { ...rotate3D.animate.transition, delay: 2 },
           }}
-          style={{ transformStyle: "preserve-3d" }}
-        >
+          style={{ transformStyle: "preserve-3d" }}>
           <Palette className="h-16 w-16" />
         </motion.div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.div 
-            variants={stagger} 
-            initial="initial" 
-            whileInView="animate" 
-            viewport={{ once: true }} 
+          <motion.div
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
             className="space-y-8"
-            style={{ perspective: "1000px" }}
-          >
-            <motion.h2 
-              variants={fadeInUp} 
+            style={{ perspective: "1000px" }}>
+            <motion.h2
+              variants={fadeInUp}
               className="text-3xl md:text-5xl font-bold"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 rotateX: 5,
-                textShadow: "0 20px 40px rgba(0,0,0,0.5)"
+                textShadow: "0 20px 40px rgba(0,0,0,0.5)",
               }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
+              style={{ transformStyle: "preserve-3d" }}>
               Ready to Start Your Journey?
             </motion.h2>
 
-            <motion.p 
-              variants={fadeInUp} 
+            <motion.p
+              variants={fadeInUp}
               className="text-xl md:text-2xl opacity-90"
               initial={{ opacity: 0, z: -30 }}
               whileInView={{ opacity: 0.9, z: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
+              transition={{ delay: 0.4, duration: 0.8 }}>
               Let's discuss your project and bring your ideas to life
             </motion.p>
 
-            <motion.div 
-              variants={fadeInUp} 
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              style={{ perspective: "1000px" }}
-            >
-              <motion.div 
-                whileHover={{ 
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center" style={{ perspective: "1000px" }}>
+              <motion.div
+                whileHover={{
                   scale: 1.1,
                   rotateY: 5,
                   rotateX: -5,
-                }} 
+                }}
                 whileTap={{ scale: 0.95 }}
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-6 text-primary shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden">
+                style={{ transformStyle: "preserve-3d" }}>
+                <Link
+                  href="#contact"
+                  className={buttonVariants({
+                    variant: "secondary",
+                    size: "lg",
+                    className: "text-lg px-8 py-6 text-primary shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden",
+                  })}>
                   <motion.span
                     className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20"
                     initial={{ x: "-100%" }}
@@ -1531,13 +1412,12 @@ export default function HomePage() {
                       transition={{
                         duration: 2,
                         repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
+                        ease: "easeInOut",
+                      }}>
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </motion.div>
                   </span>
-                </Button>
+                </Link>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -1566,65 +1446,57 @@ export default function HomePage() {
         </div>
 
         {/* Floating Brand Elements */}
-        <motion.div
-          className="absolute top-4 left-10 text-primary/10"
-          animate={float}
-          style={{ transformStyle: "preserve-3d" }}
-        >
+        <motion.div className="absolute top-4 left-10 text-primary/10" animate={float} style={{ transformStyle: "preserve-3d" }}>
           <Star className="h-8 w-8" />
         </motion.div>
         <motion.div
           className="absolute top-4 right-10 text-accent/10"
           animate={{
             ...rotate3D.animate,
-            transition: { ...rotate3D.animate.transition, delay: 3 }
+            transition: { ...rotate3D.animate.transition, delay: 3 },
           }}
-          style={{ transformStyle: "preserve-3d" }}
-        >
+          style={{ transformStyle: "preserve-3d" }}>
           <CheckCircle className="h-6 w-6" />
         </motion.div>
 
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30, rotateX: -10 }} 
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }} 
-            viewport={{ once: true }} 
+          <motion.div
+            initial={{ opacity: 0, y: 30, rotateX: -10 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            <motion.div 
+            style={{ transformStyle: "preserve-3d" }}>
+            <motion.div
               className="flex items-center justify-center space-x-2 mb-4"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 rotateY: 2,
               }}
               transition={{ duration: 0.5 }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              <motion.img 
-                src="/logo-text-dark.png" 
-                alt="Devlizer" 
+              style={{ transformStyle: "preserve-3d" }}>
+              <motion.img
+                src="/logo-text-dark.png"
+                alt="Devlizer"
                 className="h-12 w-auto"
-                whileHover={{ 
+                whileHover={{
                   rotateY: 5,
                   scale: 1.1,
-                  filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))"
+                  filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))",
                 }}
                 transition={{ duration: 0.6 }}
                 style={{ transformStyle: "preserve-3d" }}
               />
             </motion.div>
-            
-            <motion.p 
+
+            <motion.p
               className="text-muted-foreground text-lg"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
-                textShadow: "0 5px 15px rgba(0,0,0,0.2)"
-              }}
-            >
+                textShadow: "0 5px 15px rgba(0,0,0,0.2)",
+              }}>
               Crafting digital excellence, one project at a time.
             </motion.p>
 
@@ -1633,21 +1505,21 @@ export default function HomePage() {
               className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-6"
               initial={{ width: 0, opacity: 0 }}
               whileInView={{ width: 80, opacity: 1 }}
-              transition={{ 
-                delay: 0.5, 
+              transition={{
+                delay: 0.5,
                 duration: 0.8,
                 background: {
                   duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut"
-                }
+                  ease: "easeInOut",
+                },
               }}
               animate={{
                 background: [
                   "linear-gradient(90deg, rgba(59, 130, 246, 1), rgba(236, 72, 153, 1))",
                   "linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(59, 130, 246, 1))",
-                  "linear-gradient(90deg, rgba(59, 130, 246, 1), rgba(236, 72, 153, 1))"
-                ]
+                  "linear-gradient(90deg, rgba(59, 130, 246, 1), rgba(236, 72, 153, 1))",
+                ],
               }}
             />
 
@@ -1656,13 +1528,9 @@ export default function HomePage() {
               className="mt-8 pt-6 border-t border-border/50 text-sm text-muted-foreground/70"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-            >
-              <motion.p
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                © 2025 Devlizer. All rights reserved. | Built with ❤️ and cutting-edge technology
+              transition={{ delay: 0.7, duration: 0.6 }}>
+              <motion.p whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+                © 2025 Devlizer. All rights reserved.
               </motion.p>
             </motion.div>
           </motion.div>

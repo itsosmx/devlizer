@@ -7,6 +7,9 @@
   --font-sans: Montserrat, sans-serif;
   --font-mono: Ubuntu Mono, monospace;
   --font-serif: Merriweather, serif;
+  --font-cairo: var(--font-cairo), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-primary: var(--font-cairo), var(--font-inter), sans-serif;
   --radius: 0.625rem;
   --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
   --tracking-tight: calc(var(--tracking-normal) - 0.025em);
@@ -183,5 +186,9 @@
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
+    font-family: var(--font-cairo), var(--font-inter), sans-serif;
+  }
+  height {
+    @apply scroll-smooth;
   }
 }

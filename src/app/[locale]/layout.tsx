@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Cairo } from "next/font/google";
 import "./globals.css";
 import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -8,6 +8,21 @@ import { generateMetadata as generateSEOMetadata, generateStructuredData } from 
 import { StructuredData } from "@/components/seo/AnalyticsScripts";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
+import { GoogleTagManager } from "@next/third-parties/google";
+
+const cairo = Cairo({
+  variable: "--font-cairo",
+  subsets: ["arabic"],
+  display: "swap",
+  preload: true,
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,6 +37,42 @@ const geistMono = Geist_Mono({
   display: "swap",
   preload: true,
 });
+
+export default async function RootLayout({
+  children,
+  params,
+}: Readonly<{
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}>) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  // Generate structured data for the homepage
+  const structuredData = generateStructuredData({
+    title: "Devlizer - Your One-Stop Solution for Development",
+    description:
+      "Accelerate your development journey with Devlizer. From mobile apps to web applications, we provide cutting-edge solutions for modern developers and businesses.",
+    url: "/",
+    locale,
+  });
+
+  return (
+    <html lang={locale}>
+      <head>
+        {/* Structured Data */}
+        <StructuredData data={[structuredData.organization, structuredData.website, structuredData.webPage, structuredData.breadcrumb]} />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased dark scroll-smooth`}>
+        <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+        <Toaster />
+        <Script src="https://embed.widgetease.com/embed.js?t=gASu3MeiiulA1DtMWeSDsS2pm-AdbTYt&v=1" async></Script>
+      </body>
+    </html>
+  );
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -60,40 +111,4 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     url: "/",
     locale,
   });
-}
-
-export default async function RootLayout({
-  children,
-  params,
-}: Readonly<{
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}>) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  // Generate structured data for the homepage
-  const structuredData = generateStructuredData({
-    title: "Devlizer - Your One-Stop Solution for Development",
-    description:
-      "Accelerate your development journey with Devlizer. From mobile apps to web applications, we provide cutting-edge solutions for modern developers and businesses.",
-    url: "/",
-    locale,
-  });
-
-  return (
-    <html lang={locale}>
-      <head>
-        {/* Structured Data */}
-        <StructuredData data={[structuredData.organization, structuredData.website, structuredData.webPage, structuredData.breadcrumb]} />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark scroll-smooth`}>
-        <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
-        <Toaster  />
-        <Script src="https://embed.widgetease.com/embed.js?t=gASu3MeiiulA1DtMWeSDsS2pm-AdbTYt&v=1" async></Script>
-      </body>
-    </html>
-  );
 }

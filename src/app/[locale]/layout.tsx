@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
 import { StructuredData } from "@/components/seo/AnalyticsScripts";
 import Script from "next/script";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -90,7 +91,7 @@ export default async function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark scroll-smooth`}>
         <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
-
+        <Toaster  />
         <Script src="https://embed.widgetease.com/embed.js?t=gASu3MeiiulA1DtMWeSDsS2pm-AdbTYt&v=1" async></Script>
       </body>
     </html>

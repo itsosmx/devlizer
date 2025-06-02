@@ -6,6 +6,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
 import { StructuredData } from "@/components/seo/AnalyticsScripts";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,13 +22,9 @@ const geistMono = Geist_Mono({
   preload: true,
 });
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  
+
   return generateSEOMetadata({
     title: "Your One-Stop Solution for Development",
     description:
@@ -93,6 +90,8 @@ export default async function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased dark scroll-smooth`}>
         <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+
+        <Script src="https://embed.widgetease.com/embed.js?t=gASu3MeiiulA1DtMWeSDsS2pm-AdbTYt&v=1" async></Script>
       </body>
     </html>
   );

@@ -325,9 +325,12 @@ export default function HomePage() {
                 }}
                 whileTap={{ scale: 0.95 }}
                 style={{ transformStyle: "preserve-3d" }}>
-                <Button
-                  size="lg"
-                  className="text-lg px-8 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden group">
+                <Link
+                  href="#contact"
+                  className={buttonVariants({
+                    size: "lg",
+                    className: "text-lg px-8 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden group",
+                  })}>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-accent/30 to-primary/30"
                     initial={{ x: "-100%" }}
@@ -340,24 +343,7 @@ export default function HomePage() {
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </motion.div>
                   </span>
-                </Button>
-              </motion.div>
-
-              <motion.div
-                whileHover={{
-                  scale: 1.05,
-                  rotateX: 10,
-                  rotateY: -5,
-                  z: 50,
-                }}
-                whileTap={{ scale: 0.95 }}
-                style={{ transformStyle: "preserve-3d" }}>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm bg-background/50 border-2 border-primary/20 hover:border-primary/40">
-                  Learn More
-                </Button>
+                </Link>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -455,7 +441,7 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 grid-rows-1"
             variants={stagger}
             initial="initial"
             whileInView="animate"
@@ -1499,29 +1485,6 @@ export default function HomePage() {
               }}>
               Crafting digital excellence, one project at a time.
             </motion.p>
-
-            {/* Animated Divider */}
-            <motion.div
-              className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-6"
-              initial={{ width: 0, opacity: 0 }}
-              whileInView={{ width: 80, opacity: 1 }}
-              transition={{
-                delay: 0.5,
-                duration: 0.8,
-                background: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
-              animate={{
-                background: [
-                  "linear-gradient(90deg, rgba(59, 130, 246, 1), rgba(236, 72, 153, 1))",
-                  "linear-gradient(90deg, rgba(236, 72, 153, 1), rgba(59, 130, 246, 1))",
-                  "linear-gradient(90deg, rgba(59, 130, 246, 1), rgba(236, 72, 153, 1))",
-                ],
-              }}
-            />
 
             {/* Additional Footer Info */}
             <motion.div

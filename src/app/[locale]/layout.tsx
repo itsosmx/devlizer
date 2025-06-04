@@ -8,7 +8,7 @@ import { generateMetadata as generateSEOMetadata, generateStructuredData } from 
 import { StructuredData } from "@/components/seo/AnalyticsScripts";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -61,10 +61,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <head>
-        {/* Structured Data */}
-        <StructuredData data={[structuredData.organization, structuredData.website, structuredData.webPage, structuredData.breadcrumb]} />
-      </head>
+      <StructuredData data={[structuredData.organization, structuredData.website, structuredData.webPage, structuredData.breadcrumb]} />
+      {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-CXXZE4SD75" />}
+
       <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased dark scroll-smooth`}>
         <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
         <Toaster />

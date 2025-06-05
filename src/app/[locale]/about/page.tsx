@@ -147,15 +147,7 @@ export default function AboutPage() {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 Building the Future of
                 <br />
-                <span className="relative">
-                  Digital Experiences
-                  <motion.div
-                    className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent rounded-full"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1, duration: 0.8 }}
-                  />
-                </span>
+                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Digital Experiences</span>
               </h1>
             </motion.div>
 

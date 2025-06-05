@@ -422,7 +422,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="px-6 py-20 bg-muted/30 relative">
+      {/* <section className="px-6 py-20 bg-muted/30 relative hidden">
         <div className="max-w-6xl mx-auto">
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-16">
             <motion.div variants={fadeInUp} className="text-center space-y-4">
@@ -469,7 +469,7 @@ export default function ServicesPage() {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Technology Stack */}
       <section className="px-6 py-20 relative">

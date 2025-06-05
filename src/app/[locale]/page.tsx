@@ -198,10 +198,10 @@ export default function HomePage() {
             initial="initial"
             animate="animate"
             style={{ transformStyle: "preserve-3d" }}>
-            {["Services", "About", "Contact"].map((item, index) => (
+            {["Services", "About", "Contact", "Portfolio"].map((item, index) => (
               <motion.a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`/${item.toLowerCase()}`}
                 className="text-muted-foreground hover:text-primary transition-all duration-300 relative"
                 variants={fadeInUp}
                 whileHover={{

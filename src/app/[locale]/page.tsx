@@ -78,33 +78,35 @@ export default function HomePage() {
   const services = [
     {
       icon: <Globe className="h-8 w-8" />,
-      title: "Web Development",
-      description: "Modern, responsive websites built with cutting-edge technologies",
+      title: "Full-Stack Development",
+      description: "Complete web applications with React frontend and Node.js backend solutions",
     },
     {
       icon: <Smartphone className="h-8 w-8" />,
-      title: "Mobile Apps",
-      description: "Native and cross-platform mobile applications for iOS and Android",
+      title: "Mobile App Development",
+      description: "Cross-platform mobile applications using React Native for iOS and Android",
     },
     {
       icon: <Code className="h-8 w-8" />,
-      title: "Custom Software",
-      description: "Tailored solutions to meet your unique business requirements",
+      title: "Backend Development",
+      description: "Robust backend systems with Node.js, APIs, and database management",
     },
     {
       icon: <Palette className="h-8 w-8" />,
-      title: "UI/UX Design",
-      description: "Beautiful, intuitive interfaces that users love to interact with",
+      title: "Frontend Development",
+      description: "Modern, responsive user interfaces with React.js and state management",
     },
   ];
 
   const features = [
-    "Modern Technologies",
-    "Responsive Design",
-    "Performance Optimized",
-    "User-Centric Approach",
-    "Scalable Architecture",
-    "24/7 Support",
+    "Latest Technologies",
+    "High Performance",
+    "Scalable Solutions",
+    "User-Centric Design",
+    "Cross-Platform Compatibility",
+    "Robust Security",
+    "Continuous Support",
+    "SEO Optimization",
   ];
 
   function handleSendEmail(event: FormEvent<HTMLFormElement>): void {
@@ -326,8 +328,8 @@ export default function HomePage() {
                 rotateX: 2,
                 scale: 1.01,
               }}>
-              We craft exceptional web and mobile applications that bring your vision to life. From concept to deployment, we're your trusted
-              development partner.
+              We specialize in full-stack development with React, Node.js, and React Native. From scalable web applications to cross-platform mobile
+              apps, we deliver modern solutions that drive your business forward.
             </motion.p>
 
             <motion.div
@@ -623,7 +625,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, z: -50 }}
                 whileInView={{ opacity: 1, z: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}>
-                We combine creativity with technical expertise to deliver solutions that exceed expectations.
+                We combine creativity with technical expertise to deliver full-stack solutions that exceed expectations.
               </motion.p>
 
               <motion.div
@@ -824,7 +826,8 @@ export default function HomePage() {
               initial={{ opacity: 0, z: -50 }}
               whileInView={{ opacity: 1, z: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}>
-              We are a passionate team of developers, designers, and innovators dedicated to transforming ideas into digital reality
+              We are a passionate full-stack developer specializing in React, Node.js, and React Native, dedicated to transforming your ideas into
+              digital reality
             </motion.p>
           </motion.div>
 
@@ -840,21 +843,21 @@ export default function HomePage() {
                   {
                     title: "Our Mission",
                     content:
-                      "To empower businesses and individuals by creating innovative, scalable, and user-friendly digital solutions that drive growth and success in the modern digital landscape.",
+                      "To deliver exceptional full-stack web and mobile applications using React, Node.js, and React Native. We focus on creating scalable, modern solutions that drive business growth and user satisfaction.",
                   },
                   {
                     title: "Our Vision",
                     content:
-                      "To be the leading development partner for startups and enterprises, known for our technical excellence, creative solutions, and commitment to client success.",
+                      "To be the go-to full-stack developer for businesses seeking expert React, Node.js, and React Native solutions, known for technical excellence and commitment to delivering modern, scalable applications.",
                   },
                   {
                     title: "Our Values",
                     content: null,
                     values: [
-                      "Innovation in every project",
-                      "Quality without compromise",
-                      "Client-centric approach",
-                      "Continuous learning and growth",
+                      "Full-stack expertise with modern technologies",
+                      "Quality code and best practices",
+                      "Client success and satisfaction",
+                      "Continuous learning and innovation",
                     ],
                   },
                 ].map((section, index) => (
@@ -916,10 +919,25 @@ export default function HomePage() {
               style={{ transformStyle: "preserve-3d" }}>
               <motion.div className="grid grid-cols-2 gap-6 grid-rows-2" style={{ perspective: "1000px" }}>
                 {[
-                  { icon: Code, title: "Expert Team", desc: "Skilled developers ready to tackle any challenge", color: "from-primary to-accent" },
-                  { icon: Zap, title: "Fast Delivery", desc: "Efficient processes for timely project completion", color: "from-accent to-primary" },
-                  { icon: Users, title: "Collaborative", desc: "Working closely with you every step of the way", color: "from-primary to-accent" },
-                  { icon: CheckCircle, title: "Reliable", desc: "Dependable solutions you can trust", color: "from-accent to-primary" },
+                  {
+                    icon: Code,
+                    title: "Full-Stack Expert",
+                    desc: "Specialized in React, Node.js, and React Native development",
+                    color: "from-primary to-accent",
+                  },
+                  {
+                    icon: Zap,
+                    title: "Fast Delivery",
+                    desc: "Efficient development process for timely project completion",
+                    color: "from-accent to-primary",
+                  },
+                  {
+                    icon: Users,
+                    title: "Collaborative",
+                    desc: "Working closely with you throughout the development process",
+                    color: "from-primary to-accent",
+                  },
+                  { icon: CheckCircle, title: "Reliable", desc: "Dependable solutions you can trust and scale", color: "from-accent to-primary" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -1097,49 +1115,39 @@ export default function HomePage() {
 
                   <form onSubmit={handleSendEmail} className="space-y-6 relative z-10">
                     <div className="grid md:grid-cols-2 gap-4">
-                      {[
-                        { label: "First Name", placeholder: "John", type: "text", name: "firstName" },
-                        { label: "Last Name", placeholder: "Doe", type: "text", name: "lastName" },
-                      ].map((field, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.1, duration: 0.5 }}>
-                          <label htmlFor={`field-${index}`} className="block text-sm font-medium mb-2">
-                            {field.label}
-                          </label>
-                          <motion.input
-                            id={`field-${index}`}
-                            type={field.type}
-                            name={field.name}
-                            className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                            placeholder={field.placeholder}
-                            whileFocus={{
-                              scale: 1.02,
-                              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
-                            }}
-                          />
-                        </motion.div>
-                      ))}
+                      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}>
+                        <label htmlFor="name" className="block text-sm font-medium mb-2">
+                          Full Name
+                        </label>
+                        <motion.input
+                          id="name"
+                          name="name"
+                          type="text"
+                          className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                          placeholder="John Doe"
+                          whileFocus={{
+                            scale: 1.02,
+                            boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
+                          }}
+                        />
+                      </motion.div>
+                      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}>
+                        <label htmlFor="email" className="block text-sm font-medium mb-2">
+                          Email
+                        </label>
+                        <motion.input
+                          id="email"
+                          type="email"
+                          name="email"
+                          className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                          placeholder="john@example.com"
+                          whileFocus={{
+                            scale: 1.02,
+                            boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
+                          }}
+                        />
+                      </motion.div>
                     </div>
-
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        Email
-                      </label>
-                      <motion.input
-                        id="email"
-                        type="email"
-                        name="email"
-                        className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                        placeholder="john@example.com"
-                        whileFocus={{
-                          scale: 1.02,
-                          boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
-                        }}
-                      />
-                    </motion.div>
 
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}>
                       <label htmlFor="project-type" className="block text-sm font-medium mb-2">
@@ -1507,7 +1515,7 @@ export default function HomePage() {
                 scale: 1.05,
                 textShadow: "0 5px 15px rgba(0,0,0,0.2)",
               }}>
-              Crafting digital excellence, one project at a time.
+              Delivering modern full-stack solutions with React, Node.js, and React Native.
             </motion.p>
 
             {/* Additional Footer Info */}

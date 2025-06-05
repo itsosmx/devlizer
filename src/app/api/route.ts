@@ -15,22 +15,13 @@ const transporter = nodemailer.createTransport({
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-
-    const firstName = formData.get("firstName") as string;
-    const lastName = formData.get("lastName") as string;
+    let name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const projectType = formData.get("projectType") as string;
     const message = formData.get("message") as string;
-    console.log("Received form data:", {
-      firstName,
-      lastName,
-      email,
-      projectType,
-      message
-    });
 
     // Validation
-    if (!firstName || !lastName || !email || !projectType || !message) {
+    if (!email || !message) {
       throw new Error("All fields are required.");
     }
 
@@ -51,8 +42,7 @@ export async function POST(req: NextRequest) {
     });
 
     htmlTemplate = htmlTemplate
-      .replace(/{{firstName}}/g, firstName)
-      .replace(/{{lastName}}/g, lastName)
+      .replace(/{{name}}/g, name)
       .replace(/{{email}}/g, email)
       .replace(/{{projectType}}/g, projectType)
       .replace(/{{message}}/g, message)
@@ -60,7 +50,7 @@ export async function POST(req: NextRequest) {
 
     // Email options
     const mailOptions = {
-      from: `"${firstName} ${lastName}" <${process.env.SMTP_USER}>`,
+      from: `"${name}" <${process.env.SMTP_USER}>`,
       to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
       replyTo: email,
       subject: `New Contact Form Submission - ${projectType}`,
@@ -68,7 +58,7 @@ export async function POST(req: NextRequest) {
       text: `
 New Contact Form Submission
 
-Name: ${firstName} ${lastName}
+Name: ${name}
 Email: ${email}
 Project Type: ${projectType}
 Message: ${message}

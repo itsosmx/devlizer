@@ -60,27 +60,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/privacy`,
-        },
-      },
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/terms`,
-        },
-      },
-    },
+    // {
+    //   url: `${baseUrl}/privacy`,
+    //   lastModified: currentDate,
+    //   changeFrequency: 'yearly',
+    //   priority: 0.3,
+    //   alternates: {
+    //     languages: {
+    //       en: `${baseUrl}/en/privacy`,
+    //     },
+    //   },
+    // },
+    // {
+    //   url: `${baseUrl}/terms`,
+    //   lastModified: currentDate,
+    //   changeFrequency: 'yearly',
+    //   priority: 0.3,
+    //   alternates: {
+    //     languages: {
+    //       en: `${baseUrl}/en/terms`,
+    //     },
+    //   },
+    // },
   ];
 }

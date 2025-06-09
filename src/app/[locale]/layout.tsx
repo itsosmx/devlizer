@@ -9,6 +9,8 @@ import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { generatePageMetadata, homeStructuredData } from "@/lib/metadata";
+import Header from "@/components/blocks/header";
+import Footer from "@/components/blocks/footer";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -57,7 +59,11 @@ export default async function RootLayout({
       />
       {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-CXXZE4SD75" />}
       <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased dark scroll-smooth`}>
-        <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale}>
+          <Header />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
         <Toaster />
         <Script src="https://embed.widgetease.com/embed.js?t=gASu3MeiiulA1DtMWeSDsS2pm-AdbTYt&v=1" async></Script>
       </body>

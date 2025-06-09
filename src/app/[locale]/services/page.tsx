@@ -75,87 +75,85 @@ export default function ServicesPage() {
   };  const mainServices = [
     {
       icon: <Globe className="h-12 w-12" />,
-      title: "Full-Stack Web Development",
-      description: "Complete web applications with React frontend and Node.js backend, delivering scalable and performant solutions.",
+      title: "Professional Websites",
+      description: "Complete business websites that attract customers and drive sales, built with modern technology for reliable performance.",
       features: [
-        "React.js & Next.js development",
-        "Node.js & Express.js backend",
-        "REST API development",
-        "Database integration (MongoDB, PostgreSQL)",
-        "Authentication & authorization",
+        "Custom website design and development",
+        "Business-focused backend systems",
+        "Customer inquiry management",
+        "Database and content management",
+        "User authentication and security",
         "Performance optimization",
       ],
       gradient: "from-blue-500 via-blue-600 to-cyan-500",
-      technologies: ["React", "Next.js", "Node.js", "Express", "MongoDB"],
+      technologies: ["Modern Web Tech", "Content Management", "Security", "Performance"],
     },
     {
       icon: <Smartphone className="h-12 w-12" />,
-      title: "Mobile App Development",
-      description: "Cross-platform mobile applications using React Native for iOS and Android platforms.",
-      features: [
-        "React Native development",
-        "Cross-platform compatibility",
-        "Native module integration",
+      title: "Mobile Applications",
+      description: "Mobile apps that work on both iPhone and Android, helping you reach customers wherever they are.",      features: [
+        "Mobile app development",
+        "Works on iPhone and Android",
+        "App store optimization",
         "Push notifications",
-        "App Store deployment",
+        "App store submission",
         "Performance optimization",
       ],
       gradient: "from-purple-500 via-purple-600 to-pink-500",
-      technologies: ["React Native", "Expo", "Firebase", "Redux", "AsyncStorage"],
+      technologies: ["Mobile Development", "App Stores", "Notifications", "Performance"],
     },
     {
       icon: <Code className="h-12 w-12" />,
-      title: "Backend Development",
-      description: "Robust backend systems with Node.js, handling data management, APIs, and server-side logic.",
+      title: "Business Systems",
+      description: "Powerful backend systems that manage your business data, customer information, and automated processes.",
       features: [
-        "Node.js & Express.js servers",
-        "RESTful API design",
-        "Database design & optimization",
-        "Authentication systems",
-        "Third-party integrations",
-        "DevOps & deployment",
+        "Business logic and automation",
+        "Customer management systems",
+        "Data management and reporting",
+        "User authentication and security",
+        "Third-party service integration",
+        "Cloud hosting and deployment",
       ],
       gradient: "from-green-500 via-green-600 to-emerald-500",
-      technologies: ["Node.js", "Express", "MongoDB", "PostgreSQL", "AWS"],
-    },
-    {
+      technologies: ["Business Systems", "Data Management", "Cloud Hosting", "Security"],
+    },    {
       icon: <Palette className="h-12 w-12" />,
-      title: "Frontend Development",
-      description: "Modern, responsive user interfaces with React.js, focusing on user experience and performance.",
+      title: "User Experience Design",
+      description: "Beautiful, easy-to-use interfaces that customers love, focusing on user experience and business results.",
       features: [
-        "React.js component development",
-        "Responsive design implementation",
-        "State management (Redux)",
-        "Modern CSS frameworks",
+        "User interface design",
+        "Responsive design for all devices",
+        "User experience optimization",
+        "Modern design frameworks",
         "Performance optimization",
-        "Cross-browser compatibility",
+        "Works on all browsers",
       ],
       gradient: "from-orange-500 via-orange-600 to-red-500",
-      technologies: ["React", "Redux", "CSS3", "Bootstrap", "Material-UI"],
+      technologies: ["UI Design", "UX Optimization", "Responsive Design", "Modern Frameworks"],
     },
   ];  const additionalServices = [
     {
       icon: <Database className="h-8 w-8" />,
-      title: "Database Design",
-      description: "MongoDB and SQL database design with optimization and data modeling.",
+      title: "Data Management",
+      description: "Secure database systems with optimization and data organization for your business.",
       color: "text-blue-500",
     },
     {
       icon: <Cloud className="h-8 w-8" />,
-      title: "Cloud Deployment",
-      description: "AWS cloud deployment with scalable infrastructure and DevOps practices.",
+      title: "Cloud Hosting",
+      description: "Reliable cloud hosting with scalable infrastructure and maintenance services.",
       color: "text-green-500",
     },
     {
       icon: <Shield className="h-8 w-8" />,
-      title: "API Integration",
-      description: "Third-party API integrations and custom REST API development.",
+      title: "System Integration",
+      description: "Connect your business systems and integrate with third-party services.",
       color: "text-purple-500",
     },
     {
       icon: <Settings className="h-8 w-8" />,
       title: "Technical Consulting",
-      description: "Architecture planning, code review, and technical problem solving.",
+      description: "Strategic planning, system review, and technical problem solving for your business.",
       color: "text-orange-500",
     },
   ];
@@ -172,11 +170,10 @@ export default function ServicesPage() {
       title: "Planning",
       description: "Strategic planning and technical architecture design tailored to your requirements.",
       icon: <Target className="h-6 w-6" />,
-    },
-    {
+    },    {
       number: "03",
       title: "Development",
-      description: "Agile development process with regular updates and collaborative feedback loops.",
+      description: "Efficient development process with regular updates and collaborative feedback loops.",
       icon: <Code className="h-6 w-6" />,
     },
     {
@@ -246,18 +243,18 @@ export default function ServicesPage() {
       popular: false,
     },
   ];  const technologies = [
-    { name: "React.js", icon: "⚛️" },
-    { name: "Node.js", icon: "🟢" },
-    { name: "React Native", icon: "📱" },
-    { name: "Express.js", icon: "🚀" },
-    { name: "MongoDB", icon: "🍃" },
-    { name: "PostgreSQL", icon: "🐘" },
-    { name: "JavaScript", icon: "💛" },
-    { name: "Redux", icon: "🔄" },
-    { name: "AWS", icon: "☁️" },
-    { name: "Git", icon: "🔧" },
-    { name: "REST APIs", icon: "🔗" },
-    { name: "Firebase", icon: "🔥" },
+    { name: "Web Apps", icon: "🌐" },
+    { name: "Mobile Apps", icon: "📱" },
+    { name: "Websites", icon: "💻" },
+    { name: "Databases", icon: "🗄️" },
+    { name: "Cloud Hosting", icon: "☁️" },
+    { name: "Security", icon: "🔒" },
+    { name: "Performance", icon: "⚡" },
+    { name: "Analytics", icon: "📊" },
+    { name: "E-commerce", icon: "🛒" },
+    { name: "Automation", icon: "🤖" },
+    { name: "Integrations", icon: "🔗" },
+    { name: "Support", icon: "🛠️" },
   ];
 
   return (
@@ -293,8 +290,8 @@ export default function ServicesPage() {
                   Excellence
                 </span>
               </h1>              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Full-stack development expertise with React, Node.js, and React Native. 
-                Building scalable web and mobile applications with modern technologies and best practices.
+                Professional websites and mobile apps that help your business grow. 
+                Building solutions with modern technology and best practices.
               </p>
             </motion.div>
 
@@ -320,7 +317,7 @@ export default function ServicesPage() {
               <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Core Services
               </h2>              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Comprehensive full-stack development services using React, Node.js, and React Native technologies.
+                Comprehensive business solutions using modern technology to help you succeed.
               </p>
             </motion.div>
 
@@ -394,7 +391,7 @@ export default function ServicesPage() {
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-16">
             <motion.div variants={fadeInUp} className="text-center space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">Our Development Process</h2>              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                A proven development methodology that ensures high-quality web applications from planning to launch.
+                A proven development process that ensures high-quality business solutions from planning to launch.
               </p>
             </motion.div>
 
@@ -476,9 +473,8 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto">
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-12">
             <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Technologies We Use</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                We leverage the latest and most reliable technologies to build scalable, maintainable solutions.
+              <h2 className="text-3xl md:text-4xl font-bold">Technologies We Use</h2>              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                We use reliable and proven technologies to build solutions that work perfectly for your business.
               </p>
             </motion.div>
 

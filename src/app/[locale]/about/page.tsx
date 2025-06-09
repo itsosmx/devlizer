@@ -63,12 +63,11 @@ export default function AboutPage() {
       },
     },
   };
-
   const values = [
     {
       icon: <Lightbulb className="h-8 w-8" />,
       title: "Innovation",
-      description: "We embrace cutting-edge technologies and creative solutions to stay ahead of the curve.",
+      description: "We embrace modern approaches and creative solutions to help your business stay competitive.",
       color: "text-yellow-500",
     },
     {
@@ -80,7 +79,7 @@ export default function AboutPage() {
     {
       icon: <Target className="h-8 w-8" />,
       title: "Purpose",
-      description: "Every line of code we write serves a clear business objective and user need.",
+      description: "Everything we create serves a clear business objective and helps you reach your goals.",
       color: "text-green-500",
     },
     {
@@ -90,32 +89,30 @@ export default function AboutPage() {
       color: "text-red-500",
     },
   ];
-
   const services = [
     {
       icon: <Globe className="h-6 w-6" />,
-      title: "Web Development",
-      description: "Full-stack web applications",
+      title: "Professional Websites",
+      description: "Complete business websites",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: <Smartphone className="h-6 w-6" />,
       title: "Mobile Apps",
-      description: "iOS & Android development",
+      description: "iPhone & Android apps",
       color: "from-purple-500 to-pink-500",
     },
     {
       icon: <Code className="h-6 w-6" />,
-      title: "Custom Software",
-      description: "Tailored business solutions",
+      title: "Business Solutions",
+      description: "Custom software for your needs",
       color: "from-green-500 to-emerald-500",
     },
-  ];
-  const stats = [
+  ];  const stats = [
     { number: "New", label: "Fresh Perspective", icon: <CheckCircle className="h-5 w-5" /> },
     { number: "100%", label: "Commitment", icon: <Star className="h-5 w-5" /> },
     { number: "Fast", label: "Response Time", icon: <Zap className="h-5 w-5" /> },
-    { number: "Modern", label: "Tech Stack", icon: <TrendingUp className="h-5 w-5" /> },
+    { number: "Modern", label: "Solutions", icon: <TrendingUp className="h-5 w-5" /> },
   ];
 
   return (
@@ -231,25 +228,22 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               className="space-y-6">
               <div className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-semibold">Founded with Passion</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Founded with a passion for innovation and a deep understanding of tech, Devlizer combines cutting-edge development with a strong
-                  focus on usability, performance, and business impact.
+                <h3 className="text-2xl md:text-3xl font-semibold">Founded with Passion</h3>                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Founded with a passion for innovation and a deep understanding of business technology, Devlizer combines modern development 
+                  approaches with a strong focus on usability, performance, and business impact.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  We specialize in full-stack web and mobile development, and we're also the home of a growing suite of powerful SaaS products
-                  designed to solve real-world problems.
+                  We specialize in creating powerful websites and mobile apps, and we're also the home of a growing suite of helpful business 
+                  software products designed to solve real-world problems.
                 </p>
-              </div>
-
-              <div className="space-y-3">
+              </div>              <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="text-muted-foreground">Smart, scalable solutions</span>
+                  <span className="text-muted-foreground">Smart, scalable business solutions</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="text-muted-foreground">Beautifully crafted software</span>
+                  <span className="text-muted-foreground">Beautifully designed experiences</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-500" />
@@ -311,9 +305,8 @@ export default function AboutPage() {
                     className="text-xl md:text-2xl leading-relaxed font-medium"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}>
-                    Our mission is simple:{" "}
-                    <span className="text-primary font-semibold">empower businesses and entrepreneurs with tech that works</span>—cleanly, reliably,
+                    transition={{ delay: 0.3, duration: 0.8 }}>                    Our mission is simple:{" "}
+                    <span className="text-primary font-semibold">empower businesses and entrepreneurs with technology that works</span>—cleanly, reliably,
                     and with purpose.
                   </motion.p>
                 </CardContent>
@@ -383,9 +376,8 @@ export default function AboutPage() {
             className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               What We <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Do</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From web applications to mobile apps, we create digital solutions that drive results
+            </h2>            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              From business websites to mobile apps, we create digital solutions that drive results
             </p>
           </motion.div>
 

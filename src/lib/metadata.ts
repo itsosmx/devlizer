@@ -30,47 +30,6 @@ export function generateArticleMetadata(params: {
   });
 }
 
-export function generateProductMetadata(params: {
-  title: string;
-  description: string;
-  image?: string;
-  url: string;
-  price?: string;
-  currency?: string;
-  availability?: 'InStock' | 'OutOfStock' | 'PreOrder';
-  locale?: string;
-}) {
-  return generateMetadata({
-    ...params,
-    type: 'product',
-  });
-}
-
-// Predefined metadata for common pages
-export const homePageMetadata = generateMetadata({
-  title: 'Home',
-  description: 'Welcome to Devlizer - Your one-stop solution for modern development. Build amazing web and mobile applications with cutting-edge technology.',
-  keywords: [
-    'devlizer',
-    'web development',
-    'mobile development',
-    'software solutions',
-    'next.js development',
-    'react development',
-    'modern development tools',
-    'UI/UX design',
-    'responsive web design',
-    'progressive web apps',
-    'full-stack development',
-    'typescript development',
-    'api development',
-    'database solutions',
-    'cloud hosting',
-    'development consulting'
-  ],
-  url: '/',
-});
-
 export const aboutPageMetadata = generateMetadata({
   title: 'About Us',
   description: 'Learn about Devlizer\'s mission to empower developers with modern tools and solutions. Discover our team, values, and commitment to excellence.',

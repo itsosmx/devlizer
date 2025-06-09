@@ -19,26 +19,36 @@ export interface SEOConfig {
 
 const defaultConfig = {
   siteName: 'Devlizer',
-  defaultTitle: 'Devlizer - Your One-Stop Solution for Development',
-  defaultDescription: 'Accelerate your development journey with Devlizer. From mobile apps to web applications, we provide cutting-edge solutions for modern developers.',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://devlizer.com',
+  defaultTitle: 'Your Partner for Digital Success',
+  defaultDescription: 'Transform your business with Devlizer. From mobile apps to professional websites, we create digital solutions that help your business grow and succeed.',
+  siteUrl: 'https://devlizer.com',
   defaultImage: '/logo.png',
   author: 'Devlizer Team',
   keywords: [
-    'web development',
-    'mobile app development',
-    'software development',
-    'next.js',
-    'react',
-    'typescript',
-    'modern development',
-    'developer tools',
-    'UI/UX design',
+    'professional websites',
+    'mobile apps',
+    'business software',
+    'website design',
+    'mobile app creation',
+    'digital solutions',
+    'business technology',
+    'user experience design',
     'responsive design',
-    'progressive web apps',
-    'API development',
-    'database design',
-    'cloud solutions'
+    'business apps',
+    'business consulting',
+    'enterprise solutions',
+    'custom business software',
+    'digital transformation',
+    'web development',
+    'developer services',
+    'software development',
+    'devlizer',
+    "website development",
+    'mobile development',
+    "systems integration",
+    'cloud solutions',
+    'e-commerce solutions',
+    'SEO optimization',
   ],
 };
 
@@ -61,7 +71,7 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
   } = config;
 
   const metaTitle = title
-    ? `${title} | ${defaultConfig.siteName}`
+    ? `${title} - ${defaultConfig.siteName}`
     : defaultConfig.defaultTitle;
 
   const metaImage = image.startsWith('http')
@@ -87,11 +97,11 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
     manifest: '/site.webmanifest',
     icons: {
       icon: [
-        { url: '/favicon.ico', sizes: 'any' },
-        { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+        { url: '/favicon.png', sizes: 'any' },
+        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
       ],
       apple: [
-        { url: '/favicon.png', sizes: '180x180', type: 'image/png' },
+        { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
       ],
     },
     robots: {
@@ -160,17 +170,17 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
       telephone: false,
     },
     metadataBase: new URL(defaultConfig.siteUrl),
-    other: {
-      ...(process.env.NODE_ENV === 'production' && {
-        'google-site-verification': process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || '',
-      }),
-      'geo.region': 'US',
-      'geo.placename': 'United States',
-      'geo.position': '39.78373;-100.445882',
-      'ICBM': '39.78373, -100.445882',
-      'msapplication-TileColor': '#000000',
-      'msapplication-config': '/browserconfig.xml',
-    },
+    // other: {
+    //   ...(process.env.NODE_ENV === 'production' && {
+    //     'google-site-verification': process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || '',
+    //   }),
+    //   'geo.region': 'EG',
+    //   'geo.placename': 'Egypt',
+    //   'geo.position': '39.78373;-100.445882',
+    //   'ICBM': '39.78373, -100.445882',
+    //   'msapplication-TileColor': '#000000',
+    //   'msapplication-config': '/browserconfig.xml',
+    // },
   };
 }
 

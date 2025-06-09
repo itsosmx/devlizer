@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter, Cairo } from "next/font/google";
 import "./globals.css";
 import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
-import { generateMetadata as generateSEOMetadata, generateStructuredData } from "@/lib/seo";
 import { StructuredData } from "@/components/seo/AnalyticsScripts";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { generatePageMetadata, homeStructuredData } from "@/lib/metadata";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -50,20 +50,12 @@ export default async function RootLayout({
     notFound();
   }
 
-  // Generate structured data for the homepage
-  const structuredData = generateStructuredData({
-    title: "Devlizer - Your One-Stop Solution for Development",
-    description:
-      "Accelerate your development journey with Devlizer. From mobile apps to web applications, we provide cutting-edge solutions for modern developers and businesses.",
-    url: "/",
-    locale,
-  });
-
   return (
     <html lang={locale}>
-      <StructuredData data={[structuredData.organization, structuredData.website, structuredData.webPage, structuredData.breadcrumb]} />
+      <StructuredData
+        data={[homeStructuredData.organization, homeStructuredData.website, homeStructuredData.webPage, homeStructuredData.breadcrumb]}
+      />
       {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-CXXZE4SD75" />}
-
       <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased dark scroll-smooth`}>
         <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
         <Toaster />
@@ -76,38 +68,14 @@ export default async function RootLayout({
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
 
-  return generateSEOMetadata({
-    title: "Your One-Stop Solution for Development",
-    description:
-      "Accelerate your development journey with Devlizer. From mobile apps to web applications, we provide cutting-edge solutions for modern developers and businesses.",
-    keywords: [
-      "devlizer",
-      "web development",
-      "mobile app development",
-      "software development",
-      "next.js development",
-      "react development",
-      "typescript development",
-      "modern development tools",
-      "UI/UX design services",
-      "responsive web design",
-      "progressive web apps",
-      "full-stack development",
-      "api development",
-      "database solutions",
-      "cloud hosting solutions",
-      "development consulting",
-      "enterprise software solutions",
-      "custom software development",
-      "e-commerce development",
-      "cms development",
-      "mobile-first design",
-      "cross-platform development",
-      "agile development",
-      "devops services",
-      "performance optimization",
-    ],
-    url: "/",
+  return generatePageMetadata({
     locale,
   });
 }
+
+export const viewport: Viewport = {
+  themeColor: "black",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};

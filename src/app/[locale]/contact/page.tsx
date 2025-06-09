@@ -122,18 +122,16 @@ export default function ContactPage() {
       color: "hover:text-blue-400",
     },
   ];
-
   const projectTypes = [
-    "Web Development",
-    "Mobile App Development",
-    "Backend Development",
-    "Frontend Development",
-    "Full-Stack Project",
-    "SaaS Development",
+    "Professional Website",
+    "Mobile App",
+    "Business Systems",
+    "User Experience Design",
+    "Complete Digital Solution",
+    "Business Software",
     "Consultation",
     "Other",
   ];
-
   const faqs = [
     {
       question: "What's your typical project timeline?",
@@ -146,9 +144,9 @@ export default function ContactPage() {
         "Absolutely! I work with clients worldwide and am experienced in remote collaboration. I'm flexible with time zones and communication preferences.",
     },
     {
-      question: "What technologies do you specialize in?",
+      question: "What kind of solutions do you create?",
       answer:
-        "I specialize in React, Node.js, and React Native for full-stack development. I also work with MongoDB, PostgreSQL, AWS, and modern development tools.",
+        "I create modern websites, mobile apps, and business software using the latest technologies. I focus on solutions that are reliable, user-friendly, and help your business grow.",
     },
     {
       question: "Do you provide ongoing support?",
@@ -188,11 +186,8 @@ export default function ContactPage() {
                 <br />
                 <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Amazing Together</span>
               </h1>
-            </motion.div>
-
-            <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Ready to transform your ideas into reality? I'm here to help you create exceptional digital experiences with modern technologies and
-              expert craftsmanship.
+            </motion.div>            <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Ready to transform your ideas into reality? I'm here to help you create exceptional digital experiences that help your business succeed.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">

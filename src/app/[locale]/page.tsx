@@ -78,35 +78,35 @@ export default function HomePage() {
   const services = [
     {
       icon: <Globe className="h-8 w-8" />,
-      title: "Full-Stack Development",
-      description: "Complete web applications with React frontend and Node.js backend solutions",
+      title: "Professional Websites",
+      description: "Custom websites that look great and work perfectly to grow your business online",
     },
     {
       icon: <Smartphone className="h-8 w-8" />,
-      title: "Mobile App Development",
-      description: "Cross-platform mobile applications using React Native for iOS and Android",
+      title: "Mobile Apps",
+      description: "Mobile apps that work on both iPhone and Android to reach all your customers",
     },
     {
       icon: <Code className="h-8 w-8" />,
-      title: "Backend Development",
-      description: "Robust backend systems with Node.js, APIs, and database management",
+      title: "Business Systems",
+      description: "Powerful backend systems that manage your data and keep everything running smoothly",
     },
     {
       icon: <Palette className="h-8 w-8" />,
-      title: "Frontend Development",
-      description: "Modern, responsive user interfaces with React.js and state management",
+      title: "User Experience Design",
+      description: "Beautiful, easy-to-use interfaces that your customers will love",
     },
   ];
 
   const features = [
-    "Latest Technologies",
-    "High Performance",
-    "Scalable Solutions",
-    "User-Centric Design",
-    "Cross-Platform Compatibility",
-    "Robust Security",
-    "Continuous Support",
-    "SEO Optimization",
+    "Modern Technology",
+    "Fast Performance",
+    "Growing with Your Business",
+    "User-Focused Design",
+    "Works on All Devices",
+    "Strong Security",
+    "Ongoing Support",
+    "Search Engine Friendly",
   ];
 
   function handleSendEmail(event: FormEvent<HTMLFormElement>): void {
@@ -328,8 +328,8 @@ export default function HomePage() {
                 rotateX: 2,
                 scale: 1.01,
               }}>
-              We specialize in full-stack development with React, Node.js, and React Native. From scalable web applications to cross-platform mobile
-              apps, we deliver modern solutions that drive your business forward.
+              We create powerful websites and mobile apps that help your business grow. From professional websites that attract customers to mobile
+              apps that work on all devices, we deliver solutions that drive your business forward.
             </motion.p>
 
             <motion.div
@@ -826,8 +826,7 @@ export default function HomePage() {
               initial={{ opacity: 0, z: -50 }}
               whileInView={{ opacity: 1, z: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}>
-              We are a passionate full-stack developer specializing in React, Node.js, and React Native, dedicated to transforming your ideas into
-              digital reality
+              We are passionate about creating digital solutions that help businesses grow, dedicated to transforming your ideas into reality
             </motion.p>
           </motion.div>
 
@@ -843,19 +842,19 @@ export default function HomePage() {
                   {
                     title: "Our Mission",
                     content:
-                      "To deliver exceptional full-stack web and mobile applications using React, Node.js, and React Native. We focus on creating scalable, modern solutions that drive business growth and user satisfaction.",
+                      "To deliver exceptional websites and mobile applications that help businesses succeed. We focus on creating solutions that grow with your business and delight your customers.",
                   },
                   {
                     title: "Our Vision",
                     content:
-                      "To be the go-to full-stack developer for businesses seeking expert React, Node.js, and React Native solutions, known for technical excellence and commitment to delivering modern, scalable applications.",
+                      "To be the trusted partner for businesses seeking powerful digital solutions, known for quality results and commitment to delivering applications that drive real business growth.",
                   },
                   {
                     title: "Our Values",
                     content: null,
                     values: [
-                      "Full-stack expertise with modern technologies",
-                      "Quality code and best practices",
+                      "Expert knowledge with modern technology",
+                      "Quality results and best practices",
                       "Client success and satisfaction",
                       "Continuous learning and innovation",
                     ],
@@ -921,8 +920,8 @@ export default function HomePage() {
                 {[
                   {
                     icon: Code,
-                    title: "Full-Stack Expert",
-                    desc: "Specialized in React, Node.js, and React Native development",
+                    title: "Technology Expert",
+                    desc: "Specialized in modern web and mobile development technologies",
                     color: "from-primary to-accent",
                   },
                   {
@@ -1515,7 +1514,7 @@ export default function HomePage() {
                 scale: 1.05,
                 textShadow: "0 5px 15px rgba(0,0,0,0.2)",
               }}>
-              Delivering modern full-stack solutions with React, Node.js, and React Native.
+              Delivering modern digital solutions that help your business succeed.
             </motion.p>
 
             {/* Additional Footer Info */}

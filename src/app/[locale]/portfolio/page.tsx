@@ -55,14 +55,14 @@ export default function PortfolioPage() {
     {
       id: 1,
       title: "Widget Ease",
-      subtitle: "SaaS Platform",
+      subtitle: "Business Software",
       description:
-        "Widget Ease is a SaaS solution designed to transform how businesses handle customer support. At its core, it's a smart, embeddable chat widget powered by AI, trained to provide human-like, context-aware responses 24/7.",
+        "Widget Ease is a business software solution designed to transform how businesses handle customer support. At its core, it's a smart, embeddable chat widget powered by AI, trained to provide human-like, context-aware responses 24/7.",
       longDescription:
         "The platform features a simple onboarding process for clients, allowing them to generate and install their widget in minutes. It also includes an intuitive admin dashboard where businesses can customize the assistant’s tone, upload documentation, monitor conversations, and analyze performance metrics.",
       image: "/api/placeholder/600/400",
-      category: "saas",
-      technologies: ["Next.js", "Node.js", "Typescript", "Tailwind CSS", "Prisma", "MongoDB", "Paypal"],
+      category: "business-software",
+      technologies: ["Modern Web Technologies", "Database", "Payment Processing", "User Interface", "Performance Optimization"],
       features: [
         "AI-Powered Responses",
         "Customizable Chat Widget",
@@ -85,9 +85,9 @@ export default function PortfolioPage() {
       title: "Coming Soon",
       subtitle: "Next Project",
       description:
-        "Exciting new projects are in development. Stay tuned for innovative solutions that will showcase the latest in full-stack development.",
+        "Exciting new projects are in development. Stay tuned for innovative solutions that will showcase modern website and mobile app development.",
       longDescription:
-        "More amazing projects are being crafted with React, Node.js, and React Native. Each project demonstrates expertise in modern web and mobile development.",
+        "More amazing projects are being crafted using the latest technologies. Each project demonstrates expertise in creating powerful business solutions.",
       image: "/api/placeholder/600/400",
       category: "upcoming",
       technologies: ["Next.js", "..."],
@@ -101,22 +101,19 @@ export default function PortfolioPage() {
       featured: false,
     },
   ];
-
   const categories = [
     { id: "all", label: "All Projects", count: projects.length },
-    { id: "saas", label: "SaaS Platforms", count: projects.filter((p) => p.category === "saas").length },
-    { id: "web", label: "Web Apps", count: projects.filter((p) => p.category === "web").length },
+    { id: "business-software", label: "Business Software", count: projects.filter((p) => p.category === "business-software").length },
+    { id: "web", label: "Professional Websites", count: projects.filter((p) => p.category === "web").length },
     { id: "mobile", label: "Mobile Apps", count: projects.filter((p) => p.category === "mobile").length },
     { id: "upcoming", label: "Upcoming", count: projects.filter((p) => p.category === "upcoming").length },
   ];
 
   const filteredProjects = selectedCategory === "all" ? projects : projects.filter((project) => project.category === selectedCategory);
-
   const stats = [
-    { number: "1+", label: "Live Projects", icon: <Rocket className="h-5 w-5" /> },
-    { number: "Modern", label: "Tech Stack", icon: <Code className="h-5 w-5" /> },
+    { number: "Modern", label: "Solutions", icon: <Code className="h-5 w-5" /> },
     { number: "100%", label: "Client Satisfaction", icon: <Star className="h-5 w-5" /> },
-    { number: "Fast", label: "Development", icon: <Zap className="h-5 w-5" /> },
+    { number: "Fast", label: "Delivery", icon: <Zap className="h-5 w-5" /> },
   ];
 
   return (
@@ -148,25 +145,15 @@ export default function PortfolioPage() {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 Crafting Digital
                 <br />
-                <span className="relative">
-                  Experiences
-                  <motion.div
-                    className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent rounded-full"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 1, duration: 0.8 }}
-                  />
-                </span>
+                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Experiences</span>
               </h1>
-            </motion.div>
-
+            </motion.div>{" "}
             <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Showcasing innovative full-stack solutions built with React, Node.js, and React Native. Each project represents a commitment to
-              excellence, modern architecture, and user-centric design.
+              Showcasing innovative business solutions that help companies grow. Each project represents a commitment to excellence, modern design,
+              and results that matter.
             </motion.p>
-
             {/* Stats */}
-            <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
@@ -363,9 +350,9 @@ export default function PortfolioPage() {
               Ready to Start Your
               <br />
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Next Project?</span>
-            </h2>
+            </h2>{" "}
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Let's collaborate to bring your ideas to life with modern technologies and expert craftsmanship.
+              Let's collaborate to bring your ideas to life with modern technology and expert craftsmanship.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ transformStyle: "preserve-3d" }}>
               <Button asChild size="lg" className="text-lg px-8 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300">

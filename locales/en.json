@@ -1,6 +1,558 @@
 {
+  "Brand": {
+    "name": "Devlizer"
+  },
   "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+    "badge": {
+      "welcome": "Welcome to Devlizer"
+    },
+    "hero": {
+      "title": "Building Tomorrow's",
+      "titleHighlight": "Digital Experiences",
+      "description": "We create powerful websites and mobile apps that help your business grow. From professional websites that attract customers to mobile apps that work on all devices, we deliver solutions that drive your business forward.",
+      "cta": "Start Your Project"
+    },
+    "services": {
+      "title": "What We",
+      "titleHighlight": "Create",
+      "subtitle": "Comprehensive digital solutions tailored to your needs",
+      "items": {
+        "websites": {
+          "title": "Professional Websites",
+          "description": "Custom websites that look great and work perfectly to grow your business online"
+        },
+        "mobileApps": {
+          "title": "Mobile Apps",
+          "description": "Mobile apps that work on both iPhone and Android to reach all your customers"
+        },
+        "businessSystems": {
+          "title": "Business Systems",
+          "description": "Powerful backend systems that manage your data and keep everything running smoothly"
+        },
+        "uxDesign": {
+          "title": "User Experience Design",
+          "description": "Beautiful, easy-to-use interfaces that your customers will love"
+        }
+      }
+    },
+    "features": {
+      "title": "Why Choose",
+      "titleHighlight": "Devlizer",      "subtitle": "We combine creativity with technical expertise to deliver full-stack solutions that exceed expectations.",
+      "list": {
+        "0": "Modern Technology",
+        "1": "Fast Performance",
+        "2": "Growing with Your Business",
+        "3": "User-Focused Design",
+        "4": "Works on All Devices",
+        "5": "Strong Security",
+        "6": "Ongoing Support",
+        "7": "Search Engine Friendly"
+      }
+    },
+    "about": {
+      "title": "About",
+      "titleHighlight": "Devlizer",
+      "subtitle": "We are passionate about creating digital solutions that help businesses grow, dedicated to transforming your ideas into reality",
+      "mission": {
+        "title": "Our Mission",
+        "content": "To deliver exceptional websites and mobile applications that help businesses succeed. We focus on creating solutions that grow with your business and delight your customers."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "content": "To be the trusted partner for businesses seeking powerful digital solutions, known for quality results and commitment to delivering applications that drive real business growth."
+      },
+      "values": {
+        "title": "Our Values",        "list": {
+          "0": "Expert knowledge with modern technology",
+          "1": "Quality results and best practices",
+          "2": "Client success and satisfaction",
+          "3": "Continuous learning and innovation"
+        }
+      },
+      "cards": {
+        "expert": {
+          "title": "Technology Expert",
+          "description": "Specialized in modern web and mobile development technologies"
+        },
+        "delivery": {
+          "title": "Fast Delivery",
+          "description": "Efficient development process for timely project completion"
+        },
+        "collaborative": {
+          "title": "Collaborative",
+          "description": "Working closely with you throughout the development process"
+        },
+        "reliable": {
+          "title": "Reliable",
+          "description": "Dependable solutions you can trust and scale"
+        }
+      }
+    },
+    "contact": {
+      "title": "Get In",
+      "titleHighlight": "Touch",
+      "subtitle": "Ready to start your project? We'd love to hear from you and discuss how we can bring your vision to life",
+      "form": {
+        "title": "Send us a message",
+        "fields": {
+          "name": "Full Name",
+          "email": "Email",
+          "projectType": "Project Type",
+          "message": "Message",
+          "namePlaceholder": "John Doe",
+          "emailPlaceholder": "john@example.com",
+          "messagePlaceholder": "Tell us about your project..."
+        },
+        "projectTypes": {
+          "select": "Select a project type",
+          "webDevelopment": "Web Development",
+          "mobileApp": "Mobile App",
+          "customSoftware": "Custom Software",
+          "other": "Other"
+        },
+        "submit": "Send Message",
+        "sending": "Sending email...",
+        "success": "Email sent successfully!",
+        "error": "Error sending email: {error}"
+      },
+      "info": {
+        "title": "Let's connect",
+        "subtitle": "We're here to help you transform your ideas into reality. Choose the best way to reach us.",
+        "email": "Email",
+        "emailValue": "hi@devlizer.com",
+        "social": "Social Media",
+        "socialValue": "@devlizer on all platforms",
+        "guarantee": {
+          "title": "Quick Response Guarantee",
+          "description": "We respond to all inquiries within 24 hours. For urgent projects, please mention it in your message and we'll prioritize your request."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your Journey?",
+      "subtitle": "Let's discuss your project and bring your ideas to life",
+      "buttons": {
+        "getStarted": "Get Started Today",
+        "learnMore": "Learn More"
+      }
+    },
+    "stats": {
+      "performance": "Performance",
+      "performanceBadge": "Optimized",
+      "userExperience": "User Experience",
+      "userExperienceBadge": "Premium",
+      "codeQuality": "Code Quality",
+      "codeQualityBadge": "Excellent"
+    }
+  },
+  "AboutPage": {
+    "badge": "About Devlizer",
+    "hero": {
+      "title": "Building the Future of",
+      "titleHighlight": "Digital Experiences",
+      "description": "At Devlizer, we're not just building websites and mobile apps—we're building the future of digital experiences. Whether you're a startup with a bold idea or an established business aiming to level up, we help you bring your vision to life."
+    },
+    "journey": {
+      "title": "Our",
+      "titleHighlight": "Journey",
+      "founded": {
+        "title": "Founded with Passion",
+        "description": "Founded with a passion for innovation and a deep understanding of business technology, Devlizer combines modern development approaches with a strong focus on usability, performance, and business impact.",        "specialization": "We specialize in creating powerful websites and mobile apps, and we're also the home of a growing suite of helpful business software products designed to solve real-world problems."
+      },
+      "checklist": {
+        "0": "Smart, scalable business solutions", 
+        "1": "Beautifully designed experiences", 
+        "2": "Business-focused approach"
+      }
+    },
+    "mission": {
+      "title": "Our",
+      "titleHighlight": "Mission",
+      "intro": "Our mission is simple:",
+      "description": "empower businesses and entrepreneurs with technology that works",
+      "suffix": "—cleanly, reliably, and with purpose."
+    },
+    "values": {
+      "title": "Our",
+      "titleHighlight": "Values",
+      "subtitle": "The principles that guide everything we do",
+      "items": {
+        "innovation": {
+          "title": "Innovation",
+          "description": "We embrace modern approaches and creative solutions to help your business stay competitive."
+        },
+        "collaboration": {
+          "title": "Collaboration",
+          "description": "We work closely with our clients as partners, not just service providers."
+        },
+        "purpose": {
+          "title": "Purpose",
+          "description": "Everything we create serves a clear business objective and helps you reach your goals."
+        },
+        "quality": {
+          "title": "Quality",
+          "description": "We're passionate about delivering exceptional experiences that exceed expectations."
+        }
+      }
+    },
+    "services": {
+      "title": "What We",
+      "titleHighlight": "Do",
+      "subtitle": "From business websites to mobile apps, we create digital solutions that drive results",
+      "items": {
+        "websites": {
+          "title": "Professional Websites",
+          "description": "Complete business websites"
+        },
+        "mobileApps": {
+          "title": "Mobile Apps",
+          "description": "iPhone & Android apps"
+        },
+        "businessSolutions": {
+          "title": "Business Solutions",
+          "description": "Custom software for your needs"
+        }
+      }
+    },
+    "cta": {
+      "title": "Let's Build Something",
+      "titleHighlight": "Extraordinary Together",
+      "subtitle": "Ready to turn your vision into reality? Let's discuss how we can help you achieve your digital goals.",
+      "button": "Start Your Project"
+    },
+    "stats": {
+      "fresh": "New",
+      "freshLabel": "Fresh Perspective",
+      "commitment": "100%",
+      "commitmentLabel": "Commitment",
+      "response": "Fast",
+      "responseLabel": "Response Time",
+      "solutions": "Modern",
+      "solutionsLabel": "Solutions"
+    }
+  },
+  "PortfolioPage": {
+    "hero": {
+      "badge": "Our Work",
+      "title": "Our Latest",
+      "titleHighlight": "Projects",
+      "description": "Discover our portfolio of innovative projects that showcase modern technology and expert craftsmanship."
+    },
+    "stats": {
+      "solutions": "Modern",
+      "solutionsLabel": "Solutions",
+      "satisfaction": "100%",
+      "satisfactionLabel": "Client Satisfaction",
+      "delivery": "Fast",
+      "deliveryLabel": "Delivery"
+    },
+    "categories": {
+      "all": "All Projects",
+      "businessSoftware": "Business Software",
+      "web": "Professional Websites",
+      "mobile": "Mobile Apps",
+      "upcoming": "Upcoming"
+    },
+    "projects": {
+      "widgetEase": {
+        "title": "Widget Ease",
+        "subtitle": "Business Software",
+        "description": "Widget Ease is a business software solution designed to transform how businesses handle customer support. At its core, it's a smart, embeddable chat widget powered by AI, trained to provide human-like, context-aware responses 24/7.",
+        "longDescription": "The platform features a simple onboarding process for clients, allowing them to generate and install their widget in minutes. It also includes an intuitive admin dashboard where businesses can customize the assistant's tone, upload documentation, monitor conversations, and analyze performance metrics.",
+        "status": "Live",
+        "year": "2025",
+        "technologiesTitle": "Technologies Used",
+        "keyFeaturesTitle": "Key Features",
+        "visitLiveButton": "Visit Live Site"
+      },
+      "comingSoon": {
+        "title": "Coming Soon",
+        "subtitle": "Next Project",
+        "description": "Exciting new projects are in development. Stay tuned for innovative solutions that will showcase modern website and mobile app development.",
+        "longDescription": "More amazing projects are being crafted using the latest technologies. Each project demonstrates expertise in creating powerful business solutions.",
+        "status": "In Development",
+        "year": "2025",
+        "comingSoonLabel": "Coming Soon"
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your",
+      "titleHighlight": "Next Project?",
+      "description": "Let's collaborate to bring your ideas to life with modern technology and expert craftsmanship.",
+      "button": "Get Started Today"
+    }
+  },
+  "ServicesPage": {
+    "badge": "Our Services",
+    "hero": {
+      "title": "Building Digital",
+      "titleHighlight": "Excellence",
+      "description": "Professional websites and mobile apps that help your business grow. Building solutions with modern technology and best practices.",
+      "exploreServices": "Explore Services",
+      "getQuote": "Get Quote"
+    },
+    "coreServices": {
+      "title": "Core Services",
+      "subtitle": "Comprehensive business solutions using modern technology to help you succeed.",      "professionalWebsites": {
+        "title": "Professional Websites",
+        "description": "Complete business websites that attract customers and drive sales, built with modern technology for reliable performance.",
+        "features": {
+          "0": "Custom website design and development",
+          "1": "Business-focused backend systems",
+          "2": "Customer inquiry management",
+          "3": "Database and content management",
+          "4": "User authentication and security",
+          "5": "Performance optimization"
+        },
+        "technologies": {
+          "0": "Modern Web Tech",
+          "1": "Content Management", 
+          "2": "Security", 
+          "3": "Performance"
+        }
+      },      "mobileApplications": {
+        "title": "Mobile Applications",
+        "description": "Mobile apps that work on both iPhone and Android, helping you reach customers wherever they are.",
+        "features": {
+          "0": "Mobile app development",
+          "1": "Works on iPhone and Android",
+          "2": "App store optimization",
+          "3": "Push notifications",
+          "4": "App store submission",
+          "5": "Performance optimization"
+        },
+        "technologies": {
+          "0": "Mobile Development",
+          "1": "App Stores",
+          "2": "Notifications",
+          "3": "Performance"
+        }
+      },      "businessSystems": {
+        "title": "Business Systems",
+        "description": "Powerful backend systems that manage your business data, customer information, and automated processes.",
+        "features": {
+          "0": "Business logic and automation",
+          "1": "Customer management systems",
+          "2": "Data management and reporting",
+          "3": "User authentication and security",
+          "4": "Third-party service integration",
+          "5": "Cloud hosting and deployment"
+        },
+        "technologies": {
+          "0": "Business Systems",
+          "1": "Data Management",
+          "2": "Cloud Hosting",
+          "3": "Security"
+        }
+      },      "uxDesign": {
+        "title": "User Experience Design",
+        "description": "Beautiful, easy-to-use interfaces that customers love, focusing on user experience and business results.",
+        "features": {
+          "0": "User interface design",
+          "1": "Responsive design for all devices",
+          "2": "User experience optimization",
+          "3": "Modern design frameworks",
+          "4": "Performance optimization",
+          "5": "Works on all browsers"
+        },
+        "technologies": {
+          "0": "UI Design",
+          "1": "UX Optimization",
+          "2": "Responsive Design",
+          "3": "Modern Frameworks"
+        }
+      }
+    },
+    "specializedServices": {
+      "title": "Specialized Services",
+      "subtitle": "Additional expertise in database design, cloud deployment, and technical architecture.",
+      "dataManagement": {
+        "title": "Data Management",
+        "description": "Secure database systems with optimization and data organization for your business."
+      },
+      "cloudHosting": {
+        "title": "Cloud Hosting",
+        "description": "Reliable cloud hosting with scalable infrastructure and maintenance services."
+      },
+      "systemIntegration": {
+        "title": "System Integration",
+        "description": "Connect your business systems and integrate with third-party services."
+      },
+      "technicalConsulting": {
+        "title": "Technical Consulting",
+        "description": "Strategic planning, system review, and technical problem solving for your business."
+      }
+    },
+    "developmentProcess": {
+      "title": "Our Development Process",
+      "subtitle": "A proven development process that ensures high-quality business solutions from planning to launch.",
+      "steps": {
+        "discovery": {
+          "title": "Discovery",
+          "description": "We start by understanding your business, goals, and challenges through detailed consultation."
+        },
+        "planning": {
+          "title": "Planning",
+          "description": "Strategic planning and technical architecture design tailored to your requirements."
+        },
+        "development": {
+          "title": "Development",
+          "description": "Efficient development process with regular updates and collaborative feedback loops."
+        },
+        "testing": {
+          "title": "Testing",
+          "description": "Comprehensive testing to ensure quality, performance, and security standards."
+        },
+        "deployment": {
+          "title": "Deployment",
+          "description": "Smooth deployment and launch with ongoing monitoring and optimization."
+        },
+        "support": {
+          "title": "Support",
+          "description": "Continuous support, maintenance, and feature enhancements as needed."
+        }
+      }
+    },
+    "technologies": {
+      "title": "Technologies We Use",
+      "subtitle": "We use reliable and proven technologies to build solutions that work perfectly for your business.",
+      "list": {
+        "webApps": "Web Apps",
+        "mobileApps": "Mobile Apps",
+        "websites": "Websites",
+        "databases": "Databases",
+        "cloudHosting": "Cloud Hosting",
+        "security": "Security",
+        "performance": "Performance",
+        "analytics": "Analytics",
+        "ecommerce": "E-commerce",
+        "automation": "Automation",
+        "integrations": "Integrations",
+        "support": "Support"
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "description": "Let's discuss your vision and create a custom solution that drives your business forward. Get in touch for a free consultation.",
+      "startProject": "Start Your Project",
+      "learnMore": "Learn More About Us"
+    }
+  },
+  "ContactPage": {
+    "badge": "Get In Touch",
+    "hero": {
+      "title": "Let's Build Something",
+      "titleHighlight": "Amazing Together",
+      "description": "Ready to transform your ideas into reality? I'm here to help you create exceptional digital experiences that help your business succeed.",
+      "benefits": {
+        "freeConsultation": "Free Consultation",
+        "quickResponse": "Quick Response",
+        "noCommitment": "No Commitment Required"
+      }
+    },
+    "contactInfo": {
+      "email": {
+        "title": "Email",
+        "value": "hi@devlizer.com",
+        "description": "Send us an email anytime"
+      },
+      "location": {
+        "title": "Location",
+        "value": "Remote Worldwide",
+        "description": "Available for global projects"
+      },
+      "responseTime": {
+        "title": "Response Time",
+        "value": "Within 24 hours",
+        "description": "Quick response guaranteed"
+      }
+    },
+    "form": {
+      "title": "Send a Message",
+      "subtitle": "Tell me about your project and let's get started",
+      "fields": {
+        "fullName": "Full Name",
+        "emailAddress": "Email Address",
+        "projectType": "Project Type",
+        "subject": "Subject",
+        "message": "Message",
+        "fullNamePlaceholder": "Your full name",
+        "emailPlaceholder": "your.email@example.com",
+        "subjectPlaceholder": "Brief description of your project",
+        "messagePlaceholder": "Tell me more about your project, goals, timeline, and any specific requirements..."
+      },
+      "projectTypes": {
+        "select": "Select project type",
+        "professionalWebsite": "Professional Website",
+        "mobileApp": "Mobile App",
+        "businessSystems": "Business Systems",
+        "uxDesign": "User Experience Design",
+        "completeDigitalSolution": "Complete Digital Solution",
+        "businessSoftware": "Business Software",
+        "consultation": "Consultation",
+        "other": "Other"
+      },
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": {
+        "title": "Message Sent!",
+        "description": "Thank you for reaching out. I'll get back to you within 24 hours."
+      }
+    },    "whyChoose": {
+      "title": "Why Work With Me?",
+      "benefits": {
+        "0": "Expert in React, Node.js, and React Native",
+        "1": "Fast delivery with quality code",
+        "2": "Clear communication throughout the project",
+        "3": "Ongoing support and maintenance",
+        "4": "Competitive rates and flexible payment"
+      }
+    },
+    "socialLinks": {
+      "title": "Connect With Me",
+      "linkedin": "LinkedIn",
+      "facebook": "Facebook",
+      "twitter": "Twitter"
+    },
+    "faq": {
+      "title": "Frequently Asked",
+      "titleHighlight": "Questions",
+      "subtitle": "Get quick answers to common questions",
+      "questions": {
+        "timeline": {
+          "question": "What's your typical project timeline?",
+          "answer": "Project timelines vary based on scope and complexity. Simple websites take 2-4 weeks, while complex applications can take 2-6 months. I'll provide a detailed timeline after discussing your requirements."
+        },
+        "international": {
+          "question": "Do you work with international clients?",
+          "answer": "Absolutely! I work with clients worldwide and am experienced in remote collaboration. I'm flexible with time zones and communication preferences."
+        },
+        "solutions": {
+          "question": "What kind of solutions do you create?",
+          "answer": "I create modern websites, mobile apps, and business software using the latest technologies. I focus on solutions that are reliable, user-friendly, and help your business grow."
+        },
+        "support": {
+          "question": "Do you provide ongoing support?",
+          "answer": "Yes, I offer maintenance and support packages to keep your application running smoothly. This includes updates, bug fixes, and feature enhancements."
+        }
+      }
+    }
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "cta": "Start Your Project"
+  },
+  "Footer": {
+    "brand": "Devlizer",
+    "tagline": "Building Tomorrow's Digital Experiences",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact",
+    "copyright": "© 2024 Devlizer. All rights reserved.",
+    "madeWith": "Made with ❤️ by Devlizer"
   }
 }

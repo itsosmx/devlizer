@@ -22,8 +22,11 @@ import {
   TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function AboutPage() {
+  const t = useTranslations('AboutPage');
+  
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -62,57 +65,55 @@ export default function AboutPage() {
         ease: "easeInOut",
       },
     },
-  };
-  const values = [
+  };  const values = [
     {
       icon: <Lightbulb className="h-8 w-8" />,
-      title: "Innovation",
-      description: "We embrace modern approaches and creative solutions to help your business stay competitive.",
+      title: t('values.items.innovation.title'),
+      description: t('values.items.innovation.description'),
       color: "text-yellow-500",
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Collaboration",
-      description: "We work closely with our clients as partners, not just service providers.",
+      title: t('values.items.collaboration.title'),
+      description: t('values.items.collaboration.description'),
       color: "text-blue-500",
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: "Purpose",
-      description: "Everything we create serves a clear business objective and helps you reach your goals.",
+      title: t('values.items.purpose.title'),
+      description: t('values.items.purpose.description'),
       color: "text-green-500",
     },
     {
       icon: <Heart className="h-8 w-8" />,
-      title: "Quality",
-      description: "We're passionate about delivering exceptional experiences that exceed expectations.",
+      title: t('values.items.quality.title'),
+      description: t('values.items.quality.description'),
       color: "text-red-500",
     },
-  ];
-  const services = [
+  ];  const services = [
     {
       icon: <Globe className="h-6 w-6" />,
-      title: "Professional Websites",
-      description: "Complete business websites",
+      title: t('services.items.websites.title'),
+      description: t('services.items.websites.description'),
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: <Smartphone className="h-6 w-6" />,
-      title: "Mobile Apps",
-      description: "iPhone & Android apps",
+      title: t('services.items.mobile.title'),
+      description: t('services.items.mobile.description'),
       color: "from-purple-500 to-pink-500",
     },
     {
       icon: <Code className="h-6 w-6" />,
-      title: "Business Solutions",
-      description: "Custom software for your needs",
+      title: t('services.items.business.title'),
+      description: t('services.items.business.description'),
       color: "from-green-500 to-emerald-500",
     },
   ];  const stats = [
-    { number: "New", label: "Fresh Perspective", icon: <CheckCircle className="h-5 w-5" /> },
-    { number: "100%", label: "Commitment", icon: <Star className="h-5 w-5" /> },
-    { number: "Fast", label: "Response Time", icon: <Zap className="h-5 w-5" /> },
-    { number: "Modern", label: "Solutions", icon: <TrendingUp className="h-5 w-5" /> },
+    { number: t('stats.items.fresh.number'), label: t('stats.items.fresh.label'), icon: <CheckCircle className="h-5 w-5" /> },
+    { number: t('stats.items.commitment.number'), label: t('stats.items.commitment.label'), icon: <Star className="h-5 w-5" /> },
+    { number: t('stats.items.response.number'), label: t('stats.items.response.label'), icon: <Zap className="h-5 w-5" /> },
+    { number: t('stats.items.solutions.number'), label: t('stats.items.solutions.label'), icon: <TrendingUp className="h-5 w-5" /> },
   ];
 
   return (
@@ -136,21 +137,19 @@ export default function AboutPage() {
         </div>
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <motion.div initial="initial" animate="animate" variants={stagger} className="space-y-8">
-            <motion.div variants={fadeInUp} className="space-y-4">
+          <motion.div initial="initial" animate="animate" variants={stagger} className="space-y-8">            <motion.div variants={fadeInUp} className="space-y-4">
               <Badge variant="secondary" className="mb-4 text-sm px-4 py-2">
-                About Devlizer
+                {t('hero.badge')}
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Building the Future of
+                {t('hero.title')}
                 <br />
-                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Digital Experiences</span>
+                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">{t('hero.titleHighlight')}</span>
               </h1>
             </motion.div>
 
             <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              At Devlizer, we're not just building websites and mobile apps—we're building the future of digital experiences. Whether you're a startup
-              with a bold idea or an established business aiming to level up, we help you bring your vision to life.
+              {t('hero.description')}
             </motion.p>
 
             <motion.div
@@ -170,7 +169,7 @@ export default function AboutPage() {
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.5 }}
                 />
-                <span className="relative z-10">Our Story</span>
+                <span className="relative z-10">{t('hero.cta')}</span>
               </Link>
             </motion.div>
           </motion.div>
@@ -214,9 +213,8 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Journey</span>
+            className="text-center mb-16">            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              {t('journey.title')} <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t('journey.titleHighlight')}</span>
             </h2>
           </motion.div>
 
@@ -226,28 +224,27 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-semibold">Founded with Passion</h3>                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Founded with a passion for innovation and a deep understanding of business technology, Devlizer combines modern development 
-                  approaches with a strong focus on usability, performance, and business impact.
+              className="space-y-6">              <div className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-semibold">{t('journey.subtitle')}</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {t('journey.description1')}
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  We specialize in creating powerful websites and mobile apps, and we're also the home of a growing suite of helpful business 
-                  software products designed to solve real-world problems.
+                  {t('journey.description2')}
                 </p>
-              </div>              <div className="space-y-3">
+              </div>
+              <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="text-muted-foreground">Smart, scalable business solutions</span>
+                  <span className="text-muted-foreground">{t('journey.features.0')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="text-muted-foreground">Beautifully designed experiences</span>
+                  <span className="text-muted-foreground">{t('journey.features.1')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="text-muted-foreground">Business-focused approach</span>
+                  <span className="text-muted-foreground">{t('journey.features.2')}</span>
                 </div>
               </div>
             </motion.div>
@@ -293,21 +290,18 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold">
-              Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Mission</span>
+            className="space-y-8 mb-16">            <h2 className="text-3xl md:text-5xl font-bold">
+              {t('mission.title')} <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t('mission.titleHighlight')}</span>
             </h2>
             <div className="max-w-4xl mx-auto">
               <Card className="relative overflow-hidden shadow-xl border-0 bg-gradient-to-br from-background to-muted/50">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5" />
-                <CardContent className="p-8 md:p-12 relative z-10">
-                  <motion.p
+                <CardContent className="p-8 md:p-12 relative z-10">                  <motion.p
                     className="text-xl md:text-2xl leading-relaxed font-medium"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}>                    Our mission is simple:{" "}
-                    <span className="text-primary font-semibold">empower businesses and entrepreneurs with technology that works</span>—cleanly, reliably,
-                    and with purpose.
+                    transition={{ delay: 0.3, duration: 0.8 }}>
+                    {t('mission.description')}
                   </motion.p>
                 </CardContent>
               </Card>
@@ -324,11 +318,10 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Values</span>
+            className="text-center mb-16">            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              {t('values.title')} <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t('values.titleHighlight')}</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">The principles that guide everything we do</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t('values.subtitle')}</p>
           </motion.div>
 
           <motion.div
@@ -373,11 +366,10 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              What We <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Do</span>
+            className="text-center mb-16">            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              {t('services.title')} <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t('services.titleHighlight')}</span>
             </h2>            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From business websites to mobile apps, we create digital solutions that drive results
+              {t('services.subtitle')}
             </p>
           </motion.div>
 
@@ -416,14 +408,13 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold">
-              Let's Build Something
+            className="space-y-8">            <h2 className="text-3xl md:text-5xl font-bold">
+              {t('cta.title')}
               <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Extraordinary Together</span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t('cta.titleHighlight')}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Ready to turn your vision into reality? Let's discuss how we can help you achieve your digital goals.
+              {t('cta.description')}
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ transformStyle: "preserve-3d" }}>
               <Link
@@ -437,9 +428,8 @@ export default function AboutPage() {
                   initial={{ x: "-100%" }}
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.6 }}
-                />
-                <span className="relative z-10 flex items-center">
-                  Start Your Project
+                />                <span className="relative z-10 flex items-center">
+                  {t('cta.button')}
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{

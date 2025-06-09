@@ -8,13 +8,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle, CheckCircle, Globe, Calendar, Zap, Heart, Star, icons } from "lucide-react";
+import { Mail, MapPin, Clock, Send, MessageCircle, CheckCircle, Globe, Zap, Heart } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
+  const t = useTranslations("ContactPage");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Helper function to convert translation object to array
+  const getTranslationArray = (key: string): string[] => {
+    const obj = t.raw(key) as Record<string, string>;
+    return Object.keys(obj)
+      .sort((a, b) => parseInt(a) - parseInt(b))
+      .map(k => obj[k]);
+  };
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -67,13 +77,12 @@ export default function ContactPage() {
       setIsSubmitting(false);
     });
   }
-
   const contactInfo = [
     {
       icon: <Mail className="h-6 w-6" />,
-      title: "Email",
-      value: "hi@devlizer.com",
-      description: "Send us an email anytime",
+      title: t("contactInfo.email.title"),
+      value: t("contactInfo.email.value"),
+      description: t("contactInfo.email.description"),
       link: "mailto:hello@devlizer.com",
       color: "from-blue-500 to-cyan-500",
     },
@@ -87,71 +96,65 @@ export default function ContactPage() {
     // },
     {
       icon: <MapPin className="h-6 w-6" />,
-      title: "Location",
-      value: "Remote Worldwide",
-      description: "Available for global projects",
+      title: t("contactInfo.location.title"),
+      value: t("contactInfo.location.value"),
+      description: t("contactInfo.location.description"),
       link: "#",
       color: "from-purple-500 to-pink-500",
     },
     {
       icon: <Clock className="h-6 w-6" />,
-      title: "Response Time",
-      value: "Within 24 hours",
-      description: "Quick response guaranteed",
+      title: t("contactInfo.responseTime.title"),
+      value: t("contactInfo.responseTime.value"),
+      description: t("contactInfo.responseTime.description"),
       link: "#",
       color: "from-orange-500 to-red-500",
     },
-  ];
-  const socialLinks = [
+  ];  const socialLinks = [
     {
       icon: <Globe className="h-5 w-5" />,
-      name: "LinkedIn",
+      name: t("socialLinks.linkedin"),
       href: "https://linkedin.com/company/devlizer",
       color: "hover:text-blue-600",
     },
     {
       icon: <Globe className="h-5 w-5" />,
-      name: "Facebook",
+      name: t("socialLinks.facebook"),
       href: "https://facebook.com/devlizer",
       color: "hover:text-blue-600",
     },
     {
       icon: <Globe className="h-5 w-5" />,
-      name: "Twitter",
+      name: t("socialLinks.twitter"),
       href: "https://twitter.com/devlizer",
       color: "hover:text-blue-400",
     },
   ];
   const projectTypes = [
-    "Professional Website",
-    "Mobile App",
-    "Business Systems",
-    "User Experience Design",
-    "Complete Digital Solution",
-    "Business Software",
-    "Consultation",
-    "Other",
-  ];
-  const faqs = [
+    t("form.projectTypes.professionalWebsite"),
+    t("form.projectTypes.mobileApp"),
+    t("form.projectTypes.businessSystems"),
+    t("form.projectTypes.uxDesign"),
+    t("form.projectTypes.completeDigitalSolution"),
+    t("form.projectTypes.businessSoftware"),
+    t("form.projectTypes.consultation"),
+    t("form.projectTypes.other"),
+  ];  const faqs = [
     {
-      question: "What's your typical project timeline?",
-      answer:
-        "Project timelines vary based on scope and complexity. Simple websites take 2-4 weeks, while complex applications can take 2-6 months. I'll provide a detailed timeline after discussing your requirements.",
+      question: t("faq.questions.timeline.question"),
+      answer: t("faq.questions.timeline.answer"),
     },
     {
-      question: "Do you work with international clients?",
-      answer:
-        "Absolutely! I work with clients worldwide and am experienced in remote collaboration. I'm flexible with time zones and communication preferences.",
+      question: t("faq.questions.international.question"),
+      answer: t("faq.questions.international.answer"),
     },
     {
-      question: "What kind of solutions do you create?",
-      answer:
-        "I create modern websites, mobile apps, and business software using the latest technologies. I focus on solutions that are reliable, user-friendly, and help your business grow.",
+      question: t("faq.questions.solutions.question"),
+      answer: t("faq.questions.solutions.answer"),
     },
     {
-      question: "Do you provide ongoing support?",
-      answer:
-        "Yes, I offer maintenance and support packages to keep your application running smoothly. This includes updates, bug fixes, and feature enhancements.",
+      question: t("faq.questions.support.question"),
+      answer: t("faq.questions.support.answer"),
     },
   ];
 
@@ -173,35 +176,33 @@ export default function ContactPage() {
             style={{ transformStyle: "preserve-3d" }}>
             <Mail className="h-12 w-12" />
           </motion.div>
-        </div>
-
-        <div className="max-w-6xl mx-auto text-center relative z-10">
+        </div>        <div className="max-w-6xl mx-auto text-center relative z-10">
           <motion.div initial="initial" animate="animate" variants={stagger} className="space-y-8">
             <motion.div variants={fadeInUp} className="space-y-4">
               <Badge variant="secondary" className="mb-4 text-sm px-4 py-2">
-                Get In Touch
+                {t("badge")}
               </Badge>
               <h1 className="relative text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Let's Build Something
+                {t("hero.title")}
                 <br />
-                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Amazing Together</span>
+                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">{t("hero.titleHighlight")}</span>
               </h1>
             </motion.div>            <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Ready to transform your ideas into reality? I'm here to help you create exceptional digital experiences that help your business succeed.
+              {t("hero.description")}
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>Free Consultation</span>
+                <span>{t("hero.benefits.freeConsultation")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>Quick Response</span>
+                <span>{t("hero.benefits.quickResponse")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>No Commitment Required</span>
+                <span>{t("hero.benefits.noCommitment")}</span>
               </div>
             </motion.div>
           </motion.div>
@@ -244,11 +245,10 @@ export default function ContactPage() {
             {/* Contact Form */}
             <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <Card className="shadow-2xl border-0 bg-background/95 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <div className="space-y-6">
+                <CardContent className="p-8">                  <div className="space-y-6">
                     <div className="text-center space-y-2">
-                      <h2 className="text-3xl font-bold">Send a Message</h2>
-                      <p className="text-muted-foreground">Tell me about your project and let's get started</p>
+                      <h2 className="text-3xl font-bold">{t("form.title")}</h2>
+                      <p className="text-muted-foreground">{t("form.subtitle")}</p>
                     </div>
 
                     {isSubmitted ? (
@@ -259,29 +259,29 @@ export default function ContactPage() {
                           className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto">
                           <CheckCircle className="h-8 w-8 text-white" />
                         </motion.div>
-                        <h3 className="text-xl font-semibold text-green-600">Message Sent!</h3>
-                        <p className="text-muted-foreground">Thank you for reaching out. I'll get back to you within 24 hours.</p>
+                        <h3 className="text-xl font-semibold text-green-600">{t("form.success.title")}</h3>
+                        <p className="text-muted-foreground">{t("form.success.description")}</p>
                       </motion.div>
                     ) : (
                       <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid md:grid-cols-2 gap-4">
                           <div className="space-y-2">
-                            <Label htmlFor="name">Full Name *</Label>
+                            <Label htmlFor="name">{t("form.fields.fullName")} *</Label>
                             <Input
                               id="name"
                               name="name"
-                              placeholder="Your full name"
+                              placeholder={t("form.fields.fullNamePlaceholder")}
                               required
                               className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
                             />
                           </div>
                           <div className="space-y-2">
-                            <Label htmlFor="email">Email Address *</Label>
+                            <Label htmlFor="email">{t("form.fields.emailAddress")} *</Label>
                             <Input
                               id="email"
                               name="email"
                               type="email"
-                              placeholder="your.email@example.com"
+                              placeholder={t("form.fields.emailPlaceholder")}
                               required
                               className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
                             />
@@ -289,12 +289,12 @@ export default function ContactPage() {
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="projectType">Project Type</Label>
+                          <Label htmlFor="projectType">{t("form.fields.projectType")}</Label>
                           <select
                             id="projectType"
                             name="projectType"
                             className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300">
-                            <option value="">Select project type</option>
+                            <option value="">{t("form.projectTypes.select")}</option>
                             {projectTypes.map((type) => (
                               <option key={type} value={type}>
                                 {type}
@@ -304,22 +304,22 @@ export default function ContactPage() {
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="subject">Subject *</Label>
+                          <Label htmlFor="subject">{t("form.fields.subject")} *</Label>
                           <Input
                             id="subject"
                             name="subject"
-                            placeholder="Brief description of your project"
+                            placeholder={t("form.fields.subjectPlaceholder")}
                             required
                             className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
                           />
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="message">Message *</Label>
+                          <Label htmlFor="message">{t("form.fields.message")} *</Label>
                           <Textarea
                             id="message"
                             name="message"
-                            placeholder="Tell me more about your project, goals, timeline, and any specific requirements..."
+                            placeholder={t("form.fields.messagePlaceholder")}
                             rows={6}
                             required
                             className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
@@ -346,7 +346,7 @@ export default function ContactPage() {
                               ) : (
                                 <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                               )}
-                              {isSubmitting ? "Sending..." : "Send Message"}
+                              {isSubmitting ? t("form.sending") : t("form.submit")}
                             </span>
                           </Button>
                         </motion.div>
@@ -364,21 +364,13 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="space-y-8">
-              {/* Why Choose Section */}
-              <Card className="shadow-lg border-0 bg-background/95 backdrop-blur-sm">
+              {/* Why Choose Section */}              <Card className="shadow-lg border-0 bg-background/95 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-4 flex items-center">
                     <Heart className="mr-2 h-6 w-6 text-red-500" />
-                    Why Work With Me?
-                  </h3>
-                  <div className="space-y-4">
-                    {[
-                      "Expert in React, Node.js, and React Native",
-                      "Fast delivery with quality code",
-                      "Clear communication throughout the project",
-                      "Ongoing support and maintenance",
-                      "Competitive rates and flexible payment",
-                    ].map((benefit, index) => (
+                    {t("whyChoose.title")}
+                  </h3>                  <div className="space-y-4">
+                    {getTranslationArray("whyChoose.benefits").map((benefit, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
@@ -396,7 +388,7 @@ export default function ContactPage() {
               {/* Social Links */}
               <Card className="shadow-lg border-0 bg-background/95 backdrop-blur-sm">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">Connect With Me</h3>
+                  <h3 className="text-xl font-bold mb-4">{t("socialLinks.title")}</h3>
                   <div className="flex flex-wrap gap-4">
                     {socialLinks.map((social, index) => (
                       <motion.div key={index} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -420,17 +412,16 @@ export default function ContactPage() {
 
       {/* FAQ Section */}
       <section className="px-6 py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
+        <div className="max-w-4xl mx-auto">          <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Frequently Asked <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Questions</span>
+              {t("faq.title")} <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t("faq.titleHighlight")}</span>
             </h2>
-            <p className="text-xl text-muted-foreground">Get quick answers to common questions</p>
+            <p className="text-xl text-muted-foreground">{t("faq.subtitle")}</p>
           </motion.div>
 
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-6">

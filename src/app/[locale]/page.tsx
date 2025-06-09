@@ -8,8 +8,11 @@ import { Badge } from "@/components/ui/badge";
 import { Smartphone, Globe, Code, Palette, Zap, Users, ArrowRight, CheckCircle, Star } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export default function HomePage() {
+  const t = useTranslations('HomePage');
+  
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -78,35 +81,35 @@ export default function HomePage() {
   const services = [
     {
       icon: <Globe className="h-8 w-8" />,
-      title: "Professional Websites",
-      description: "Custom websites that look great and work perfectly to grow your business online",
+      title: t('services.items.websites.title'),
+      description: t('services.items.websites.description'),
     },
     {
       icon: <Smartphone className="h-8 w-8" />,
-      title: "Mobile Apps",
-      description: "Mobile apps that work on both iPhone and Android to reach all your customers",
+      title: t('services.items.mobileApps.title'),
+      description: t('services.items.mobileApps.description'),
     },
     {
       icon: <Code className="h-8 w-8" />,
-      title: "Business Systems",
-      description: "Powerful backend systems that manage your data and keep everything running smoothly",
+      title: t('services.items.businessSystems.title'),
+      description: t('services.items.businessSystems.description'),
     },
     {
       icon: <Palette className="h-8 w-8" />,
-      title: "User Experience Design",
-      description: "Beautiful, easy-to-use interfaces that your customers will love",
+      title: t('services.items.uxDesign.title'),
+      description: t('services.items.uxDesign.description'),
     },
   ];
 
   const features = [
-    "Modern Technology",
-    "Fast Performance",
-    "Growing with Your Business",
-    "User-Focused Design",
-    "Works on All Devices",
-    "Strong Security",
-    "Ongoing Support",
-    "Search Engine Friendly",
+    t('features.list.0'),
+    t('features.list.1'),
+    t('features.list.2'),
+    t('features.list.3'),
+    t('features.list.4'),
+    t('features.list.5'),
+    t('features.list.6'),
+    t('features.list.7'),
   ];
 
   function handleSendEmail(event: FormEvent<HTMLFormElement>): void {
@@ -188,7 +191,7 @@ export default function HomePage() {
                   <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }}>
                     <Star className="h-4 w-4 mr-1" />
                   </motion.div>
-                  Welcome to Devlizer
+                  {t('badge.welcome')}
                 </Badge>
               </motion.div>
             </motion.div>
@@ -206,7 +209,7 @@ export default function HomePage() {
                   scale: 1.02,
                 }}
                 style={{ transformStyle: "preserve-3d" }}>
-                Building Tomorrow's
+                {t('hero.title')}
                 <br />
                 <motion.span
                   className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent relative"
@@ -221,7 +224,7 @@ export default function HomePage() {
                   style={{
                     backgroundSize: "200% 200%",
                   }}>
-                  Digital Experiences
+                  {t('hero.titleHighlight')}
                   <motion.div
                     className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 blur-xl rounded-lg"
                     animate={{
@@ -249,8 +252,7 @@ export default function HomePage() {
                 rotateX: 2,
                 scale: 1.01,
               }}>
-              We create powerful websites and mobile apps that help your business grow. From professional websites that attract customers to mobile
-              apps that work on all devices, we deliver solutions that drive your business forward.
+              {t('hero.description')}
             </motion.p>
 
             <motion.div
@@ -279,7 +281,7 @@ export default function HomePage() {
                     transition={{ duration: 0.6 }}
                   />
                   <span className="relative z-10 flex items-center">
-                    Start Your Project
+                    {t('hero.cta')}
                     <motion.div animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </motion.div>
@@ -356,9 +358,9 @@ export default function HomePage() {
                 rotateX: 5,
                 scale: 1.02,
               }}>
-              What We{" "}
+              {t('services.title')}{" "}
               <span className="text-primary relative">
-                Create
+                {t('services.titleHighlight')}
                 <motion.div
                   className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 blur-lg rounded"
                   animate={{
@@ -377,7 +379,7 @@ export default function HomePage() {
               variants={fadeInUp}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
               style={{ textShadow: "0 5px 15px rgba(0,0,0,0.2)" }}>
-              Comprehensive digital solutions tailored to your needs
+              {t('services.subtitle')}
             </motion.p>
           </motion.div>
 
@@ -539,14 +541,14 @@ export default function HomePage() {
                   textShadow: "0 10px 20px rgba(0,0,0,0.3)",
                 }}
                 style={{ transformStyle: "preserve-3d" }}>
-                Why Choose <span className="text-primary">Devlizer</span>?
+                {t('features.title')} <span className="text-primary">{t('features.titleHighlight')}</span>?
               </motion.h2>
               <motion.p
                 className="text-xl text-muted-foreground mb-8"
                 initial={{ opacity: 0, z: -50 }}
                 whileInView={{ opacity: 1, z: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}>
-                We combine creativity with technical expertise to deliver full-stack solutions that exceed expectations.
+                {t('features.subtitle')}
               </motion.p>
 
               <motion.div
@@ -739,7 +741,7 @@ export default function HomePage() {
                 textShadow: "0 15px 30px rgba(0,0,0,0.3)",
               }}
               style={{ transformStyle: "preserve-3d" }}>
-              About <span className="text-primary">Devlizer</span>
+              {t('about.title')} <span className="text-primary">{t('about.titleHighlight')}</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
@@ -747,7 +749,7 @@ export default function HomePage() {
               initial={{ opacity: 0, z: -50 }}
               whileInView={{ opacity: 1, z: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}>
-              We are passionate about creating digital solutions that help businesses grow, dedicated to transforming your ideas into reality
+              {t('about.subtitle')}
             </motion.p>
           </motion.div>
 
@@ -761,23 +763,21 @@ export default function HomePage() {
               <div className="space-y-6">
                 {[
                   {
-                    title: "Our Mission",
-                    content:
-                      "To deliver exceptional websites and mobile applications that help businesses succeed. We focus on creating solutions that grow with your business and delight your customers.",
+                    title: t('about.mission.title'),
+                    content: t('about.mission.content'),
                   },
                   {
-                    title: "Our Vision",
-                    content:
-                      "To be the trusted partner for businesses seeking powerful digital solutions, known for quality results and commitment to delivering applications that drive real business growth.",
+                    title: t('about.vision.title'),
+                    content: t('about.vision.content'),
                   },
                   {
-                    title: "Our Values",
+                    title: t('about.values.title'),
                     content: null,
                     values: [
-                      "Expert knowledge with modern technology",
-                      "Quality results and best practices",
-                      "Client success and satisfaction",
-                      "Continuous learning and innovation",
+                      t('about.values.list.0'),
+                      t('about.values.list.1'),
+                      t('about.values.list.2'),
+                      t('about.values.list.3'),
                     ],
                   },
                 ].map((section, index) => (
@@ -841,23 +841,28 @@ export default function HomePage() {
                 {[
                   {
                     icon: Code,
-                    title: "Technology Expert",
-                    desc: "Specialized in modern web and mobile development technologies",
+                    title: t('about.cards.expert.title'),
+                    desc: t('about.cards.expert.description'),
                     color: "from-primary to-accent",
                   },
                   {
                     icon: Zap,
-                    title: "Fast Delivery",
-                    desc: "Efficient development process for timely project completion",
+                    title: t('about.cards.delivery.title'),
+                    desc: t('about.cards.delivery.description'),
                     color: "from-accent to-primary",
                   },
                   {
                     icon: Users,
-                    title: "Collaborative",
-                    desc: "Working closely with you throughout the development process",
+                    title: t('about.cards.collaborative.title'),
+                    desc: t('about.cards.collaborative.description'),
                     color: "from-primary to-accent",
                   },
-                  { icon: CheckCircle, title: "Reliable", desc: "Dependable solutions you can trust and scale", color: "from-accent to-primary" },
+                  { 
+                    icon: CheckCircle, 
+                    title: t('about.cards.reliable.title'), 
+                    desc: t('about.cards.reliable.description'), 
+                    color: "from-accent to-primary" 
+                  },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -984,7 +989,7 @@ export default function HomePage() {
                 textShadow: "0 15px 30px rgba(0,0,0,0.3)",
               }}
               style={{ transformStyle: "preserve-3d" }}>
-              Get In <span className="text-primary">Touch</span>
+              Get In <span className="text-primary">{t('contact.titleHighlight')}</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
@@ -1030,21 +1035,21 @@ export default function HomePage() {
                   />
 
                   <motion.h3 className="text-2xl font-semibold mb-6 relative z-10" whileHover={{ scale: 1.05 }}>
-                    Send us a message
+                    {t('contact.form.title')}
                   </motion.h3>
 
                   <form onSubmit={handleSendEmail} className="space-y-6 relative z-10">
                     <div className="grid md:grid-cols-2 gap-4">
                       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}>
                         <label htmlFor="name" className="block text-sm font-medium mb-2">
-                          Full Name
+                          {t('contact.form.fields.name')}
                         </label>
                         <motion.input
                           id="name"
                           name="name"
                           type="text"
                           className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                          placeholder="John Doe"
+                          placeholder={t('contact.form.fields.namePlaceholder')}
                           whileFocus={{
                             scale: 1.02,
                             boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
@@ -1053,14 +1058,14 @@ export default function HomePage() {
                       </motion.div>
                       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}>
                         <label htmlFor="email" className="block text-sm font-medium mb-2">
-                          Email
+                          {t('contact.form.fields.email')}
                         </label>
                         <motion.input
                           id="email"
                           type="email"
                           name="email"
                           className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                          placeholder="john@example.com"
+                          placeholder={t('contact.form.fields.emailPlaceholder')}
                           whileFocus={{
                             scale: 1.02,
                             boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
@@ -1071,7 +1076,7 @@ export default function HomePage() {
 
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }}>
                       <label htmlFor="project-type" className="block text-sm font-medium mb-2">
-                        Project Type
+                        {t('contact.form.fields.projectType')}
                       </label>
                       <motion.select
                         name="projectType"
@@ -1081,24 +1086,24 @@ export default function HomePage() {
                           scale: 1.02,
                           boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
                         }}>
-                        <option>Select a project type</option>
-                        <option>Web Development</option>
-                        <option>Mobile App</option>
-                        <option>Custom Software</option>
-                        <option>Other</option>
+                        <option>{t('contact.form.projectTypes.select')}</option>
+                        <option>{t('contact.form.projectTypes.webDevelopment')}</option>
+                        <option>{t('contact.form.projectTypes.mobileApp')}</option>
+                        <option>{t('contact.form.projectTypes.customSoftware')}</option>
+                        <option>{t('contact.form.projectTypes.other')}</option>
                       </motion.select>
                     </motion.div>
 
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }}>
                       <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        Message
+                        {t('contact.form.fields.message')}
                       </label>
                       <motion.textarea
                         id="message"
                         name="message"
                         rows={4}
                         className="w-full px-4 py-3 bg-muted border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
-                        placeholder="Tell us about your project..."
+                        placeholder={t('contact.form.fields.messagePlaceholder')}
                         whileFocus={{
                           scale: 1.02,
                           boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
@@ -1123,7 +1128,7 @@ export default function HomePage() {
                           transition={{ duration: 0.6 }}
                         />
                         <span className="relative z-10 flex items-center justify-center">
-                          Send Message
+                          {t('contact.form.submit')}
                           <ArrowRight className="ml-2 h-5 w-5" />
                         </span>
                       </Button>
@@ -1142,22 +1147,22 @@ export default function HomePage() {
               style={{ transformStyle: "preserve-3d" }}>
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                 <motion.h3 className="text-2xl font-semibold mb-6" whileHover={{ scale: 1.05 }}>
-                  Let's connect
+                  {t('contact.info.title')}
                 </motion.h3>
                 <motion.p
                   className="text-lg text-muted-foreground mb-8"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}>
-                  We're here to help you transform your ideas into reality. Choose the best way to reach us.
+                  {t('contact.info.subtitle')}
                 </motion.p>
               </motion.div>
 
               <div className="space-y-6">
                 {[
-                  { icon: Globe, title: "Email", content: "hi@devlizer.com", color: "from-primary to-accent" },
+                  { icon: Globe, title: t('contact.info.email'), content: t('contact.info.emailValue'), color: "from-primary to-accent" },
                   // { icon: Smartphone, title: "Phone", content: "+1 (555) 123-4567", color: "from-accent to-primary" },
-                  { icon: Users, title: "Social Media", content: "@devlizer on all platforms", color: "from-primary to-accent" },
+                  { icon: Users, title: t('contact.info.social'), content: t('contact.info.socialValue'), color: "from-primary to-accent" },
                 ].map((contact, index) => (
                   <motion.div
                     key={index}
@@ -1229,15 +1234,14 @@ export default function HomePage() {
 
                 <div className="relative z-10">
                   <motion.h4 className="font-semibold mb-3" whileHover={{ scale: 1.05 }}>
-                    Quick Response Guarantee
+                    {t('contact.info.guarantee.title')}
                   </motion.h4>
                   <motion.p
                     className="text-sm text-muted-foreground"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}>
-                    We respond to all inquiries within 24 hours. For urgent projects, please mention it in your message and we'll prioritize your
-                    request.
+                    {t('contact.info.guarantee.description')}
                   </motion.p>
                 </div>
               </motion.div>
@@ -1309,7 +1313,7 @@ export default function HomePage() {
                 textShadow: "0 20px 40px rgba(0,0,0,0.5)",
               }}
               style={{ transformStyle: "preserve-3d" }}>
-              Ready to Start Your Journey?
+              {t('cta.title')}
             </motion.h2>
 
             <motion.p
@@ -1318,7 +1322,7 @@ export default function HomePage() {
               initial={{ opacity: 0, z: -30 }}
               whileInView={{ opacity: 0.9, z: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}>
-              Let's discuss your project and bring your ideas to life
+              {t('cta.subtitle')}
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center" style={{ perspective: "1000px" }}>
@@ -1344,7 +1348,7 @@ export default function HomePage() {
                     transition={{ duration: 0.6 }}
                   />
                   <span className="relative z-10 flex items-center">
-                    Get In Touch
+                    {t('contact.info.title')}
                     <motion.div
                       animate={{ x: [0, 5, 0] }}
                       transition={{

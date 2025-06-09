@@ -4,8 +4,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { buttonVariants } from "../ui/button";
 import AppLogo from "./app-logo";
+import { useTranslations } from "next-intl";
 
 export default function Header() {
+  const t = useTranslations("Navigation");
+
   return (
     <motion.header
       className="px-6 py-4 border-b bg-background/80 backdrop-blur-md sticky top-0 z-50 shadow-lg"
@@ -26,29 +29,29 @@ export default function Header() {
           animate="animate"
           style={{ transformStyle: "preserve-3d" }}>
           {["Services", "About", "Contact", "Portfolio"].map((item, index) => (
-            <motion.a
-              key={item}
-              href={`/${item.toLowerCase()}`}
-              className="text-muted-foreground hover:text-primary transition-all duration-300 relative"
-              variants={fadeInUp}
-              whileHover={{
-                scale: 1.1,
-                rotateX: 10,
-                z: 50,
-              }}
-              style={{
-                transformStyle: "preserve-3d",
-                textShadow: "0 0 10px rgba(0,0,0,0.3)",
-              }}
-              whileTap={{ scale: 0.95 }}>
-              <span className="relative z-10">{item}</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur-sm"
-                initial={{ opacity: 0, scale: 0 }}
-                whileHover={{ opacity: 1, scale: 1.2 }}
-                transition={{ duration: 0.2 }}
-              />
-            </motion.a>
+            <Link key={item} href={`/${item.toLowerCase()}`}>
+              <motion.span
+                className="text-muted-foreground hover:text-primary transition-all duration-300 relative"
+                variants={fadeInUp}
+                whileHover={{
+                  scale: 1.1,
+                  rotateX: 10,
+                  z: 50,
+                }}
+                style={{
+                  transformStyle: "preserve-3d",
+                  textShadow: "0 0 10px rgba(0,0,0,0.3)",
+                }}
+                whileTap={{ scale: 0.95 }}>
+                <span className="relative z-10">{t(item.toLowerCase())}</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur-sm"
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileHover={{ opacity: 1, scale: 1.2 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </motion.span>
+            </Link>
           ))}
         </motion.nav>
 
@@ -72,7 +75,7 @@ export default function Header() {
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.5 }}
             />
-            <span className="relative z-10">Get In Touch</span>
+            <span className="relative z-10">{t("cta")}</span>
           </Link>
         </motion.div>
       </div>

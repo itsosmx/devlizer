@@ -3,8 +3,10 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 export default function AppLogo({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) {
+  const t = useTranslations("Brand");
   return (
     <motion.h1
       className={cn("flex items-center space-x-2 text-4xl font-bold", className)}
@@ -14,7 +16,7 @@ export default function AppLogo({ className, ...props }: React.HTMLAttributes<HT
         rotateX: 5,
       }}
       style={{ transformStyle: "preserve-3d" }}>
-      <Link href="/">Devlizer</Link>
+      <Link href="/">{t("name")}</Link>
     </motion.h1>
   );
 }

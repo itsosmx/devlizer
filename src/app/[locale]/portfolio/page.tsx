@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Globe, Code, Zap, Star, ArrowRight, Rocket } from "lucide-react";
+import { ExternalLink, Globe, Code, Zap, Star, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function PortfolioPage() {
+  const t = useTranslations("PortfolioPage");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const fadeInUp = {
@@ -102,18 +104,18 @@ export default function PortfolioPage() {
     },
   ];
   const categories = [
-    { id: "all", label: "All Projects", count: projects.length },
-    { id: "business-software", label: "Business Software", count: projects.filter((p) => p.category === "business-software").length },
-    { id: "web", label: "Professional Websites", count: projects.filter((p) => p.category === "web").length },
-    { id: "mobile", label: "Mobile Apps", count: projects.filter((p) => p.category === "mobile").length },
-    { id: "upcoming", label: "Upcoming", count: projects.filter((p) => p.category === "upcoming").length },
+    { id: "all", label: t("categories.all"), count: projects.length },
+    { id: "business-software", label: t("categories.businessSoftware"), count: projects.filter((p) => p.category === "business-software").length },
+    { id: "web", label: t("categories.web"), count: projects.filter((p) => p.category === "web").length },
+    { id: "mobile", label: t("categories.mobile"), count: projects.filter((p) => p.category === "mobile").length },
+    { id: "upcoming", label: t("categories.upcoming"), count: projects.filter((p) => p.category === "upcoming").length },
   ];
 
   const filteredProjects = selectedCategory === "all" ? projects : projects.filter((project) => project.category === selectedCategory);
   const stats = [
-    { number: "Modern", label: "Solutions", icon: <Code className="h-5 w-5" /> },
-    { number: "100%", label: "Client Satisfaction", icon: <Star className="h-5 w-5" /> },
-    { number: "Fast", label: "Delivery", icon: <Zap className="h-5 w-5" /> },
+    { number: t("stats.solutions"), label: t("stats.solutionsLabel"), icon: <Code className="h-5 w-5" /> },
+    { number: t("stats.satisfaction"), label: t("stats.satisfactionLabel"), icon: <Star className="h-5 w-5" /> },
+    { number: t("stats.delivery"), label: t("stats.deliveryLabel"), icon: <Zap className="h-5 w-5" /> },
   ];
 
   return (
@@ -140,17 +142,16 @@ export default function PortfolioPage() {
           <motion.div initial="initial" animate="animate" variants={stagger} className="space-y-8">
             <motion.div variants={fadeInUp} className="space-y-4">
               <Badge variant="secondary" className="mb-4 text-sm px-4 py-2">
-                My Portfolio
+                {t("hero.badge")}
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Crafting Digital
+                {t("hero.title")}
                 <br />
-                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Experiences</span>
+                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">{t("hero.titleHighlight")}</span>
               </h1>
             </motion.div>{" "}
             <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Showcasing innovative business solutions that help companies grow. Each project represents a commitment to excellence, modern design,
-              and results that matter.
+              {t("hero.description")}
             </motion.p>
             {/* Stats */}
             <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -255,10 +256,10 @@ export default function PortfolioPage() {
 
                               <h2 className="text-3xl md:text-4xl font-bold">{project.title}</h2>
                               <p className="text-lg text-muted-foreground leading-relaxed">{project.longDescription}</p>
-                            </div>
+                            </div>{" "}
                             {/* Technologies */}
                             <div className="space-y-3">
-                              <h4 className="font-semibold">Technologies Used</h4>
+                              <h4 className="font-semibold">{t("projects.widgetEase.technologiesTitle")}</h4>
                               <div className="flex flex-wrap gap-2">
                                 {project.technologies.map((tech) => (
                                   <Badge key={tech} variant="outline" className="bg-muted/50">
@@ -266,10 +267,10 @@ export default function PortfolioPage() {
                                   </Badge>
                                 ))}
                               </div>
-                            </div>
+                            </div>{" "}
                             {/* Features */}
                             <div className="space-y-3">
-                              <h4 className="font-semibold">Key Features</h4>
+                              <h4 className="font-semibold">{t("projects.widgetEase.keyFeaturesTitle")}</h4>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                 {project.features.map((feature, idx) => (
                                   <div key={idx} className="flex items-center space-x-2">
@@ -279,15 +280,16 @@ export default function PortfolioPage() {
                                 ))}{" "}
                               </div>
                             </div>
-
                             {/* Action Buttons */}
                             <div className="flex flex-wrap gap-4">
                               {project.links.live && (
                                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                   <Button asChild size="lg" className="group">
                                     <Link href={project.links.live} target="_blank" rel="noopener noreferrer">
-                                      <ExternalLink className="mr-2 h-4 w-4 group-hover:rotate-45 transition-transform" />
-                                      Visit Live Site
+                                      <span className="flex items-center">
+                                        <ExternalLink className="mr-2 h-4 w-4 group-hover:rotate-45 transition-transform" />
+                                        {t("projects.widgetEase.visitLiveButton")}
+                                      </span>
                                     </Link>
                                   </Button>
                                 </motion.div>
@@ -322,9 +324,10 @@ export default function PortfolioPage() {
                         </div>
 
                         <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 rounded-lg flex items-center justify-center">
+                          {" "}
                           <div className="text-center space-y-2">
                             <Code className="h-12 w-12 text-muted-foreground mx-auto" />
-                            <p className="text-sm text-muted-foreground">Coming Soon</p>
+                            <p className="text-sm text-muted-foreground">{t("projects.comingSoon.comingSoonLabel")}</p>
                           </div>
                         </div>
                       </div>
@@ -346,19 +349,18 @@ export default function PortfolioPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="space-y-8">
+            {" "}
             <h2 className="text-3xl md:text-5xl font-bold">
-              Ready to Start Your
+              {t("cta.title")}
               <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Next Project?</span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{t("cta.titleHighlight")}</span>
             </h2>{" "}
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Let's collaborate to bring your ideas to life with modern technology and expert craftsmanship.
-            </p>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("cta.description")}</p>{" "}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ transformStyle: "preserve-3d" }}>
               <Button asChild size="lg" className="text-lg px-8 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300">
                 <Link href="/contact">
                   <span className="flex items-center">
-                    Get Started Today
+                    {t("cta.button")}
                     <motion.div
                       animate={{ x: [0, 5, 0] }}
                       transition={{

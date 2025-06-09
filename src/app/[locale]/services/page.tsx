@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Globe,
   Smartphone,
@@ -13,27 +13,29 @@ import {
   Database,
   Cloud,
   Shield,
-  Zap,
   CheckCircle,
   ArrowRight,
   Settings,
-  Users,
   Lightbulb,
   Target,
-  Star,
-  Timer,
-  Cpu,
-  Monitor,
-  Layers,
   Rocket,
   Heart,
   MessageSquare,
-  Award,
-  TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function ServicesPage() {
+  const t = useTranslations("ServicesPage");
+
+  // Helper function to convert translation object to array
+  const getTranslationArray = (key: string): string[] => {
+    const obj = t.raw(key) as Record<string, string>;
+    return Object.keys(obj)
+      .sort((a, b) => parseInt(a) - parseInt(b))
+      .map(k => obj[k]);
+  };
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -72,189 +74,117 @@ export default function ServicesPage() {
         ease: "easeInOut",
       },
     },
-  };
-  const mainServices = [
+  };  const mainServices = [
     {
       icon: <Globe className="h-12 w-12" />,
-      title: "Professional Websites",
-      description: "Complete business websites that attract customers and drive sales, built with modern technology for reliable performance.",
-      features: [
-        "Custom website design and development",
-        "Business-focused backend systems",
-        "Customer inquiry management",
-        "Database and content management",
-        "User authentication and security",
-        "Performance optimization",
-      ],
+      title: t("coreServices.professionalWebsites.title"),
+      description: t("coreServices.professionalWebsites.description"),
+      features: getTranslationArray("coreServices.professionalWebsites.features"),
       gradient: "from-blue-500 via-blue-600 to-cyan-500",
-      technologies: ["Modern Web Tech", "Content Management", "Security", "Performance"],
+      technologies: getTranslationArray("coreServices.professionalWebsites.technologies"),
     },
     {
       icon: <Smartphone className="h-12 w-12" />,
-      title: "Mobile Applications",
-      description: "Mobile apps that work on both iPhone and Android, helping you reach customers wherever they are.",
-      features: [
-        "Mobile app development",
-        "Works on iPhone and Android",
-        "App store optimization",
-        "Push notifications",
-        "App store submission",
-        "Performance optimization",
-      ],
+      title: t("coreServices.mobileApplications.title"),
+      description: t("coreServices.mobileApplications.description"),
+      features: getTranslationArray("coreServices.mobileApplications.features"),
       gradient: "from-purple-500 via-purple-600 to-pink-500",
-      technologies: ["Mobile Development", "App Stores", "Notifications", "Performance"],
+      technologies: getTranslationArray("coreServices.mobileApplications.technologies"),
     },
     {
       icon: <Code className="h-12 w-12" />,
-      title: "Business Systems",
-      description: "Powerful backend systems that manage your business data, customer information, and automated processes.",
-      features: [
-        "Business logic and automation",
-        "Customer management systems",
-        "Data management and reporting",
-        "User authentication and security",
-        "Third-party service integration",
-        "Cloud hosting and deployment",
-      ],
+      title: t("coreServices.businessSystems.title"),
+      description: t("coreServices.businessSystems.description"),
+      features: getTranslationArray("coreServices.businessSystems.features"),
       gradient: "from-green-500 via-green-600 to-emerald-500",
-      technologies: ["Business Systems", "Data Management", "Cloud Hosting", "Security"],
+      technologies: getTranslationArray("coreServices.businessSystems.technologies"),
     },
     {
       icon: <Palette className="h-12 w-12" />,
-      title: "User Experience Design",
-      description: "Beautiful, easy-to-use interfaces that customers love, focusing on user experience and business results.",
-      features: [
-        "User interface design",
-        "Responsive design for all devices",
-        "User experience optimization",
-        "Modern design frameworks",
-        "Performance optimization",
-        "Works on all browsers",
-      ],
+      title: t("coreServices.uxDesign.title"),
+      description: t("coreServices.uxDesign.description"),
+      features: getTranslationArray("coreServices.uxDesign.features"),
       gradient: "from-orange-500 via-orange-600 to-red-500",
-      technologies: ["UI Design", "UX Optimization", "Responsive Design", "Modern Frameworks"],
+      technologies: getTranslationArray("coreServices.uxDesign.technologies"),
     },
   ];
   const additionalServices = [
     {
       icon: <Database className="h-8 w-8" />,
-      title: "Data Management",
-      description: "Secure database systems with optimization and data organization for your business.",
+      title: t("specializedServices.dataManagement.title"),
+      description: t("specializedServices.dataManagement.description"),
       color: "text-blue-500",
     },
     {
       icon: <Cloud className="h-8 w-8" />,
-      title: "Cloud Hosting",
-      description: "Reliable cloud hosting with scalable infrastructure and maintenance services.",
+      title: t("specializedServices.cloudHosting.title"),
+      description: t("specializedServices.cloudHosting.description"),
       color: "text-green-500",
     },
     {
       icon: <Shield className="h-8 w-8" />,
-      title: "System Integration",
-      description: "Connect your business systems and integrate with third-party services.",
+      title: t("specializedServices.systemIntegration.title"),
+      description: t("specializedServices.systemIntegration.description"),
       color: "text-purple-500",
     },
     {
       icon: <Settings className="h-8 w-8" />,
-      title: "Technical Consulting",
-      description: "Strategic planning, system review, and technical problem solving for your business.",
+      title: t("specializedServices.technicalConsulting.title"),
+      description: t("specializedServices.technicalConsulting.description"),
       color: "text-orange-500",
     },
   ];
-
   const processSteps = [
     {
       number: "01",
-      title: "Discovery",
-      description: "We start by understanding your business, goals, and challenges through detailed consultation.",
+      title: t("developmentProcess.steps.discovery.title"),
+      description: t("developmentProcess.steps.discovery.description"),
       icon: <Lightbulb className="h-6 w-6" />,
     },
     {
       number: "02",
-      title: "Planning",
-      description: "Strategic planning and technical architecture design tailored to your requirements.",
+      title: t("developmentProcess.steps.planning.title"),
+      description: t("developmentProcess.steps.planning.description"),
       icon: <Target className="h-6 w-6" />,
     },
     {
       number: "03",
-      title: "Development",
-      description: "Efficient development process with regular updates and collaborative feedback loops.",
+      title: t("developmentProcess.steps.development.title"),
+      description: t("developmentProcess.steps.development.description"),
       icon: <Code className="h-6 w-6" />,
     },
     {
       number: "04",
-      title: "Testing",
-      description: "Comprehensive testing to ensure quality, performance, and security standards.",
+      title: t("developmentProcess.steps.testing.title"),
+      description: t("developmentProcess.steps.testing.description"),
       icon: <CheckCircle className="h-6 w-6" />,
     },
     {
       number: "05",
-      title: "Deployment",
-      description: "Smooth deployment and launch with ongoing monitoring and optimization.",
+      title: t("developmentProcess.steps.deployment.title"),
+      description: t("developmentProcess.steps.deployment.description"),
       icon: <Rocket className="h-6 w-6" />,
     },
     {
       number: "06",
-      title: "Support",
-      description: "Continuous support, maintenance, and feature enhancements as needed.",
+      title: t("developmentProcess.steps.support.title"),
+      description: t("developmentProcess.steps.support.description"),
       icon: <Heart className="h-6 w-6" />,
     },
   ];
-
-  const pricingTiers = [
-    {
-      name: "Starter",
-      price: "Custom",
-      description: "Perfect for small businesses and startups",
-      features: ["Basic web application", "Responsive design", "SEO optimization", "3 months support", "Basic analytics"],
-      gradient: "from-gray-400 to-gray-600",
-      popular: false,
-    },
-    {
-      name: "Professional",
-      price: "Custom",
-      description: "Ideal for growing businesses",
-      features: [
-        "Advanced web/mobile app",
-        "Custom integrations",
-        "Advanced analytics",
-        "6 months support",
-        "Performance optimization",
-        "Security implementation",
-      ],
-      gradient: "from-blue-500 to-purple-600",
-      popular: true,
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      description: "Complete solutions for large organizations",
-      features: [
-        "Full-scale applications",
-        "Custom architecture",
-        "Enterprise integrations",
-        "12 months support",
-        "Dedicated team",
-        "Priority support",
-        "Advanced security",
-      ],
-      gradient: "from-purple-600 to-pink-600",
-      popular: false,
-    },
-  ];
   const technologies = [
-    { name: "Web Apps", icon: "🌐" },
-    { name: "Mobile Apps", icon: "📱" },
-    { name: "Websites", icon: "💻" },
-    { name: "Databases", icon: "🗄️" },
-    { name: "Cloud Hosting", icon: "☁️" },
-    { name: "Security", icon: "🔒" },
-    { name: "Performance", icon: "⚡" },
-    { name: "Analytics", icon: "📊" },
-    { name: "E-commerce", icon: "🛒" },
-    { name: "Automation", icon: "🤖" },
-    { name: "Integrations", icon: "🔗" },
-    { name: "Support", icon: "🛠️" },
+    { name: t("technologies.list.webApps"), icon: "🌐" },
+    { name: t("technologies.list.mobileApps"), icon: "📱" },
+    { name: t("technologies.list.websites"), icon: "💻" },
+    { name: t("technologies.list.databases"), icon: "🗄️" },
+    { name: t("technologies.list.cloudHosting"), icon: "☁️" },
+    { name: t("technologies.list.security"), icon: "🔒" },
+    { name: t("technologies.list.performance"), icon: "⚡" },
+    { name: t("technologies.list.analytics"), icon: "📊" },
+    { name: t("technologies.list.ecommerce"), icon: "🛒" },
+    { name: t("technologies.list.automation"), icon: "🤖" },
+    { name: t("technologies.list.integrations"), icon: "🔗" },
+    { name: t("technologies.list.support"), icon: "🛠️" },
   ];
 
   return (
@@ -275,31 +205,28 @@ export default function ServicesPage() {
             style={{ transformStyle: "preserve-3d" }}>
             <Code className="h-12 w-12" />
           </motion.div>
-        </div>
-
+        </div>{" "}
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <motion.div initial="initial" animate="animate" variants={stagger} className="space-y-8">
             <motion.div variants={fadeInUp} className="space-y-4">
               <Badge variant="secondary" className="mb-4 text-sm px-4 py-2">
-                Our Services
+                {t("badge")}
               </Badge>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent leading-tight">
-                Building Digital
+                {t("hero.title")}
                 <br />
-                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Excellence</span>
+                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">{t("hero.titleHighlight")}</span>
               </h1>{" "}
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Professional websites and mobile apps that help your business grow. Building solutions with modern technology and best practices.
-              </p>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{t("hero.description")}</p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
               <Link href="#services" className={buttonVariants({ size: "lg" })}>
-                Explore Services
+                {t("hero.exploreServices")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <Link href="/contact" className={buttonVariants({ variant: "secondary", size: "lg" })}>
-                Get Quote
+                {t("hero.getQuote")}
                 <MessageSquare className="ml-2 h-4 w-4" />
               </Link>
             </motion.div>
@@ -310,12 +237,13 @@ export default function ServicesPage() {
       {/* Main Services Section */}
       <section id="services" className="px-6 py-20 relative">
         <div className="max-w-7xl mx-auto">
+          {" "}
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-16">
             <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Core Services</h2>{" "}
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Comprehensive business solutions using modern technology to help you succeed.
-              </p>
+              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                {t("coreServices.title")}
+              </h2>{" "}
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("coreServices.subtitle")}</p>
             </motion.div>
 
             <motion.div variants={stagger} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -361,13 +289,12 @@ export default function ServicesPage() {
       {/* Additional Services */}
       <section className="px-6 py-20 bg-muted/30 relative">
         <div className="max-w-6xl mx-auto">
+          {" "}
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-12">
             {" "}
             <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Specialized Services</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Additional expertise in database design, cloud deployment, and technical architecture.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold">{t("specializedServices.title")}</h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("specializedServices.subtitle")}</p>
             </motion.div>
             <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {additionalServices.map((service, index) => (
@@ -387,12 +314,11 @@ export default function ServicesPage() {
       {/* Development Process */}
       <section className="px-6 py-20 relative">
         <div className="max-w-6xl mx-auto">
+          {" "}
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-16">
             <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Our Development Process</h2>{" "}
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                A proven development process that ensures high-quality business solutions from planning to launch.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold">{t("developmentProcess.title")}</h2>{" "}
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("developmentProcess.subtitle")}</p>
             </motion.div>
 
             <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -469,12 +395,11 @@ export default function ServicesPage() {
       {/* Technology Stack */}
       <section className="px-6 py-20 relative">
         <div className="max-w-6xl mx-auto">
+          {" "}
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-12">
             <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Technologies We Use</h2>{" "}
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                We use reliable and proven technologies to build solutions that work perfectly for your business.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-bold">{t("technologies.title")}</h2>{" "}
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("technologies.subtitle")}</p>
             </motion.div>
 
             <motion.div variants={stagger} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -493,24 +418,23 @@ export default function ServicesPage() {
 
       {/* CTA Section */}
       <section className="px-6 py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 relative">
+        {" "}
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-8">
             <motion.div variants={fadeInUp} className="space-y-4">
               <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Ready to Start Your Project?
+                {t("cta.title")}
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Let's discuss your vision and create a custom solution that drives your business forward. Get in touch for a free consultation.
-              </p>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("cta.description")}</p>
             </motion.div>
 
             <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
               <Link href="/contact" className={buttonVariants({ size: "lg" })}>
-                Start Your Project
+                {t("cta.startProject")}
                 <Rocket className="ml-2 h-4 w-4" />
               </Link>
               <Link href="/about" className={buttonVariants({ variant: "secondary", size: "lg" })}>
-                Learn More About Us
+                {t("cta.learnMore")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </motion.div>

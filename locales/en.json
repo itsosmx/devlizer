@@ -37,7 +37,8 @@
     },
     "features": {
       "title": "Why Choose",
-      "titleHighlight": "Devlizer",      "subtitle": "We combine creativity with technical expertise to deliver full-stack solutions that exceed expectations.",
+      "titleHighlight": "Devlizer",
+      "subtitle": "We combine creativity with technical expertise to deliver full-stack solutions that exceed expectations.",
       "list": {
         "0": "Modern Technology",
         "1": "Fast Performance",
@@ -62,7 +63,8 @@
         "content": "To be the trusted partner for businesses seeking powerful digital solutions, known for quality results and commitment to delivering applications that drive real business growth."
       },
       "values": {
-        "title": "Our Values",        "list": {
+        "title": "Our Values",
+        "list": {
           "0": "Expert knowledge with modern technology",
           "1": "Quality results and best practices",
           "2": "Client success and satisfaction",
@@ -146,8 +148,9 @@
     }
   },
   "AboutPage": {
-    "badge": "About Devlizer",
     "hero": {
+      "cta": "Our Story",
+      "badge": "About Devlizer",
       "title": "Building the Future of",
       "titleHighlight": "Digital Experiences",
       "description": "At Devlizer, we're not just building websites and mobile apps—we're building the future of digital experiences. Whether you're a startup with a bold idea or an established business aiming to level up, we help you bring your vision to life."
@@ -155,13 +158,15 @@
     "journey": {
       "title": "Our",
       "titleHighlight": "Journey",
+      "subtitle": "Founded with Passion",
       "founded": {
         "title": "Founded with Passion",
-        "description": "Founded with a passion for innovation and a deep understanding of business technology, Devlizer combines modern development approaches with a strong focus on usability, performance, and business impact.",        "specialization": "We specialize in creating powerful websites and mobile apps, and we're also the home of a growing suite of helpful business software products designed to solve real-world problems."
+        "description": "Founded with a passion for innovation and a deep understanding of business technology, Devlizer combines modern development approaches with a strong focus on usability, performance, and business impact.",
+        "specialization": "We specialize in creating powerful websites and mobile apps, and we're also the home of a growing suite of helpful business software products designed to solve real-world problems."
       },
       "checklist": {
-        "0": "Smart, scalable business solutions", 
-        "1": "Beautifully designed experiences", 
+        "0": "Smart, scalable business solutions",
+        "1": "Beautifully designed experiences",
         "2": "Business-focused approach"
       }
     },
@@ -204,11 +209,11 @@
           "title": "Professional Websites",
           "description": "Complete business websites"
         },
-        "mobileApps": {
+        "mobile": {
           "title": "Mobile Apps",
           "description": "iPhone & Android apps"
         },
-        "businessSolutions": {
+        "business": {
           "title": "Business Solutions",
           "description": "Custom software for your needs"
         }
@@ -217,7 +222,7 @@
     "cta": {
       "title": "Let's Build Something",
       "titleHighlight": "Extraordinary Together",
-      "subtitle": "Ready to turn your vision into reality? Let's discuss how we can help you achieve your digital goals.",
+      "description": "Ready to turn your vision into reality? Let's discuss how we can help you achieve your digital goals.",
       "button": "Start Your Project"
     },
     "stats": {
@@ -293,7 +298,8 @@
     },
     "coreServices": {
       "title": "Core Services",
-      "subtitle": "Comprehensive business solutions using modern technology to help you succeed.",      "professionalWebsites": {
+      "subtitle": "Comprehensive business solutions using modern technology to help you succeed.",
+      "professionalWebsites": {
         "title": "Professional Websites",
         "description": "Complete business websites that attract customers and drive sales, built with modern technology for reliable performance.",
         "features": {
@@ -306,11 +312,12 @@
         },
         "technologies": {
           "0": "Modern Web Tech",
-          "1": "Content Management", 
-          "2": "Security", 
+          "1": "Content Management",
+          "2": "Security",
           "3": "Performance"
         }
-      },      "mobileApplications": {
+      },
+      "mobileApplications": {
         "title": "Mobile Applications",
         "description": "Mobile apps that work on both iPhone and Android, helping you reach customers wherever they are.",
         "features": {
@@ -327,7 +334,8 @@
           "2": "Notifications",
           "3": "Performance"
         }
-      },      "businessSystems": {
+      },
+      "businessSystems": {
         "title": "Business Systems",
         "description": "Powerful backend systems that manage your business data, customer information, and automated processes.",
         "features": {
@@ -344,7 +352,8 @@
           "2": "Cloud Hosting",
           "3": "Security"
         }
-      },      "uxDesign": {
+      },
+      "uxDesign": {
         "title": "User Experience Design",
         "description": "Beautiful, easy-to-use interfaces that customers love, focusing on user experience and business results.",
         "features": {
@@ -498,7 +507,8 @@
         "title": "Message Sent!",
         "description": "Thank you for reaching out. I'll get back to you within 24 hours."
       }
-    },    "whyChoose": {
+    },
+    "whyChoose": {
       "title": "Why Work With Me?",
       "benefits": {
         "0": "Expert in React, Node.js, and React Native",

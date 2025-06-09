@@ -427,7 +427,7 @@ export default function AboutPage() {
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ transformStyle: "preserve-3d" }}>
               <Link
-                href="/#contact"
+                href="/contact"
                 className={buttonVariants({
                   size: "lg",
                   className: "text-lg px-8 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden",

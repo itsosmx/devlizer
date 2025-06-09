@@ -61,7 +61,7 @@ export default function Header() {
           whileTap={{ scale: 0.95 }}
           style={{ transformStyle: "preserve-3d" }}>
           <Link
-            href="#contact"
+            href="/contact"
             className={buttonVariants({
               size: "lg",
               className: "shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden",

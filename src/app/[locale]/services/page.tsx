@@ -72,7 +72,8 @@ export default function ServicesPage() {
         ease: "easeInOut",
       },
     },
-  };  const mainServices = [
+  };
+  const mainServices = [
     {
       icon: <Globe className="h-12 w-12" />,
       title: "Professional Websites",
@@ -91,7 +92,8 @@ export default function ServicesPage() {
     {
       icon: <Smartphone className="h-12 w-12" />,
       title: "Mobile Applications",
-      description: "Mobile apps that work on both iPhone and Android, helping you reach customers wherever they are.",      features: [
+      description: "Mobile apps that work on both iPhone and Android, helping you reach customers wherever they are.",
+      features: [
         "Mobile app development",
         "Works on iPhone and Android",
         "App store optimization",
@@ -116,7 +118,8 @@ export default function ServicesPage() {
       ],
       gradient: "from-green-500 via-green-600 to-emerald-500",
       technologies: ["Business Systems", "Data Management", "Cloud Hosting", "Security"],
-    },    {
+    },
+    {
       icon: <Palette className="h-12 w-12" />,
       title: "User Experience Design",
       description: "Beautiful, easy-to-use interfaces that customers love, focusing on user experience and business results.",
@@ -131,7 +134,8 @@ export default function ServicesPage() {
       gradient: "from-orange-500 via-orange-600 to-red-500",
       technologies: ["UI Design", "UX Optimization", "Responsive Design", "Modern Frameworks"],
     },
-  ];  const additionalServices = [
+  ];
+  const additionalServices = [
     {
       icon: <Database className="h-8 w-8" />,
       title: "Data Management",
@@ -170,7 +174,8 @@ export default function ServicesPage() {
       title: "Planning",
       description: "Strategic planning and technical architecture design tailored to your requirements.",
       icon: <Target className="h-6 w-6" />,
-    },    {
+    },
+    {
       number: "03",
       title: "Development",
       description: "Efficient development process with regular updates and collaborative feedback loops.",
@@ -201,13 +206,7 @@ export default function ServicesPage() {
       name: "Starter",
       price: "Custom",
       description: "Perfect for small businesses and startups",
-      features: [
-        "Basic web application",
-        "Responsive design",
-        "SEO optimization",
-        "3 months support",
-        "Basic analytics",
-      ],
+      features: ["Basic web application", "Responsive design", "SEO optimization", "3 months support", "Basic analytics"],
       gradient: "from-gray-400 to-gray-600",
       popular: false,
     },
@@ -242,7 +241,8 @@ export default function ServicesPage() {
       gradient: "from-purple-600 to-pink-600",
       popular: false,
     },
-  ];  const technologies = [
+  ];
+  const technologies = [
     { name: "Web Apps", icon: "🌐" },
     { name: "Mobile Apps", icon: "📱" },
     { name: "Websites", icon: "💻" },
@@ -286,12 +286,10 @@ export default function ServicesPage() {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent leading-tight">
                 Building Digital
                 <br />
-                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">
-                  Excellence
-                </span>
-              </h1>              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Professional websites and mobile apps that help your business grow. 
-                Building solutions with modern technology and best practices.
+                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">Excellence</span>
+              </h1>{" "}
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Professional websites and mobile apps that help your business grow. Building solutions with modern technology and best practices.
               </p>
             </motion.div>
 
@@ -300,7 +298,7 @@ export default function ServicesPage() {
                 Explore Services
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              <Link href="/contact" className={buttonVariants({ variant: "outline", size: "lg" })}>
+              <Link href="/contact" className={buttonVariants({ variant: "secondary", size: "lg" })}>
                 Get Quote
                 <MessageSquare className="ml-2 h-4 w-4" />
               </Link>
@@ -314,9 +312,8 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-16">
             <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Core Services
-              </h2>              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Core Services</h2>{" "}
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Comprehensive business solutions using modern technology to help you succeed.
               </p>
             </motion.div>
@@ -325,9 +322,12 @@ export default function ServicesPage() {
               {mainServices.map((service, index) => (
                 <motion.div key={index} variants={fadeInUp}>
                   <Card className="h-full group hover:shadow-2xl transition-all duration-500 border-0 bg-card/50 backdrop-blur-sm relative overflow-hidden">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                    />
                     <CardHeader className="relative z-10">
-                      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <div
+                        className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
                         {service.icon}
                       </div>
                       <CardTitle className="text-2xl mb-3">{service.title}</CardTitle>
@@ -361,20 +361,19 @@ export default function ServicesPage() {
       {/* Additional Services */}
       <section className="px-6 py-20 bg-muted/30 relative">
         <div className="max-w-6xl mx-auto">
-          <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-12">            <motion.div variants={fadeInUp} className="text-center space-y-4">
+          <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-12">
+            {" "}
+            <motion.div variants={fadeInUp} className="text-center space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">Specialized Services</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Additional expertise in database design, cloud deployment, and technical architecture.
               </p>
             </motion.div>
-
             <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {additionalServices.map((service, index) => (
                 <motion.div key={index} variants={fadeInUp}>
                   <Card className="text-center p-8 group hover:shadow-xl transition-all duration-300 border-0 bg-card/50 backdrop-blur-sm">
-                    <div className={`${service.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      {service.icon}
-                    </div>
+                    <div className={`${service.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>{service.icon}</div>
                     <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
                     <p className="text-sm text-muted-foreground">{service.description}</p>
                   </Card>
@@ -390,7 +389,8 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto">
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-16">
             <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Our Development Process</h2>              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold">Our Development Process</h2>{" "}
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 A proven development process that ensures high-quality business solutions from planning to launch.
               </p>
             </motion.div>
@@ -403,9 +403,7 @@ export default function ServicesPage() {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-4">
                         <div className="text-3xl font-bold text-primary/30">{step.number}</div>
-                        <div className="bg-primary/10 p-2 rounded-lg text-primary">
-                          {step.icon}
-                        </div>
+                        <div className="bg-primary/10 p-2 rounded-lg text-primary">{step.icon}</div>
                       </div>
                       <h3 className="text-xl font-semibold">{step.title}</h3>
                       <p className="text-muted-foreground leading-relaxed">{step.description}</p>
@@ -473,7 +471,8 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto">
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-12">
             <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Technologies We Use</h2>              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold">Technologies We Use</h2>{" "}
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 We use reliable and proven technologies to build solutions that work perfectly for your business.
               </p>
             </motion.div>
@@ -482,9 +481,7 @@ export default function ServicesPage() {
               {technologies.map((tech, index) => (
                 <motion.div key={index} variants={fadeInUp}>
                   <Card className="p-6 text-center group hover:shadow-lg transition-all duration-300 border-0 bg-card/50 backdrop-blur-sm hover:scale-105">
-                    <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                      {tech.icon}
-                    </div>
+                    <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">{tech.icon}</div>
                     <h3 className="text-sm font-medium">{tech.name}</h3>
                   </Card>
                 </motion.div>
@@ -503,8 +500,7 @@ export default function ServicesPage() {
                 Ready to Start Your Project?
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Let's discuss your vision and create a custom solution that drives your business forward. 
-                Get in touch for a free consultation.
+                Let's discuss your vision and create a custom solution that drives your business forward. Get in touch for a free consultation.
               </p>
             </motion.div>
 
@@ -513,7 +509,7 @@ export default function ServicesPage() {
                 Start Your Project
                 <Rocket className="ml-2 h-4 w-4" />
               </Link>
-              <Link href="/about" className={buttonVariants({ variant: "outline", size: "lg" })}>
+              <Link href="/about" className={buttonVariants({ variant: "secondary", size: "lg" })}>
                 Learn More About Us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

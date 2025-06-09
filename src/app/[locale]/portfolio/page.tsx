@@ -356,7 +356,7 @@ export default function PortfolioPage() {
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ transformStyle: "preserve-3d" }}>
               <Button asChild size="lg" className="text-lg px-8 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300">
-                <Link href="/#contact">
+                <Link href="/contact">
                   <span className="flex items-center">
                     Get Started Today
                     <motion.div

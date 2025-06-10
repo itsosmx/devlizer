@@ -70,9 +70,7 @@ export function generateMetadata(config: SEOConfig = {}): Metadata {
     noIndex = false,
   } = config;
 
-  const metaTitle = title
-    ? `${title} - ${defaultConfig.siteName}`
-    : defaultConfig.defaultTitle;
+  const metaTitle = [title, defaultConfig.defaultTitle, siteName].filter(Boolean).join(' | ');
 
   const metaImage = image.startsWith('http')
     ? image

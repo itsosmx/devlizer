@@ -210,17 +210,16 @@ export function generateStructuredData(config: SEOConfig = {}) {
     sameAs: [
       'https://twitter.com/devlizer',
       'https://linkedin.com/company/devlizer',
-      'https://github.com/devlizer',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-555-123-4567',
+      // telephone: '+',
       contactType: 'customer service',
-      availableLanguage: ['English'],
+      availableLanguage: ['English', "Arabic"],
     },
     address: {
       '@type': 'PostalAddress',
-      addressCountry: 'US',
+      addressCountry: 'EG',
     },
   };
 

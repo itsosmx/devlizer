@@ -11,6 +11,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { generatePageMetadata, homeStructuredData } from "@/lib/metadata";
 import Header from "@/components/blocks/header";
 import Footer from "@/components/blocks/footer";
+import { generateStructuredData } from "@/lib/seo";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -52,11 +53,11 @@ export default async function RootLayout({
     notFound();
   }
 
+  const structureData = generateStructuredData();
+
   return (
     <html lang={locale}>
-      <StructuredData
-        data={[homeStructuredData.organization, homeStructuredData.website, homeStructuredData.webPage, homeStructuredData.breadcrumb]}
-      />
+      <StructuredData data={structureData} />
       {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-CXXZE4SD75" />}
       <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased dark scroll-smooth`}>
         <NextIntlClientProvider locale={locale}>

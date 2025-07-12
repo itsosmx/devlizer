@@ -57,9 +57,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <StructuredData data={structureData} />
       {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-CXXZE4SD75" />}
       <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased dark scroll-smooth`}>
+        <StructuredData data={structureData} />
         <NextIntlClientProvider locale={locale}>
           <Header />
           {children}

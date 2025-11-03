@@ -2,151 +2,6 @@
   "Brand": {
     "name": "Devlizer"
   },
-  "HomePage": {
-    "badge": {
-      "welcome": "Welcome to Devlizer"
-    },
-    "hero": {
-      "title": "Building Tomorrow's",
-      "titleHighlight": "Digital Experiences",
-      "description": "We create powerful websites and mobile apps that help your business grow. From professional websites that attract customers to mobile apps that work on all devices, we deliver solutions that drive your business forward.",
-      "cta": "Start Your Project"
-    },
-    "services": {
-      "title": "What We",
-      "titleHighlight": "Create",
-      "subtitle": "Comprehensive digital solutions tailored to your needs",
-      "items": {
-        "websites": {
-          "title": "Professional Websites",
-          "description": "Custom websites that look great and work perfectly to grow your business online"
-        },
-        "mobileApps": {
-          "title": "Mobile Apps",
-          "description": "Mobile apps that work on both iPhone and Android to reach all your customers"
-        },
-        "businessSystems": {
-          "title": "Business Systems",
-          "description": "Powerful backend systems that manage your data and keep everything running smoothly"
-        },
-        "uxDesign": {
-          "title": "User Experience Design",
-          "description": "Beautiful, easy-to-use interfaces that your customers will love"
-        }
-      }
-    },
-    "features": {
-      "title": "Why Choose",
-      "titleHighlight": "Devlizer",
-      "subtitle": "We combine creativity with technical expertise to deliver full-stack solutions that exceed expectations.",
-      "list": {
-        "0": "Modern Technology",
-        "1": "Fast Performance",
-        "2": "Growing with Your Business",
-        "3": "User-Focused Design",
-        "4": "Works on All Devices",
-        "5": "Strong Security",
-        "6": "Ongoing Support",
-        "7": "Search Engine Friendly"
-      }
-    },
-    "about": {
-      "title": "About",
-      "titleHighlight": "Devlizer",
-      "subtitle": "We are passionate about creating digital solutions that help businesses grow, dedicated to transforming your ideas into reality",
-      "mission": {
-        "title": "Our Mission",
-        "content": "To deliver exceptional websites and mobile applications that help businesses succeed. We focus on creating solutions that grow with your business and delight your customers."
-      },
-      "vision": {
-        "title": "Our Vision",
-        "content": "To be the trusted partner for businesses seeking powerful digital solutions, known for quality results and commitment to delivering applications that drive real business growth."
-      },
-      "values": {
-        "title": "Our Values",
-        "list": {
-          "0": "Expert knowledge with modern technology",
-          "1": "Quality results and best practices",
-          "2": "Client success and satisfaction",
-          "3": "Continuous learning and innovation"
-        }
-      },
-      "cards": {
-        "expert": {
-          "title": "Technology Expert",
-          "description": "Specialized in modern web and mobile development technologies"
-        },
-        "delivery": {
-          "title": "Fast Delivery",
-          "description": "Efficient development process for timely project completion"
-        },
-        "collaborative": {
-          "title": "Collaborative",
-          "description": "Working closely with you throughout the development process"
-        },
-        "reliable": {
-          "title": "Reliable",
-          "description": "Dependable solutions you can trust and scale"
-        }
-      }
-    },
-    "contact": {
-      "title": "Get In",
-      "titleHighlight": "Touch",
-      "subtitle": "Ready to start your project? We'd love to hear from you and discuss how we can bring your vision to life",
-      "form": {
-        "title": "Send us a message",
-        "fields": {
-          "name": "Full Name",
-          "email": "Email",
-          "projectType": "Project Type",
-          "message": "Message",
-          "namePlaceholder": "John Doe",
-          "emailPlaceholder": "john@example.com",
-          "messagePlaceholder": "Tell us about your project..."
-        },
-        "projectTypes": {
-          "select": "Select a project type",
-          "webDevelopment": "Web Development",
-          "mobileApp": "Mobile App",
-          "customSoftware": "Custom Software",
-          "other": "Other"
-        },
-        "submit": "Send Message",
-        "sending": "Sending email...",
-        "success": "Email sent successfully!",
-        "error": "Error sending email: {error}"
-      },
-      "info": {
-        "title": "Let's connect",
-        "subtitle": "We're here to help you transform your ideas into reality. Choose the best way to reach us.",
-        "email": "Email",
-        "emailValue": "hi@devlizer.com",
-        "social": "Social Media",
-        "socialValue": "@devlizer on all platforms",
-        "guarantee": {
-          "title": "Quick Response Guarantee",
-          "description": "We respond to all inquiries within 24 hours. For urgent projects, please mention it in your message and we'll prioritize your request."
-        }
-      }
-    },
-    "cta": {
-      "title": "Ready to Start Your Journey?",
-      "subtitle": "Let's discuss your project and bring your ideas to life",
-      "buttons": {
-        "getStarted": "Get Started Today",
-        "learnMore": "Learn More"
-      }
-    },
-    "stats": {
-      "performance": "Performance",
-      "performanceBadge": "Optimized",
-      "userExperience": "User Experience",
-      "userExperienceBadge": "Premium",
-      "codeQuality": "Code Quality",
-      "codeQualityBadge": "Excellent"
-    }
-  },
   "AboutPage": {
     "hero": {
       "cta": "Our Story",
@@ -268,7 +123,74 @@
         "year": "2025",
         "technologiesTitle": "Technologies Used",
         "keyFeaturesTitle": "Key Features",
-        "visitLiveButton": "Visit Live Site"
+        "visitLiveButton": "Visit Live Site",
+        "features": {
+          "0": "AI-Powered Responses",
+          "1": "Customizable Chat Widget",
+          "2": "Real-Time Analytics",
+          "3": "Easy Onboarding",
+          "4": "Admin Dashboard",
+          "5": "Live Agent Handoff"
+        },
+        "technologies": {
+          "0": "Modern Web Technologies",
+          "1": "Database",
+          "2": "Payment Processing",
+          "3": "User Interface",
+          "4": "Performance Optimization"
+        }
+      },
+      "joblizer": {
+        "title": "Joblizer",
+        "subtitle": "Job Matching Platform",
+        "description": "Skip the resume blackhole and get hired smarter. Joblizer revolutionizes how job seekers and recruiters connect by moving beyond outdated ATS systems and keyword matching.",
+        "longDescription": "An AI-powered job matching platform that intelligently connects job seekers with recruiters. Create your profile once, and let AI match you with suitable jobs. Features one-click applications, intelligent scoring, and detailed AI reports for both job seekers and employers. No more applying 100 times with the same details or filtered out by traditional ATS systems.",
+        "status": "Live",
+        "year": "2025",
+        "technologiesTitle": "Technologies Used",
+        "keyFeaturesTitle": "Key Features",
+        "visitLiveButton": "Visit Live Site",
+        "features": {
+          "0": "AI-Powered Job Matching",
+          "1": "One-Click Applications",
+          "2": "Intelligent Profile Scoring",
+          "3": "Detailed AI Reports",
+          "4": "Smart Recommendations",
+          "5": "Recruiter Dashboard"
+        },
+        "technologies": {
+          "0": "Next.js",
+          "1": "AI/ML",
+          "2": "Database",
+          "3": "Authentication",
+          "4": "Real-time Matching"
+        }
+      },
+      "menulizer": {
+        "title": "Menulizer",
+        "subtitle": "Restaurant Technology",
+        "description": "Create digital menus in minutes. Transform your restaurant with contactless QR code menus and seamless ordering that customers can access directly from their phones.",
+        "longDescription": "A comprehensive restaurant management solution that enables contactless dining experiences. Features instant QR code generation, direct ordering from phones, multi-language support, and real-time order management. Customers can browse beautiful mobile menus and place orders hassle-free, while restaurants manage everything from an intuitive dashboard.",
+        "status": "Live",
+        "year": "2025",
+        "technologiesTitle": "Technologies Used",
+        "keyFeaturesTitle": "Key Features",
+        "visitLiveButton": "Visit Live Site",
+        "features": {
+          "0": "Instant QR Codes",
+          "1": "Direct Ordering",
+          "2": "Multi-language Support",
+          "3": "Order Management Dashboard",
+          "4": "Real-time Notifications",
+          "5": "Customizable Design"
+        },
+        "technologies": {
+          "0": "Next.js",
+          "1": "QR Code Generation",
+          "2": "Real-time Orders",
+          "3": "Multi-language",
+          "4": "Payment Processing"
+        }
       },
       "comingSoon": {
         "title": "Coming Soon",
@@ -277,7 +199,17 @@
         "longDescription": "More amazing projects are being crafted using the latest technologies. Each project demonstrates expertise in creating powerful business solutions.",
         "status": "In Development",
         "year": "2025",
-        "comingSoonLabel": "Coming Soon"
+        "comingSoonLabel": "Coming Soon",
+        "features": {
+          "0": "Modern Architecture",
+          "1": "Scalable Solutions",
+          "2": "Best Practices",
+          "3": "Performance Optimized"
+        },
+        "technologies": {
+          "0": "Next.js",
+          "1": "..."
+        }
       }
     },
     "cta": {
@@ -548,12 +480,93 @@
       }
     }
   },
+  "HomePage": {
+    "hero": {
+      "title": "Building Digital Products",
+      "titleHighlight": "Driven by Quality",
+      "description": "Raising the bar for software quality by creating products that effortlessly integrate into your life, so they work beautifully without a second thought.",
+      "cta": "Let's work together",
+      "testimonial": "What a pleasure to work with!"
+    },
+    "services": {
+      "badge": "What We Do",
+      "title": "Our",
+      "titleHighlight": "Expertise",
+      "description": "We specialize in building modern digital solutions that drive business growth",
+      "items": {
+        "websites": {
+          "title": "Professional Websites",
+          "description": "Complete business websites that attract customers and drive sales, built with modern technology",
+          "features": {
+            "0": "Custom design & development",
+            "1": "SEO optimization",
+            "2": "Performance optimization"
+          }
+        },
+        "mobile": {
+          "title": "Mobile Applications",
+          "description": "Cross-platform mobile apps for iOS and Android that provide seamless user experiences",
+          "features": {
+            "0": "iOS & Android development",
+            "1": "Native performance",
+            "2": "App store deployment"
+          }
+        },
+        "business": {
+          "title": "Business Systems",
+          "description": "Custom software solutions designed to streamline your business operations and boost efficiency",
+          "features": {
+            "0": "Custom development",
+            "1": "API integrations",
+            "2": "Scalable architecture"
+          }
+        }
+      }
+    },
+    "whyUs": {
+      "badge": "Why Devlizer",
+      "title": "Why Work",
+      "titleHighlight": "With Us",
+      "items": {
+        "fastDelivery": {
+          "title": "Fast Delivery",
+          "description": "Quick turnaround without compromising on quality"
+        },
+        "cleanCode": {
+          "title": "Clean Code",
+          "description": "Maintainable, scalable, and well-documented code"
+        },
+        "clientFocused": {
+          "title": "Client Focused",
+          "description": "Your success is our priority, always"
+        },
+        "provenResults": {
+          "title": "Proven Results",
+          "description": "Successful projects with satisfied clients"
+        }
+      }
+    },
+    "technologies": {
+      "badge": "Tech Stack",
+      "title": "Technologies",
+      "titleHighlight": "We Use",
+      "description": "We leverage cutting-edge technologies to build robust and scalable solutions"
+    },
+    "cta": {
+      "title": "Ready to Start Your",
+      "titleHighlight": "Next Project?",
+      "description": "Let's collaborate to bring your ideas to life with modern technology and expert craftsmanship",
+      "primaryButton": "Get Started Today",
+      "secondaryButton": "View Our Work"
+    }
+  },
   "Navigation": {
     "home": "Home",
     "about": "About",
     "services": "Services",
     "portfolio": "Portfolio",
     "contact": "Contact",
+    "apps": "Apps",
     "cta": "Start Your Project"
   },
   "Footer": {

@@ -19,8 +19,8 @@ export interface SEOConfig {
 
 const defaultConfig = {
   siteName: 'Devlizer',
-  defaultTitle: 'Your Partner for Digital Success',
-  defaultDescription: 'Transform your business with Devlizer. From mobile apps to professional websites, we create digital solutions that help your business grow and succeed.',
+  defaultTitle: '',
+  defaultDescription: '',
   siteUrl: 'https://devlizer.com',
   defaultImage: '/logo.png',
   author: 'Devlizer Team',

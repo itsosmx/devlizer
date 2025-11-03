@@ -33,7 +33,7 @@ export default function ServicesPage() {
     const obj = t.raw(key) as Record<string, string>;
     return Object.keys(obj)
       .sort((a, b) => parseInt(a) - parseInt(b))
-      .map(k => obj[k]);
+      .map((k) => obj[k]);
   };
 
   const fadeInUp = {
@@ -74,7 +74,8 @@ export default function ServicesPage() {
         ease: "easeInOut",
       },
     },
-  };  const mainServices = [
+  };
+  const mainServices = [
     {
       icon: <Globe className="h-12 w-12" />,
       title: t("coreServices.professionalWebsites.title"),

@@ -4,10 +4,32 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { buttonVariants } from "../ui/button";
 import AppLogo from "./app-logo";
+import LanguageSwitcher from "./language-switcher";
 import { useTranslations } from "next-intl";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function Header() {
   const t = useTranslations("Navigation");
+  const isMobile = useIsMobile();
+
+  const portfolioApps = [
+    {
+      title: "Widget Ease",
+      href: "https://widgetease.com",
+      description: "AI-powered customer support chat widget for businesses",
+    },
+    // Add more apps as they become available
+  ];
 
   return (
     <motion.header
@@ -22,77 +44,98 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <AppLogo />
 
-        <motion.nav
-          className="hidden md:flex items-center space-x-8"
-          variants={stagger}
-          initial="initial"
-          animate="animate"
-          style={{ transformStyle: "preserve-3d" }}>
-          {["Services", "About", "Contact", "Portfolio"].map((item, index) => (
-            <Link key={item} href={`/${item.toLowerCase()}`}>
-              <motion.span
-                className="text-muted-foreground hover:text-primary transition-all duration-300 relative"
-                variants={fadeInUp}
-                whileHover={{
-                  scale: 1.1,
-                  rotateX: 10,
-                  z: 50,
-                }}
-                style={{
-                  transformStyle: "preserve-3d",
-                  textShadow: "0 0 10px rgba(0,0,0,0.3)",
-                }}
-                whileTap={{ scale: 0.95 }}>
-                <span className="relative z-10">{t(item.toLowerCase())}</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur-sm"
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileHover={{ opacity: 1, scale: 1.2 }}
-                  transition={{ duration: 0.2 }}
-                />
-              </motion.span>
-            </Link>
-          ))}
-        </motion.nav>
+        <NavigationMenu viewport={isMobile}>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
+                <Link href="/services">{t("services")}</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
 
-        <motion.div
-          whileHover={{
-            scale: 1.05,
-            rotateY: -5,
-            rotateX: 5,
-          }}
-          whileTap={{ scale: 0.95 }}
-          style={{ transformStyle: "preserve-3d" }}>
-          <Link
-            href="/contact"
-            className={buttonVariants({
-              size: "lg",
-              className: "shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden",
-            })}>
-            <motion.span
-              className="absolute inset-0 bg-gradient-to-r from-accent/50 to-primary/50"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: "100%" }}
-              transition={{ duration: 0.5 }}
-            />
-            <span className="relative z-10">{t("cta")}</span>
-          </Link>
-        </motion.div>
+            <NavigationMenuItem>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
+                <Link href="/about">{t("about")}</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
+                <Link href="/contact">{t("contact")}</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                <Link href="/portfolio">{t("portfolio")}</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>{t("apps")}</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                  {portfolioApps.map((app) => (
+                    <ListItem key={app.title} title={app.title} href={app.href}>
+                      {app.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        <div className="flex items-center gap-3">
+          <LanguageSwitcher />
+
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              rotateY: -5,
+              rotateX: 5,
+            }}
+            whileTap={{ scale: 0.95 }}
+            style={{ transformStyle: "preserve-3d" }}>
+            <Link
+              href="/contact"
+              className={buttonVariants({
+                size: "lg",
+                className: "shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden",
+              })}>
+              <motion.span
+                className="absolute inset-0 bg-gradient-to-r from-accent/50 to-primary/50"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.5 }}
+              />
+              <span className="relative z-10">{t("cta")}</span>
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </motion.header>
   );
 }
 
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
-};
+const ListItem = React.forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutRef<"a"> & { title: string }>(
+  ({ className, title, children, href, ...props }, ref) => {
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <Link
+            ref={ref}
+            href={href ?? "#"}
+            className={cn(
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              className
+            )}
+            {...props}>
+            <div className="text-sm font-medium leading-none">{title}</div>
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
+          </Link>
+        </NavigationMenuLink>
+      </li>
+    );
+  }
+);
+ListItem.displayName = "ListItem";

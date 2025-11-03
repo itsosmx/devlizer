@@ -170,7 +170,7 @@ export default function ContactPage() {
           <motion.div
             className="absolute bottom-20 left-10 text-accent/30"
             animate={{
-              ...float.animate,
+              ...float.animate as any,
               transition: { ...float.animate.transition, delay: 1 },
             }}
             style={{ transformStyle: "preserve-3d" }}>

@@ -39,67 +39,125 @@ export default function PortfolioPage() {
     },
   };
 
-  const rotate3D = {
-    initial: { rotateX: 0, rotateY: 0, rotateZ: 0 },
-    animate: {
-      rotateX: [0, 5, 0],
-      rotateY: [0, 10, 0],
-      rotateZ: [0, 2, 0],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
-
   const projects = [
     {
       id: 1,
-      title: "Widget Ease",
-      subtitle: "Business Software",
-      description:
-        "Widget Ease is a business software solution designed to transform how businesses handle customer support. At its core, it's a smart, embeddable chat widget powered by AI, trained to provide human-like, context-aware responses 24/7.",
-      longDescription:
-        "The platform features a simple onboarding process for clients, allowing them to generate and install their widget in minutes. It also includes an intuitive admin dashboard where businesses can customize the assistant’s tone, upload documentation, monitor conversations, and analyze performance metrics.",
+      title: t("projects.widgetEase.title"),
+      subtitle: t("projects.widgetEase.subtitle"),
+      description: t("projects.widgetEase.description"),
+      longDescription: t("projects.widgetEase.longDescription"),
       image: "/api/placeholder/600/400",
       category: "business-software",
-      technologies: ["Modern Web Technologies", "Database", "Payment Processing", "User Interface", "Performance Optimization"],
+      technologies: [
+        t("projects.widgetEase.technologies.0"),
+        t("projects.widgetEase.technologies.1"),
+        t("projects.widgetEase.technologies.2"),
+        t("projects.widgetEase.technologies.3"),
+        t("projects.widgetEase.technologies.4"),
+      ],
       features: [
-        "AI-Powered Responses",
-        "Customizable Chat Widget",
-        "Real-Time Analytics",
-        "Easy Onboarding",
-        "Admin Dashboard",
-        "Live Agent Handoff",
+        t("projects.widgetEase.features.0"),
+        t("projects.widgetEase.features.1"),
+        t("projects.widgetEase.features.2"),
+        t("projects.widgetEase.features.3"),
+        t("projects.widgetEase.features.4"),
+        t("projects.widgetEase.features.5"),
       ],
       links: {
         live: "https://widgetease.com/",
         github: null, // Private repository
       },
-      status: "Live",
-      year: "2025",
+      status: t("projects.widgetEase.status"),
+      year: t("projects.widgetEase.year"),
+      featured: true,
+    },
+    {
+      id: 2,
+      title: t("projects.joblizer.title"),
+      subtitle: t("projects.joblizer.subtitle"),
+      description: t("projects.joblizer.description"),
+      longDescription: t("projects.joblizer.longDescription"),
+      image: "/api/placeholder/600/400",
+      category: "business-software",
+      technologies: [
+        t("projects.joblizer.technologies.0"),
+        t("projects.joblizer.technologies.1"),
+        t("projects.joblizer.technologies.2"),
+        t("projects.joblizer.technologies.3"),
+        t("projects.joblizer.technologies.4"),
+      ],
+      features: [
+        t("projects.joblizer.features.0"),
+        t("projects.joblizer.features.1"),
+        t("projects.joblizer.features.2"),
+        t("projects.joblizer.features.3"),
+        t("projects.joblizer.features.4"),
+        t("projects.joblizer.features.5"),
+      ],
+      links: {
+        live: "https://joblizer.com/",
+        github: null,
+      },
+      status: t("projects.joblizer.status"),
+      year: t("projects.joblizer.year"),
+      featured: true,
+    },
+    {
+      id: 3,
+      title: t("projects.menulizer.title"),
+      subtitle: t("projects.menulizer.subtitle"),
+      description: t("projects.menulizer.description"),
+      longDescription: t("projects.menulizer.longDescription"),
+      image: "/api/placeholder/600/400",
+      category: "business-software",
+      technologies: [
+        t("projects.menulizer.technologies.0"),
+        t("projects.menulizer.technologies.1"),
+        t("projects.menulizer.technologies.2"),
+        t("projects.menulizer.technologies.3"),
+        t("projects.menulizer.technologies.4"),
+      ],
+      features: [
+        t("projects.menulizer.features.0"),
+        t("projects.menulizer.features.1"),
+        t("projects.menulizer.features.2"),
+        t("projects.menulizer.features.3"),
+        t("projects.menulizer.features.4"),
+        t("projects.menulizer.features.5"),
+      ],
+      links: {
+        live: "https://www.menulizer.com/",
+        github: null,
+      },
+      status: t("projects.menulizer.status"),
+      year: t("projects.menulizer.year"),
       featured: true,
     },
     // Placeholder for future projects
     {
-      id: 2,
-      title: "Coming Soon",
-      subtitle: "Next Project",
-      description:
-        "Exciting new projects are in development. Stay tuned for innovative solutions that will showcase modern website and mobile app development.",
-      longDescription:
-        "More amazing projects are being crafted using the latest technologies. Each project demonstrates expertise in creating powerful business solutions.",
+      id: 5,
+      title: t("projects.comingSoon.title"),
+      subtitle: t("projects.comingSoon.subtitle"),
+      description: t("projects.comingSoon.description"),
+      longDescription: t("projects.comingSoon.longDescription"),
       image: "/api/placeholder/600/400",
       category: "upcoming",
-      technologies: ["Next.js", "..."],
-      features: ["Modern Architecture", "Scalable Solutions", "Best Practices", "Performance Optimized"],
+      technologies: [
+        t("projects.comingSoon.technologies.0"),
+        t("projects.comingSoon.technologies.1"),
+      ],
+      features: [
+        t("projects.comingSoon.features.0"),
+        t("projects.comingSoon.features.1"),
+        t("projects.comingSoon.features.2"),
+        t("projects.comingSoon.features.3"),
+      ],
       links: {
         live: null,
         github: null,
       },
-      status: "In Development",
-      year: "2025",
+      status: t("projects.comingSoon.status"),
+      year: t("projects.comingSoon.year"),
       featured: false,
     },
   ];
@@ -130,7 +188,7 @@ export default function PortfolioPage() {
           <motion.div
             className="absolute bottom-20 left-10 text-accent/30"
             animate={{
-              ...float.animate,
+              ...(float.animate as any),
               transition: { ...float.animate.transition, delay: 1 },
             }}
             style={{ transformStyle: "preserve-3d" }}>

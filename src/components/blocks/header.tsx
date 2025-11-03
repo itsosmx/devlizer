@@ -28,6 +28,16 @@ export default function Header() {
       href: "https://widgetease.com",
       description: "AI-powered customer support chat widget for businesses",
     },
+    {
+      title: "Joblizer",
+      href: "https://joblizer.com",
+      description: "Skip the Resume Blackhole. Get Hired Smarter.",
+    },
+    {
+      title: "Menulizer",
+      href: "https://menulizer.com",
+      description: "digital menu generator for restaurants and cafes",
+    }
     // Add more apps as they become available
   ];
 
@@ -131,7 +141,7 @@ const ListItem = React.forwardRef<HTMLAnchorElement, React.ComponentPropsWithout
             )}
             {...props}>
             <div className="text-sm font-medium leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
+            <p className="line-clamp-2 text-sm leading-snug">{children}</p>
           </Link>
         </NavigationMenuLink>
       </li>

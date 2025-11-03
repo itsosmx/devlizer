@@ -37,7 +37,7 @@ export default function LanguageSwitcher() {
           <DropdownMenuItem
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
-            className={cn("cursor-pointer", locale === language.code && "bg-accent")}>
+            className={cn("cursor-pointer mb-2", locale === language.code && "bg-accent")}>
             <motion.div className="flex items-center gap-2 w-full" whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
               <span>{language.name}</span>
             </motion.div>

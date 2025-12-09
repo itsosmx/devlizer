@@ -66,7 +66,7 @@ export default async function RootLayout({
           <Footer />
         </NextIntlClientProvider>
         <Toaster />
-        <Script src="https://embed.widgetease.com/embed.js?t=gASu3MeiiulA1DtMWeSDsS2pm-AdbTYt&v=1" async></Script>
+        <script src="https://embed.widgetease.com/embed.js?t=A8sGc37kXLvYPDE-luVX11hdeKXbOomK&v=1" async></script>
       </body>
     </html>
   );

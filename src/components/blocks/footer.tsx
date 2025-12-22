@@ -36,7 +36,7 @@ export default function Footer() {
       <motion.div
         className="absolute top-4 right-10 text-accent/10"
         animate={{
-          ...rotate3D.animate,
+          ...rotate3D.animate as any,
           transition: { ...rotate3D.animate.transition, delay: 3 },
         }}
         style={{ transformStyle: "preserve-3d" }}>

@@ -13,42 +13,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           en: `${baseUrl}/en`,
+          ar: `${baseUrl}/ar`,
         },
       },
     },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/about`,
-        },
-      },
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/services`,
-        },
-      },
-    },
-    {
-      url: `${baseUrl}/portfolio`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/portfolio`,
-        },
-      },
-    },
+    // {
+    //   url: `${baseUrl}/about`,
+    //   lastModified: currentDate,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.8,
+    //   alternates: {
+    //     languages: {
+    //       en: `${baseUrl}/en/about`,
+    //     },
+    //   },
+    // },
+    // {
+    //   url: `${baseUrl}/services`,
+    //   lastModified: currentDate,
+    //   changeFrequency: 'weekly',
+    //   priority: 0.9,
+    //   alternates: {
+    //     languages: {
+    //       en: `${baseUrl}/en/services`,
+    //     },
+    //   },
+    // },
+    // {
+    //   url: `${baseUrl}/portfolio`,
+    //   lastModified: currentDate,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.8,
+    //   alternates: {
+    //     languages: {
+    //       en: `${baseUrl}/en/portfolio`,
+    //     },
+    //   },
+    // },
     {
       url: `${baseUrl}/contact`,
       lastModified: currentDate,
@@ -57,6 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           en: `${baseUrl}/en/contact`,
+          ar: `${baseUrl}/ar/contact`,
         },
       },
     },

@@ -1,49 +1,94 @@
-import React from 'react'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ArrowRight, Code2, Smartphone, Globe, Zap, Users, CheckCircle2, Star } from 'lucide-react'
-import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, Bot, CheckCircle2, Code2, Globe, Smartphone, Star, Users, Workflow, Zap } from "lucide-react";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { ElegantShape } from "@/components/ui/shadcn-io/shape-landing-hero";
+import { cn } from "@/lib/utils";
 
 export default function HomePage() {
-  const t = useTranslations()
+  const t = useTranslations();
+
+  const services = [
+    { key: "fullStack", icon: Code2 },
+    { key: "aiSolutions", icon: Bot },
+    { key: "automation", icon: Workflow },
+    { key: "mobileApp", icon: Smartphone },
+    { key: "professionalWebsite", icon: Globe },
+  ];
 
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center bg-background text-foreground px-4 sm:px-6 lg:px-8">
+
+      <section className="relative min-h-screen flex items-center justify-center bg-background text-foreground px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90" />
-        
+        <div className="absolute inset-0 overflow-hidden">
+          <ElegantShape
+            delay={0.3}
+            width={600}
+            height={140}
+            rotate={12}
+            gradient="from-primary/[0.15]"
+            className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
+          />
+
+          <ElegantShape
+            delay={0.5}
+            width={500}
+            height={120}
+            rotate={-15}
+            gradient="from-rose-500/[0.15]"
+            className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
+          />
+
+          <ElegantShape
+            delay={0.4}
+            width={300}
+            height={80}
+            rotate={-8}
+            gradient="from-violet-500/[0.15]"
+            className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
+          />
+
+          <ElegantShape
+            delay={0.6}
+            width={200}
+            height={60}
+            rotate={20}
+            gradient="from-amber-500/[0.15]"
+            className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
+          />
+
+          <ElegantShape
+            delay={0.7}
+            width={150}
+            height={40}
+            rotate={-25}
+            gradient="from-cyan-500/[0.15]"
+            className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+          />
+        </div>
         <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-            {t('HomePage.hero.title')}
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight rtl:leading-tight">
+            {t("HomePage.hero.title")}
             <br />
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              {t('HomePage.hero.titleHighlight')}
+              {t("HomePage.hero.titleHighlight")}
             </span>
           </h1>
-          
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {t('HomePage.hero.description')}
-          </p>
-          
+
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{t("HomePage.hero.description")}</p>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button asChild size="lg" className="text-base px-8 gap-2">
               <Link href="/contact">
-                {t('HomePage.hero.cta')}
+                {t("HomePage.hero.cta")}
                 <ArrowRight className="size-5" />
               </Link>
             </Button>
-          </div>
-          
-          <div className="pt-8 space-y-3">
-            <p className="text-sm italic text-muted-foreground">"{t('HomePage.hero.testimonial')}"</p>
-            <div className="flex items-center justify-center gap-1">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="size-5 fill-amber-500 text-amber-500" />
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -53,100 +98,36 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <Badge variant="outline" className="text-sm">
-              {t('HomePage.services.badge')}
+              {t("HomePage.services.badge")}
             </Badge>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-              {t('HomePage.services.title')} <span className="text-primary">{t('HomePage.services.titleHighlight')}</span>
+              {t("HomePage.services.title")} <span className="text-primary">{t("HomePage.services.titleHighlight")}</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t('HomePage.services.description')}
-            </p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("HomePage.services.description")}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="group hover:border-primary/50 transition-all duration-300">
-              <CardHeader>
-                <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Globe className="size-6 text-primary" />
-                </div>
-                <CardTitle className="text-xl">{t('HomePage.services.items.websites.title')}</CardTitle>
-                <CardDescription>
-                  {t('HomePage.services.items.websites.description')}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{t('HomePage.services.items.websites.features.0')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{t('HomePage.services.items.websites.features.1')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{t('HomePage.services.items.websites.features.2')}</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:border-primary/50 transition-all duration-300">
-              <CardHeader>
-                <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Smartphone className="size-6 text-primary" />
-                </div>
-                <CardTitle className="text-xl">{t('HomePage.services.items.mobile.title')}</CardTitle>
-                <CardDescription>
-                  {t('HomePage.services.items.mobile.description')}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{t('HomePage.services.items.mobile.features.0')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{t('HomePage.services.items.mobile.features.1')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{t('HomePage.services.items.mobile.features.2')}</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:border-primary/50 transition-all duration-300">
-              <CardHeader>
-                <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Code2 className="size-6 text-primary" />
-                </div>
-                <CardTitle className="text-xl">{t('HomePage.services.items.business.title')}</CardTitle>
-                <CardDescription>
-                  {t('HomePage.services.items.business.description')}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{t('HomePage.services.items.business.features.0')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{t('HomePage.services.items.business.features.1')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
-                    <span>{t('HomePage.services.items.business.features.2')}</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            {services.map(({ key, icon: Icon }) => (
+              <Card key={key} className="group hover:border-primary/50 transition-all duration-300">
+                <CardHeader>
+                  <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Icon className="size-6 text-primary" />
+                  </div>
+                  <CardTitle className="text-xl">{t(`HomePage.services.items.${key}.title`)}</CardTitle>
+                  <CardDescription>{t(`HomePage.services.items.${key}.description`)}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {[0, 1, 2].map((featureIndex) => (
+                      <li key={featureIndex} className="flex items-start gap-2">
+                        <CheckCircle2 className="size-4 text-primary mt-0.5 shrink-0" />
+                        <span>{t(`HomePage.services.items.${key}.features.${featureIndex}`)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -156,10 +137,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <Badge variant="outline" className="text-sm">
-              {t('HomePage.whyUs.badge')}
+              {t("HomePage.whyUs.badge")}
             </Badge>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-              {t('HomePage.whyUs.title')} <span className="text-primary">{t('HomePage.whyUs.titleHighlight')}</span>
+              {t("HomePage.whyUs.title")} <span className="text-primary">{t("HomePage.whyUs.titleHighlight")}</span>
             </h2>
           </div>
 
@@ -168,40 +149,32 @@ export default function HomePage() {
               <div className="size-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                 <Zap className="size-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold">{t('HomePage.whyUs.items.fastDelivery.title')}</h3>
-              <p className="text-muted-foreground text-sm">
-                {t('HomePage.whyUs.items.fastDelivery.description')}
-              </p>
+              <h3 className="text-xl font-semibold">{t("HomePage.whyUs.items.fastDelivery.title")}</h3>
+              <p className="text-muted-foreground text-sm">{t("HomePage.whyUs.items.fastDelivery.description")}</p>
             </div>
 
             <div className="text-center space-y-3">
               <div className="size-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                 <Code2 className="size-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold">{t('HomePage.whyUs.items.cleanCode.title')}</h3>
-              <p className="text-muted-foreground text-sm">
-                {t('HomePage.whyUs.items.cleanCode.description')}
-              </p>
+              <h3 className="text-xl font-semibold">{t("HomePage.whyUs.items.cleanCode.title")}</h3>
+              <p className="text-muted-foreground text-sm">{t("HomePage.whyUs.items.cleanCode.description")}</p>
             </div>
 
             <div className="text-center space-y-3">
               <div className="size-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                 <Users className="size-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold">{t('HomePage.whyUs.items.clientFocused.title')}</h3>
-              <p className="text-muted-foreground text-sm">
-                {t('HomePage.whyUs.items.clientFocused.description')}
-              </p>
+              <h3 className="text-xl font-semibold">{t("HomePage.whyUs.items.clientFocused.title")}</h3>
+              <p className="text-muted-foreground text-sm">{t("HomePage.whyUs.items.clientFocused.description")}</p>
             </div>
 
             <div className="text-center space-y-3">
               <div className="size-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                 <CheckCircle2 className="size-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold">{t('HomePage.whyUs.items.provenResults.title')}</h3>
-              <p className="text-muted-foreground text-sm">
-                {t('HomePage.whyUs.items.provenResults.description')}
-              </p>
+              <h3 className="text-xl font-semibold">{t("HomePage.whyUs.items.provenResults.title")}</h3>
+              <p className="text-muted-foreground text-sm">{t("HomePage.whyUs.items.provenResults.description")}</p>
             </div>
           </div>
         </div>
@@ -212,35 +185,30 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <Badge variant="outline" className="text-sm">
-              {t('HomePage.technologies.badge')}
+              {t("HomePage.technologies.badge")}
             </Badge>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-              {t('HomePage.technologies.title')} <span className="text-primary">{t('HomePage.technologies.titleHighlight')}</span>
+              {t("HomePage.technologies.title")} <span className="text-primary">{t("HomePage.technologies.titleHighlight")}</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t('HomePage.technologies.description')}
-            </p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("HomePage.technologies.description")}</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              'Next.js',
-              'React',
-              'TypeScript',
-              'Tailwind CSS',
-              'Node.js',
-              'MongoDB',
-              'PostgreSQL',
-              'AWS',
-              'Cloudflare',
-              'React Native',
-              'shadcn/ui',
-              'Prisma'
+              "Next.js",
+              "React",
+              "TypeScript",
+              "Tailwind CSS",
+              "Node.js",
+              "MongoDB",
+              "PostgreSQL",
+              "AWS",
+              "Cloudflare",
+              "React Native",
+              "shadcn/ui",
+              "Prisma",
             ].map((tech) => (
-              <div
-                key={tech}
-                className="p-6 rounded-lg border bg-card hover:border-primary/50 transition-all duration-300 text-center"
-              >
+              <div key={tech} className="p-6 rounded-lg border bg-card hover:border-primary/50 transition-all duration-300 text-center">
                 <p className="font-medium">{tech}</p>
               </div>
             ))}
@@ -252,31 +220,24 @@ export default function HomePage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-            {t('HomePage.cta.title')}{' '}
+            {t("HomePage.cta.title")}{" "}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              {t('HomePage.cta.titleHighlight')}
+              {t("HomePage.cta.titleHighlight")}
             </span>
           </h2>
-          
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-            {t('HomePage.cta.description')}
-          </p>
-          
+
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">{t("HomePage.cta.description")}</p>
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button asChild size="lg" className="text-base px-8 gap-2">
               <Link href="/contact">
-                {t('HomePage.cta.primaryButton')}
+                {t("HomePage.cta.primaryButton")}
                 <ArrowRight className="size-5" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="text-base px-8">
-              <Link href="/portfolio">
-                {t('HomePage.cta.secondaryButton')}
               </Link>
             </Button>
           </div>
         </div>
       </section>
     </main>
-  )
+  );
 }

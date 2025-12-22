@@ -415,6 +415,8 @@
         "fullName": "Full Name",
         "emailAddress": "Email Address",
         "projectType": "Project Type",
+        "budget": "Budget Range",
+        "hearAbout": "How did you hear about us?",
         "subject": "Subject",
         "message": "Message",
         "fullNamePlaceholder": "Your full name",
@@ -423,15 +425,37 @@
         "messagePlaceholder": "Tell me more about your project, goals, timeline, and any specific requirements..."
       },
       "projectTypes": {
-        "select": "Select project type",
-        "professionalWebsite": "Professional Website",
-        "mobileApp": "Mobile App",
-        "businessSystems": "Business Systems",
-        "uxDesign": "User Experience Design",
-        "completeDigitalSolution": "Complete Digital Solution",
-        "businessSoftware": "Business Software",
-        "consultation": "Consultation",
-        "other": "Other"
+        "select": "Select a project type",
+        "options": {
+          "0": "Full Stack Product Development",
+          "1": "AI Solutions",
+          "2": "Automation",
+          "3": "Fix Bugs/Issues",
+          "4": "Professional Website",
+          "5": "Mobile App",
+          "6": "Other"
+        }
+      },
+      "budget": {
+        "select": "Select your budget",
+        "options": {
+          "0": "Under $5k",
+          "1": "$5k - $10k",
+          "2": "$10k - $25k",
+          "3": "$25k - $50k",
+          "4": "$50k+"
+        }
+      },
+      "hearAbout": {
+        "select": "Select an option",
+        "options": {
+          "0": "Search engine",
+          "1": "Social media",
+          "2": "Referral",
+          "3": "Community/Forum",
+          "4": "Ads",
+          "5": "Other"
+        }
       },
       "submit": "Send Message",
       "sending": "Sending...",
@@ -441,7 +465,7 @@
       }
     },
     "whyChoose": {
-      "title": "Why Work With Me?",
+      "title": "Why Work With Us?",
       "benefits": {
         "0": "Expert in React, Node.js, and React Native",
         "1": "Fast delivery with quality code",
@@ -482,43 +506,61 @@
   },
   "HomePage": {
     "hero": {
-      "title": "Building Digital Products",
-      "titleHighlight": "Driven by Quality",
-      "description": "Raising the bar for software quality by creating products that effortlessly integrate into your life, so they work beautifully without a second thought.",
+      "title": "Ship Smarter.",
+      "titleHighlight": "Launch Faster.",
+      "description": "We combine AI and expert engineering to build scalable, high-quality apps—fast.",
       "cta": "Let's work together",
       "testimonial": "What a pleasure to work with!"
     },
     "services": {
       "badge": "What We Do",
       "title": "Our",
-      "titleHighlight": "Expertise",
+      "titleHighlight": "Services",
       "description": "We specialize in building modern digital solutions that drive business growth",
       "items": {
-        "websites": {
-          "title": "Professional Websites",
-          "description": "Complete business websites that attract customers and drive sales, built with modern technology",
+        "fullStack": {
+          "title": "Full Stack Product Development",
+          "description": "End-to-end product builds for web and mobile, from discovery to launch with scalable foundations",
           "features": {
-            "0": "Custom design & development",
-            "1": "SEO optimization",
-            "2": "Performance optimization"
+            "0": "Product discovery, design, and delivery",
+            "1": "Secure, scalable architecture for growth",
+            "2": "Web & mobile apps shipped together"
           }
         },
-        "mobile": {
-          "title": "Mobile Applications",
-          "description": "Cross-platform mobile apps for iOS and Android that provide seamless user experiences",
+        "aiSolutions": {
+          "title": "AI Solutions",
+          "description": "AI copilots, chatbots, and smart workflows tailored to your business data",
           "features": {
-            "0": "iOS & Android development",
-            "1": "Native performance",
-            "2": "App store deployment"
+            "0": "Custom AI copilots and chatbots",
+            "1": "LLM-powered process automation",
+            "2": "Data pipelines and third-party integrations"
           }
         },
-        "business": {
-          "title": "Business Systems",
-          "description": "Custom software solutions designed to streamline your business operations and boost efficiency",
+        "automation": {
+          "title": "Automation",
+          "description": "Automate operations and connect your stack to remove manual work",
           "features": {
-            "0": "Custom development",
-            "1": "API integrations",
-            "2": "Scalable architecture"
+            "0": "Workflow and ops automation",
+            "1": "API and systems integration",
+            "2": "Monitoring, alerts, and reliability"
+          }
+        },
+        "mobileApp": {
+          "title": "Mobile App",
+          "description": "Cross-platform mobile apps with native feel and analytics baked in",
+          "features": {
+            "0": "iOS & Android with React Native",
+            "1": "App store launch and ASO support",
+            "2": "Push notifications and analytics"
+          }
+        },
+        "professionalWebsite": {
+          "title": "Professional Website",
+          "description": "High-converting marketing sites that load fast and rank well",
+          "features": {
+            "0": "Conversion-focused UX and storytelling",
+            "1": "SEO and performance optimization",
+            "2": "CMS setup for easy updates"
           }
         }
       }
@@ -567,7 +609,7 @@
     "portfolio": "Portfolio",
     "contact": "Contact",
     "apps": "Apps",
-    "cta": "Start Your Project"
+    "cta": "Let's talk"
   },
   "Footer": {
     "brand": "Devlizer",

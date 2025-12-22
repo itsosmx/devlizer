@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { buttonVariants } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import AppLogo from "./app-logo";
 import LanguageSwitcher from "./language-switcher";
 import { useTranslations } from "next-intl";
@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { PhoneCallIcon } from "lucide-react";
 
 export default function Header() {
   const t = useTranslations("Navigation");
@@ -37,7 +38,7 @@ export default function Header() {
       title: "Menulizer",
       href: "https://menulizer.com",
       description: "digital menu generator for restaurants and cafes",
-    }
+    },
     // Add more apps as they become available
   ];
 
@@ -54,7 +55,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <AppLogo />
 
-        <NavigationMenu viewport={isMobile}>
+        {/* <NavigationMenu viewport={isMobile}>
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
@@ -93,7 +94,7 @@ export default function Header() {
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
-        </NavigationMenu>
+        </NavigationMenu> */}
 
         <div className="flex items-center gap-3">
           <LanguageSwitcher />
@@ -106,46 +107,15 @@ export default function Header() {
             }}
             whileTap={{ scale: 0.95 }}
             style={{ transformStyle: "preserve-3d" }}>
-            <Link
-              href="/contact"
-              className={buttonVariants({
-                size: "lg",
-                className: "shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden",
-              })}>
-              <motion.span
-                className="absolute inset-0 bg-gradient-to-r from-accent/50 to-primary/50"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 0.5 }}
-              />
-              <span className="relative z-10">{t("cta")}</span>
-            </Link>
+            <Button asChild>
+              <Link href="/contact">
+                <PhoneCallIcon />
+                {t("cta")}
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </div>
     </motion.header>
   );
 }
-
-const ListItem = React.forwardRef<HTMLAnchorElement, React.ComponentPropsWithoutRef<"a"> & { title: string }>(
-  ({ className, title, children, href, ...props }, ref) => {
-    return (
-      <li>
-        <NavigationMenuLink asChild>
-          <Link
-            ref={ref}
-            href={href ?? "#"}
-            className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-              className
-            )}
-            {...props}>
-            <div className="text-sm font-medium leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm leading-snug">{children}</p>
-          </Link>
-        </NavigationMenuLink>
-      </li>
-    );
-  }
-);
-ListItem.displayName = "ListItem";

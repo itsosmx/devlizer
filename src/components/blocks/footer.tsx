@@ -36,7 +36,7 @@ export default function Footer() {
       <motion.div
         className="absolute top-4 right-10 text-accent/10"
         animate={{
-          ...rotate3D.animate as any,
+          ...(rotate3D.animate as any),
           transition: { ...rotate3D.animate.transition, delay: 3 },
         }}
         style={{ transformStyle: "preserve-3d" }}>
@@ -91,6 +91,10 @@ export default function Footer() {
               </motion.p>
               <motion.p whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
                 <Link href="/terms">{t("terms")}</Link>
+              </motion.p>
+
+              <motion.p whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+                <Link href="/blog">{t("blog")}</Link>
               </motion.p>
             </div>
           </motion.div>

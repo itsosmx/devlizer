@@ -1,25 +1,29 @@
 import { getBlogPosts } from "@/services/blog";
 import { PostCard } from "@/components/blocks/post-card";
 import { generatePageMetadata } from "@/lib/metadata";
+import { getTranslations } from "next-intl/server";
 
-export const metadata = generatePageMetadata({
-  title: "Blog",
-  description: "Latest insights, thoughts, and updates from our team.",
-  url: "/blog",
-});
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "BlogPage" });
 
-export default async function MainBlogPage() {
+  return generatePageMetadata({
+    title: t("title"),
+    description: t("description"),
+    url: "/blog",
+  });
+}
+
+export default async function MainBlogPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const posts = await getBlogPosts();
+  const t = await getTranslations({ locale, namespace: "BlogPage" });
 
   return (
     <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
-          Our Blog
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Latest insights, thoughts, and updates from our team.
-        </p>
+        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">{t("title")}</h1>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{t("description")}</p>
       </div>
 
       {posts && posts.length > 0 ? (
@@ -30,7 +34,7 @@ export default async function MainBlogPage() {
         </div>
       ) : (
         <div className="text-center py-20">
-          <p className="text-xl text-muted-foreground">No posts found at the moment.</p>
+          <p className="text-xl text-muted-foreground">{t("noPosts")}</p>
         </div>
       )}
     </div>

@@ -2,6 +2,12 @@
   "Brand": {
     "name": "Devlizer"
   },
+  "BlogPage": {
+    "title": "Our Blog",
+    "description": "Latest insights, thoughts, and updates from our team.",
+    "noPosts": "No posts found at the moment.",
+    "readMore": "Read More"
+  },
   "AboutPage": {
     "hero": {
       "cta": "Our Story",

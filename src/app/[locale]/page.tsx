@@ -2,11 +2,13 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Bot, CheckCircle2, Code2, Globe, Smartphone, Star, Users, Workflow, Zap } from "lucide-react";
+import { ArrowRight, Bot, CheckCircle2, Code2, Globe, PhoneCallIcon, PhoneIcon, Smartphone, Star, Users, Workflow, Zap } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { ElegantShape } from "@/components/ui/shadcn-io/shape-landing-hero";
 import { cn } from "@/lib/utils";
+import { RetroGrid } from "@/components/ui/retro-grid";
+import { WarpBackground } from "@/components/ui/warp";
 
 export default function HomePage() {
   const t = useTranslations();
@@ -24,53 +26,7 @@ export default function HomePage() {
       {/* Hero Section */}
 
       <section className="relative min-h-screen flex items-center justify-center bg-background text-foreground px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90" />
-        <div className="absolute inset-0 overflow-hidden">
-          <ElegantShape
-            delay={0.3}
-            width={600}
-            height={140}
-            rotate={12}
-            gradient="from-primary/[0.15]"
-            className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
-          />
-
-          <ElegantShape
-            delay={0.5}
-            width={500}
-            height={120}
-            rotate={-15}
-            gradient="from-rose-500/[0.15]"
-            className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
-          />
-
-          <ElegantShape
-            delay={0.4}
-            width={300}
-            height={80}
-            rotate={-8}
-            gradient="from-violet-500/[0.15]"
-            className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
-          />
-
-          <ElegantShape
-            delay={0.6}
-            width={200}
-            height={60}
-            rotate={20}
-            gradient="from-amber-500/[0.15]"
-            className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
-          />
-
-          <ElegantShape
-            delay={0.7}
-            width={150}
-            height={40}
-            rotate={-25}
-            gradient="from-cyan-500/[0.15]"
-            className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
-          />
-        </div>
+        <WarpBackground className="absolute inset-0 bg-transparent" gridColor="rgba(255, 129, 99, 0.01)" />
         <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight rtl:leading-tight">
             {t("HomePage.hero.title")}
@@ -83,10 +39,10 @@ export default function HomePage() {
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{t("HomePage.hero.description")}</p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button asChild size="lg" className="text-base px-8 gap-2">
+            <Button asChild size="lg" className="px-12! py-6 text-xl gap-2 rounded-2xl">
               <Link href="/contact">
+                <PhoneIcon className="size-5" />
                 {t("HomePage.hero.cta")}
-                <ArrowRight className="size-5" />
               </Link>
             </Button>
           </div>
@@ -107,8 +63,12 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map(({ key, icon: Icon }) => (
-              <Card key={key} className="group hover:border-primary/50 transition-all duration-300">
+            {services.map(({ key, icon: Icon }, index) => (
+              <Card
+                key={key}
+                className={cn("group hover:border-primary/50 transition-all duration-300", {
+                  "col-span-2": index === services.length - 1,
+                })}>
                 <CardHeader>
                   <div className="size-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                     <Icon className="size-6 text-primary" />

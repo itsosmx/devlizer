@@ -5,13 +5,13 @@ import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { StructuredData } from "@/components/seo/AnalyticsScripts";
-import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { generatePageMetadata, homeStructuredData } from "@/lib/metadata";
 import Header from "@/components/blocks/header";
 import Footer from "@/components/blocks/footer";
 import { generateStructuredData } from "@/lib/seo";
+import { DirectionProvider } from "@/components/ui/direction";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -58,15 +58,17 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-CXXZE4SD75" />}
-      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased dark scroll-smooth`}>
-        <StructuredData data={structureData} />
-        <NextIntlClientProvider locale={locale}>
-          <Header />
-          {children}
-          <Footer />
-        </NextIntlClientProvider>
-        <Toaster />
-        {/* <script src="https://embed.widgetease.com/embed.js?t=A8sGc37kXLvYPDE-luVX11hdeKXbOomK&v=1" async></script> */}
+      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased scroll-smooth`}>
+        <DirectionProvider dir={locale === "ar" ? "rtl" : "ltr"}>
+          <StructuredData data={structureData} />
+          <NextIntlClientProvider locale={locale}>
+            <Header />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
+          <Toaster />
+          {/* <script src="https://embed.widgetease.com/embed.js?t=A8sGc37kXLvYPDE-luVX11hdeKXbOomK&v=1" async></script> */}
+        </DirectionProvider>
       </body>
     </html>
   );

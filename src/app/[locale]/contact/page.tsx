@@ -2,7 +2,7 @@
 
 import React, { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -64,7 +64,7 @@ export default function ContactPage() {
         method: "POST",
         body: formData,
       });
-      
+
       const response = await job.json();
       if (job.status !== 200) {
         throw new Error(response.message || "Failed to send message");
@@ -215,77 +215,18 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-8 items-start">
             {/* Left Column: Contact Info & Socials */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="lg:col-span-2 space-y-10">
-              <div>
-                <h2 className="text-3xl font-bold mb-4">{t("contactInfo.title") || "Get in Touch"}</h2>
-                <p className="text-muted-foreground text-lg">
-                  {t("contactInfo.subtitle") || "We'd love to hear from you. Our friendly team is always here to chat."}
-                </p>
-              </div>
-
-              <div className="space-y-8">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div
-                      className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center text-white shadow-lg`}>
-                      {info.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold">{info.title}</h3>
-                      <p className="text-primary font-medium mt-1">
-                        {info.link !== "#" ? (
-                          <a href={info.link} className="hover:underline">
-                            {info.value}
-                          </a>
-                        ) : (
-                          info.value
-                        )}
-                      </p>
-                      <p className="text-muted-foreground text-sm mt-1">{info.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-6 border-t border-border">
-                <h3 className="text-lg font-semibold mb-4">{t("socialLinks.title") || "Follow Us"}</h3>
-                <div className="flex flex-wrap gap-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`flex items-center gap-2 px-4 py-2.5 rounded-full bg-muted/50 border border-border hover:border-primary/50 hover:bg-muted transition-all duration-300 ${social.color}`}>
-                      {social.icon}
-                      <span className="text-sm font-medium">{social.name}</span>
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right Column: Contact Form */}
-            <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               className="lg:col-span-3">
-              <Card className="shadow-2xl border-border/50 bg-background/60 backdrop-blur-xl overflow-hidden">
+              <Card className="relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary"></div>
-                <CardContent className="p-8 sm:p-10">
-                  <div className="mb-8">
-                    <h2 className="text-2xl font-bold">{t("form.title")}</h2>
-                    <p className="text-muted-foreground mt-2">{t("form.subtitle")}</p>
-                  </div>
-
+                <CardHeader>
+                  <CardTitle className="text-2xl font-bold">{t("form.title")}</CardTitle>
+                  <CardDescription className="text-muted-foreground">{t("form.subtitle")}</CardDescription>
+                </CardHeader>
+                <CardContent>
                   {isSubmitted ? (
                     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center space-y-6 py-12">
                       <motion.div
@@ -433,6 +374,64 @@ export default function ContactPage() {
                   )}
                 </CardContent>
               </Card>
+            </motion.div>
+
+            {/* Right Column: Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-2 space-y-10">
+              <div>
+                <h2 className="text-3xl font-bold mb-4">{t("contactInfo.title") || "Get in Touch"}</h2>
+                <p className="text-muted-foreground text-lg">
+                  {t("contactInfo.subtitle") || "We'd love to hear from you. Our friendly team is always here to chat."}
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                {contactInfo.map((info, index) => (
+                  <div key={index} className="flex gap-4">
+                    <div
+                      className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center text-white shadow-lg`}>
+                      {info.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">{info.title}</h3>
+                      <p className="text-primary font-medium mt-1">
+                        {info.link !== "#" ? (
+                          <a href={info.link} className="hover:underline">
+                            {info.value}
+                          </a>
+                        ) : (
+                          info.value
+                        )}
+                      </p>
+                      <p className="text-muted-foreground text-sm mt-1">{info.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-6 border-t border-border">
+                <h3 className="text-lg font-semibold mb-4">{t("socialLinks.title") || "Follow Us"}</h3>
+                <div className="flex flex-wrap gap-4">
+                  {socialLinks.map((social, index) => (
+                    <motion.a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`flex items-center gap-2 px-4 py-2.5 rounded-full bg-muted/50 border border-border hover:border-primary/50 hover:bg-muted transition-all duration-300 ${social.color}`}>
+                      {social.icon}
+                      <span className="text-sm font-medium">{social.name}</span>
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

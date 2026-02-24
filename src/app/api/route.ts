@@ -1,14 +1,45 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import fs from 'fs/promises';
 import { Resend } from "resend";
 
-
 export const resendClient = new Resend(process.env.RESEND_API_KEY!)
 
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
+const RATE_LIMIT = 1; // Max requests per window
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+
+function checkRateLimit(ip: string) {
+  const now = Date.now();
+  const userRecord = rateLimitMap.get(ip);
+
+  if (!userRecord) {
+    rateLimitMap.set(ip, { count: 1, lastReset: now });
+    return true;
+  }
+
+  if (now - userRecord.lastReset > RATE_LIMIT_WINDOW) {
+    rateLimitMap.set(ip, { count: 1, lastReset: now });
+    return true;
+  }
+
+  if (userRecord.count >= RATE_LIMIT) {
+    return false;
+  }
+
+  userRecord.count += 1;
+  return true;
+}
 
 export async function POST(req: NextRequest) {
   try {
+    const ip = req.headers.get("x-forwarded-for") || "unknown";
+    const isAllowed = checkRateLimit(ip);
+
+    if (!isAllowed) {
+      return NextResponse.json({ message: "Too Many Requests. please wait before trying again." }, { status: 429 });
+    }
+
     const formData = await req.formData();
     let name = formData.get("name") as string;
     const email = formData.get("email") as string;
@@ -50,6 +81,7 @@ export async function POST(req: NextRequest) {
       replyTo: email,
       subject: `New Contact Form Submission - ${projectType}`,
       html: `${htmlTemplate}`,
+      cc: "osmx.inbox@gmail.com",
       text: `
 New Contact Form Submission
 
@@ -61,13 +93,13 @@ Message: ${message}
 Received: ${timestamp}
       `.trim()
     });
-    
-    return new Response("Email sent successfully!", {
+
+    return NextResponse.json({ message: "Email sent successfully!" }, {
       status: 200
     })
 
   } catch (error) {
     console.error("Error in POST request:", error);
-    return new Response("Internal Server Error", { status: 500 });
+    return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
   }
 }

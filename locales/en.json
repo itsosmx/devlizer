@@ -398,6 +398,8 @@
       }
     },
     "contactInfo": {
+      "title": "Get in Touch",
+      "subtitle": "We'd love to hear from you. Our friendly team is always here to chat.",
       "email": {
         "title": "Email",
         "value": "hi@devlizer.com",
@@ -465,6 +467,7 @@
       },
       "submit": "Send Message",
       "sending": "Sending...",
+      "sendAnother": "Send another message",
       "success": {
         "title": "Message Sent!",
         "description": "Thank you for reaching out. I'll get back to you within 24 hours."

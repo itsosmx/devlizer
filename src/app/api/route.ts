@@ -1,17 +1,12 @@
 import { NextRequest } from "next/server";
-import nodemailer from 'nodemailer';
 import path from "path";
 import fs from 'fs/promises';
+import { Resend } from "resend";
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  }
-});
+
+export const resendClient = new Resend(process.env.RESEND_API_KEY!)
+
+
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
@@ -48,10 +43,10 @@ export async function POST(req: NextRequest) {
       .replace(/{{message}}/g, message)
       .replace(/{{timestamp}}/g, timestamp);
 
-    // Email options
-    const mailOptions = {
-      from: `"${name}" <${process.env.SMTP_USER}>`,
-      to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+    // Send the email
+    const info = await resendClient.emails.send({
+      from: `App Contact Form <contact@notifications.devlizer.com>`,
+      to: `contact@dorobjano.resend.app`,
       replyTo: email,
       subject: `New Contact Form Submission - ${projectType}`,
       html: `${htmlTemplate}`,
@@ -65,11 +60,8 @@ Message: ${message}
 
 Received: ${timestamp}
       `.trim()
-    };
-
-    // Send the email
-    const info = await transporter.sendMail(mailOptions);
-
+    });
+    
     return new Response("Email sent successfully!", {
       status: 200
     })

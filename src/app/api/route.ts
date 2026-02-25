@@ -3,7 +3,7 @@ import path from "path";
 import fs from 'fs/promises';
 import { Resend } from "resend";
 
-const resendClient = new Resend(process.env.RESEND_API_KEY!)
+
 
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 const RATE_LIMIT = 1; // Max requests per window
@@ -33,6 +33,7 @@ function checkRateLimit(ip: string) {
 
 export async function POST(req: NextRequest) {
   try {
+    const resendClient = new Resend(process.env.RESEND_API_KEY!)
     const ip = req.headers.get("x-forwarded-for") || "unknown";
     const isAllowed = checkRateLimit(ip);
 

@@ -75,13 +75,13 @@ export async function POST(req: NextRequest) {
       .replace(/{{timestamp}}/g, timestamp);
 
     // Send the email
-    const info = await resendClient.emails.send({
-      from: `App Contact Form <contact@notifications.devlizer.com>`,
-      to: `contact@dorobjano.resend.app`,
+    await resendClient.emails.send({
+      from: `App Contact Form <${process.env.DEFAULT_FORM_EMAIL}>`,
+      to: process.env.DEFAULT_TO_EMAIL!,
       replyTo: email,
       subject: `New Contact Form Submission - ${projectType}`,
       html: `${htmlTemplate}`,
-      cc: "osmx.inbox@gmail.com",
+      cc: process.env.DEFAULT_CC_EMAIL,
       text: `
 New Contact Form Submission
 

@@ -1,4 +1,4 @@
-import { getBlogPage } from "@/services/blog";
+import { getBlogPage } from "@/services/data";
 import { PostCard } from "@/components/blocks/post-card";
 import { notFound } from "next/navigation";
 import { generatePageMetadata } from "@/lib/metadata";

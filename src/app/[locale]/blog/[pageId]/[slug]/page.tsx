@@ -1,4 +1,4 @@
-import { getBlogPost } from "@/services/blog";
+import { getBlogPost } from "@/services/data";
 import { MarkdownRenderer } from "@/components/blocks/markdown-renderer";
 import { notFound } from "next/navigation";
 import Image from "next/image";

@@ -1,4 +1,4 @@
-import { getBlogPosts } from "@/services/blog";
+import { getBlogPosts } from "@/services/data";
 import { PostCard } from "@/components/blocks/post-card";
 import { generatePageMetadata } from "@/lib/metadata";
 import { getTranslations } from "next-intl/server";

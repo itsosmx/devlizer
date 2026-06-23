@@ -1,17 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter, Cairo } from "next/font/google";
-import "./globals.css";
+//@ts-ignore
+import "../globals.css";
 import { routing } from "@/i18n/routing";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { StructuredData } from "@/components/seo/AnalyticsScripts";
 import { Toaster } from "@/components/ui/sonner";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { generatePageMetadata, homeStructuredData } from "@/lib/metadata";
+import { generatePageMetadata } from "@/lib/metadata";
 import Header from "@/components/blocks/header";
 import Footer from "@/components/blocks/footer";
 import { generateStructuredData } from "@/lib/seo";
 import { DirectionProvider } from "@/components/ui/direction";
+import FloatingContacts from "@/components/blocks/floating-contacts";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -65,6 +67,7 @@ export default async function RootLayout({
             <Header />
             {children}
             <Footer />
+            <FloatingContacts />
           </NextIntlClientProvider>
           <Toaster />
           {/* <script src="https://embed.widgetease.com/embed.js?t=A8sGc37kXLvYPDE-luVX11hdeKXbOomK&v=1" async></script> */}

@@ -2,20 +2,10 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button, buttonVariants } from "../ui/button";
+import { Button } from "../ui/button";
 import AppLogo from "./app-logo";
 import LanguageSwitcher from "./language-switcher";
 import { useTranslations } from "next-intl";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { PhoneCallIcon } from "lucide-react";
 
@@ -44,7 +34,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="px-6 py-4 bg-background/80 backdrop-blur-md sticky top-0 z-50"
+      className="bg-background/80 backdrop-blur-md sticky top-0 z-50 sr-only"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

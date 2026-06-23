@@ -130,3 +130,47 @@ export async function getBlogPage(slug: string) {
     return [];
   }
 }
+
+
+
+export async function getProjects() {
+  try {
+    const query = `
+query Projects {
+  projectsConnection {
+    edges {
+      node {
+        name
+        slug
+        thumbnail {
+          id
+          url
+        }
+        demoUrl
+        assets {
+          id
+          url
+        }
+        excerpt
+        content
+        createdAt
+        launchedAt
+        localizations(locales: [ar]) {
+          name
+          excerpt
+          content
+        }
+      }
+    }
+  }
+}
+    `;
+
+    const data = await client.request(query);
+
+    return data.projectsConnection.edges.map((edge: any) => edge.node);
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}

@@ -574,10 +574,17 @@
         }
       }
     },
+    "projects": {
+      "badge": "Portfolio",
+      "title": "Featured",
+      "titleHighlight": "Work",
+      "description": "A selection of projects we have shipped for clients worldwide."
+    },
     "whyUs": {
       "badge": "Why Devlizer",
       "title": "Why Work",
       "titleHighlight": "With Us",
+      "subtitle": "We combine technical excellence with a deep understanding of business needs to deliver solutions that matter.",
       "items": {
         "fastDelivery": {
           "title": "Fast Delivery",

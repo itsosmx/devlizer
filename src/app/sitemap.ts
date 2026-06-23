@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getBlogPages, getBlogPosts } from '@/services/blog';
+import { getBlogPages, getBlogPosts } from '@/services/data';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://devlizer.com';

@@ -8,6 +8,14 @@ You should think like a react/next developer.
 
 Devlizer is a software company that specializes in developing SaaS products, web and mobile applications making it well-positioned in the SaaS sector. their focus on delivering high-quality digital solutions for enterprises, startups, and SMEs.
 
+### Services 
+  - Develop Websites
+  - Develop custom digital solutions
+  - Develop Mobile Apps
+  - Develop SaaS Products
+  - Build Automation Business's solutions
+  - Integrate AI tailored to business data
+
 ---
 
 ### Tech Stack

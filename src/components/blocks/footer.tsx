@@ -1,81 +1,124 @@
 "use client";
+
 import React from "react";
-import { motion } from "framer-motion";
-import { CheckCircle, Star } from "lucide-react";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 export default function Footer() {
   const t = useTranslations("Footer");
+  const navT = useTranslations("Navigation");
+
+  const navLinks = [
+    { label: navT("services"), href: "/services" },
+    { label: navT("portfolio"), href: "/portfolio" },
+    { label: navT("about"), href: "/about" },
+    { label: navT("contact"), href: "/contact" },
+  ];
+
+  const socialLinks = [
+    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com", label: "GitHub" },
+  ];
 
   return (
-    <footer className="px-6 py-12 border-t bg-background relative overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30, rotateX: -10 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          style={{ transformStyle: "preserve-3d" }}>
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <h2 className="text-6xl font-bold text-primary">{t("brand")}</h2>
+    <footer className="bg-background border-t border-border/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+          {/* Brand Column */}
+          <div className="md:col-span-5 space-y-4">
+            <Link
+              href="/"
+              className="text-2xl font-bold tracking-tight text-foreground hover:text-primary transition-colors duration-300"
+            >
+              {t("brand")}
+            </Link>
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
+              {t("tagline")}
+            </p>
+            <div className="flex items-center gap-3 pt-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+                >
+                  <social.icon className="size-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <motion.p
-            className="text-muted-foreground text-lg"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            whileHover={{
-              scale: 1.05,
-              textShadow: "0 5px 15px rgba(0,0,0,0.2)",
-            }}>
-            {t("tagline")}
-          </motion.p>
+          {/* Navigation Column */}
+          <div className="md:col-span-3 md:col-start-7">
+            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
+              {t("quickLinks")}
+            </h4>
+            <ul className="space-y-3">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Additional Footer Info */}
-          <motion.div
-            className="mt-4 text-sm text-muted-foreground"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.6 }}>
-            <motion.p whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
-              {t("copyright")}
-            </motion.p>
-            <div className="flex items-center justify-center space-x-4 mt-2">
-              <Link className="hover:text-primary scale-105 transition-all text-muted-foreground/70" href="/privacy">{t("privacy")}</Link>
-              <Link className="hover:text-primary scale-105 transition-all text-muted-foreground/70" href="/terms">{t("terms")}</Link>
-              <Link className="hover:text-primary scale-105 transition-all text-muted-foreground/70" href="/blog">{t("blog")}</Link>
-            </div>
-          </motion.div>
-        </motion.div>
+          {/* Contact Column */}
+          <div className="md:col-span-3">
+            <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
+              {t("contact")}
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="mailto:hi@devlizer.com"
+                  className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                >
+                  <Mail className="size-4" />
+                  hi@devlizer.com
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground/60">
+            {t("copyright")}
+          </p>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/privacy"
+              className="text-xs text-muted-foreground/60 hover:text-primary transition-colors duration-300"
+            >
+              {t("privacy")}
+            </Link>
+            <Link
+              href="/terms"
+              className="text-xs text-muted-foreground/60 hover:text-primary transition-colors duration-300"
+            >
+              {t("terms")}
+            </Link>
+            <Link
+              href="/blog"
+              className="text-xs text-muted-foreground/60 hover:text-primary transition-colors duration-300"
+            >
+              {t("blog")}
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
 }
-
-const rotate3D = {
-  initial: { rotateX: 0, rotateY: 0, rotateZ: 0 },
-  animate: {
-    rotateX: [0, 5, 0],
-    rotateY: [0, 10, 0],
-    rotateZ: [0, 2, 0],
-    transition: {
-      duration: 6,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
-
-const float = {
-  initial: { y: 0 },
-  animate: {
-    y: [-10, 10, -10],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};

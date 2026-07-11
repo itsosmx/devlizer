@@ -515,63 +515,88 @@
   },
   "HomePage": {
     "hero": {
-      "title": "Ship Smarter.",
-      "titleHighlight": "Launch Faster.",
-      "description": "We combine AI and expert engineering to build scalable, high-quality apps—fast.",
-      "cta": "Let's work together",
-      "testimonial": "What a pleasure to work with!"
+      "title": "We Build SaaS, Web & Mobile Products",
+      "titleHighlight": "That Scale Businesses",
+      "description": "From enterprise platforms to startup MVPs and SME digital transformation — we engineer products that drive real growth.",
+      "ctaPrimary": "Book a Call",
+      "ctaSecondary": "See Our Work",
+      "statProducts": "50+",
+      "statProductsLabel": "Products Shipped",
+      "statSatisfaction": "100%",
+      "statSatisfactionLabel": "Client Satisfaction",
+      "statResponse": "24h",
+      "statResponseLabel": "Response Time"
     },
     "services": {
-      "badge": "What We Do",
+      "badge": "What We Build",
       "title": "Our",
       "titleHighlight": "Services",
-      "description": "We specialize in building modern digital solutions that drive business growth",
+      "description": "Full-spectrum development capabilities to take your product from idea to market.",
       "items": {
-        "fullStack": {
-          "title": "Full Stack Product Development",
-          "description": "End-to-end product builds for web and mobile, from discovery to launch with scalable foundations",
-          "features": {
-            "0": "Product discovery, design, and delivery",
-            "1": "Secure, scalable architecture for growth",
-            "2": "Web & mobile apps shipped together"
-          }
+        "website": {
+          "title": "Website Development",
+          "description": "High-performance, conversion-focused websites built with modern frameworks and SEO best practices."
         },
-        "aiSolutions": {
-          "title": "AI Solutions",
-          "description": "AI copilots, chatbots, and smart workflows tailored to your business data",
-          "features": {
-            "0": "Custom AI copilots and chatbots",
-            "1": "LLM-powered process automation",
-            "2": "Data pipelines and third-party integrations"
-          }
+        "custom": {
+          "title": "Custom Digital Solutions",
+          "description": "Tailored software systems designed to solve your unique business challenges and streamline operations."
+        },
+        "mobile": {
+          "title": "Mobile App Development",
+          "description": "Native-feel iOS and Android apps using React Native with analytics and push notifications baked in."
+        },
+        "saas": {
+          "title": "SaaS Product Development",
+          "description": "End-to-end SaaS platforms with scalable architecture, multi-tenant support, and subscription billing."
         },
         "automation": {
-          "title": "Automation",
-          "description": "Automate operations and connect your stack to remove manual work",
-          "features": {
-            "0": "Workflow and ops automation",
-            "1": "API and systems integration",
-            "2": "Monitoring, alerts, and reliability"
-          }
+          "title": "Business Automation",
+          "description": "Intelligent workflows that eliminate manual tasks, connect your stack, and boost operational efficiency."
         },
-        "mobileApp": {
-          "title": "Mobile App",
-          "description": "Cross-platform mobile apps with native feel and analytics baked in",
-          "features": {
-            "0": "iOS & Android with React Native",
-            "1": "App store launch and ASO support",
-            "2": "Push notifications and analytics"
-          }
-        },
-        "professionalWebsite": {
-          "title": "Professional Website",
-          "description": "High-converting marketing sites that load fast and rank well",
-          "features": {
-            "0": "Conversion-focused UX and storytelling",
-            "1": "SEO and performance optimization",
-            "2": "CMS setup for easy updates"
-          }
+        "ai": {
+          "title": "AI Integration",
+          "description": "Custom AI copilots, LLM-powered chatbots, and smart data pipelines trained on your business data."
         }
+      }
+    },
+    "whyUs": {
+      "badge": "Why Us",
+      "title": "Why",
+      "titleHighlight": "Devlizer?",
+      "subtitle": "Technical excellence combined with business acumen — we build what actually moves the needle.",
+      "items": {
+        "speed": {
+          "stat": "2–4x",
+          "label": "Faster Delivery",
+          "description": "Agile sprints and modular architecture ship features in weeks, not quarters."
+        },
+        "quality": {
+          "stat": "99.9%",
+          "label": "Uptime Target",
+          "description": "Production-grade infrastructure, automated testing, and robust CI/CD pipelines."
+        },
+        "ownership": {
+          "stat": "End-to-End",
+          "label": "Full Ownership",
+          "description": "From discovery to deployment and beyond — we handle the entire product lifecycle."
+        },
+        "focus": {
+          "stat": "50+",
+          "label": "Products Shipped",
+          "description": "Proven track record across fintech, healthtech, e-commerce, and enterprise SaaS."
+        }
+      }
+    },
+    "process": {
+      "badge": "How We Work",
+      "title": "Our",
+      "titleHighlight": "Process",
+      "description": "A battle-tested workflow that keeps projects on track and stakeholders in the loop.",
+      "steps": {
+        "0": { "title": "Discover", "description": "Deep-dive into your business, users, and technical requirements." },
+        "1": { "title": "Design", "description": "Wireframes, UI/UX prototypes, and scalable architecture planning." },
+        "2": { "title": "Build", "description": "Iterative development with weekly demos, code reviews, and QA." },
+        "3": { "title": "Launch", "description": "Production deployment, monitoring setup, and growth optimization." }
       }
     },
     "projects": {
@@ -580,42 +605,36 @@
       "titleHighlight": "Work",
       "description": "A selection of projects we have shipped for clients worldwide."
     },
-    "whyUs": {
-      "badge": "Why Devlizer",
-      "title": "Why Work",
-      "titleHighlight": "With Us",
-      "subtitle": "We combine technical excellence with a deep understanding of business needs to deliver solutions that matter.",
+    "aiHighlight": {
+      "badge": "AI-Powered",
+      "title": "Intelligence Tailored to",
+      "titleHighlight": "Your Data",
+      "description": "We do not bolt on generic AI. We build custom copilots, chatbots, and intelligent workflows trained on your proprietary data — giving you a competitive edge that off-the-shelf tools cannot match.",
+      "features": {
+        "0": "Custom LLM fine-tuning on your business data",
+        "1": "RAG-powered knowledge bases and search",
+        "2": "Intelligent process automation and decision support"
+      },
+      "cta": "Explore AI Solutions"
+    },
+    "testimonials": {
+      "badge": "Testimonials",
+      "title": "Client",
+      "titleHighlight": "Words",
+      "description": "Feedback from the teams we have partnered with.",
       "items": {
-        "fastDelivery": {
-          "title": "Fast Delivery",
-          "description": "Quick turnaround without compromising on quality"
-        },
-        "cleanCode": {
-          "title": "Clean Code",
-          "description": "Maintainable, scalable, and well-documented code"
-        },
-        "clientFocused": {
-          "title": "Client Focused",
-          "description": "Your success is our priority, always"
-        },
-        "provenResults": {
-          "title": "Proven Results",
-          "description": "Successful projects with satisfied clients"
-        }
+        "0": { "quote": "Devlizer transformed our outdated internal tool into a modern SaaS platform in under 8 weeks. The quality and speed were exceptional.", "author": "Sarah Chen", "role": "CTO, FlowMetrics" },
+        "1": { "quote": "Their AI integration expertise saved us months of development time. The custom copilot they built is now core to our product offering.", "author": "Marcus Johnson", "role": "Founder, DataPulse" },
+        "2": { "quote": "Professional, responsive, and technically excellent. Devlizer delivered our mobile app on time and the user feedback has been outstanding.", "author": "Aisha Patel", "role": "Product Lead, HealthSync" }
       }
     },
-    "technologies": {
-      "badge": "Tech Stack",
-      "title": "Technologies",
-      "titleHighlight": "We Use",
-      "description": "We leverage cutting-edge technologies to build robust and scalable solutions"
-    },
-    "cta": {
-      "title": "Ready to Start Your",
-      "titleHighlight": "Next Project?",
-      "description": "Let's collaborate to bring your ideas to life with modern technology and expert craftsmanship",
-      "primaryButton": "Get Started Today",
-      "secondaryButton": "View Our Work"
+    "finalCta": {
+      "title": "Let's Build Your",
+      "titleHighlight": "Next Product",
+      "description": "Whether you are starting from scratch or scaling an existing platform, we have the expertise to get you there faster.",
+      "button": "Book a Call",
+      "emailText": "Or email us directly at",
+      "email": "hi@devlizer.com"
     }
   },
   "Navigation": {

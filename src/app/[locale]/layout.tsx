@@ -60,7 +60,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-CXXZE4SD75" />}
-      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased scroll-smooth`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased scroll-smooth dark`}>
         <DirectionProvider dir={locale === "ar" ? "rtl" : "ltr"}>
           <StructuredData data={structureData} />
           <NextIntlClientProvider locale={locale}>

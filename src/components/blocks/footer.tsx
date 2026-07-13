@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { analytics } from "@/lib/analytics";
 
 export default function Footer() {
   const t = useTranslations("Footer");
@@ -31,6 +32,7 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-4">
             <Link
               href="/"
+              onClick={() => analytics.navClick("logo_home", "footer")}
               className="text-2xl font-bold tracking-tight text-foreground hover:text-primary transition-colors duration-300"
             >
               {t("brand")}
@@ -46,6 +48,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
+                  onClick={() => analytics.socialClick(social.label)}
                   className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
                 >
                   <social.icon className="size-4" />
@@ -64,6 +67,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    onClick={() => analytics.navClick(link.label, "footer")}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                   >
                     {link.label}
@@ -82,6 +86,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:hi@devlizer.com"
+                  onClick={() => analytics.emailClick("hi@devlizer.com")}
                   className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
                 >
                   <Mail className="size-4" />
@@ -100,18 +105,21 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <Link
               href="/privacy"
+              onClick={() => analytics.navClick(t("privacy"), "footer_legal")}
               className="text-xs text-muted-foreground/60 hover:text-primary transition-colors duration-300"
             >
               {t("privacy")}
             </Link>
             <Link
               href="/terms"
+              onClick={() => analytics.navClick(t("terms"), "footer_legal")}
               className="text-xs text-muted-foreground/60 hover:text-primary transition-colors duration-300"
             >
               {t("terms")}
             </Link>
             <Link
               href="/blog"
+              onClick={() => analytics.navClick(t("blog"), "footer_legal")}
               className="text-xs text-muted-foreground/60 hover:text-primary transition-colors duration-300"
             >
               {t("blog")}

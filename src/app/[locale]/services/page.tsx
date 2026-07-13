@@ -1,447 +1,247 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
+import { getTranslations } from "next-intl/server";
+import TrackedLink from "@/components/blocks/tracked-link";
 import {
   Globe,
+  Wrench,
   Smartphone,
-  Code,
-  Palette,
-  Database,
   Cloud,
-  Shield,
-  CheckCircle,
+  Workflow,
+  Bot,
   ArrowRight,
-  Settings,
-  Lightbulb,
-  Target,
   Rocket,
-  Heart,
-  MessageSquare,
 } from "lucide-react";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/blocks/animated-section";
 
-export default function ServicesPage() {
-  const t = useTranslations("ServicesPage");
+export default async function ServicesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ServicesPage" });
 
-  // Helper function to convert translation object to array
-  const getTranslationArray = (key: string): string[] => {
-    const obj = t.raw(key) as Record<string, string>;
-    return Object.keys(obj)
-      .sort((a, b) => parseInt(a) - parseInt(b))
-      .map((k) => obj[k]);
-  };
-
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: "easeOut" },
-  };
-
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const float = {
-    initial: { y: 0 },
-    animate: {
-      y: [-10, 10, -10],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  const rotate3D = {
-    initial: { rotateX: 0, rotateY: 0, rotateZ: 0 },
-    animate: {
-      rotateX: [0, 5, 0],
-      rotateY: [0, 10, 0],
-      rotateZ: [0, 2, 0],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
-    },
-  };
-  const mainServices = [
-    {
-      icon: <Globe className="h-12 w-12" />,
-      title: t("coreServices.professionalWebsites.title"),
-      description: t("coreServices.professionalWebsites.description"),
-      features: getTranslationArray("coreServices.professionalWebsites.features"),
-      gradient: "from-blue-500 via-blue-600 to-cyan-500",
-      technologies: getTranslationArray("coreServices.professionalWebsites.technologies"),
-    },
-    {
-      icon: <Smartphone className="h-12 w-12" />,
-      title: t("coreServices.mobileApplications.title"),
-      description: t("coreServices.mobileApplications.description"),
-      features: getTranslationArray("coreServices.mobileApplications.features"),
-      gradient: "from-purple-500 via-purple-600 to-pink-500",
-      technologies: getTranslationArray("coreServices.mobileApplications.technologies"),
-    },
-    {
-      icon: <Code className="h-12 w-12" />,
-      title: t("coreServices.businessSystems.title"),
-      description: t("coreServices.businessSystems.description"),
-      features: getTranslationArray("coreServices.businessSystems.features"),
-      gradient: "from-green-500 via-green-600 to-emerald-500",
-      technologies: getTranslationArray("coreServices.businessSystems.technologies"),
-    },
-    {
-      icon: <Palette className="h-12 w-12" />,
-      title: t("coreServices.uxDesign.title"),
-      description: t("coreServices.uxDesign.description"),
-      features: getTranslationArray("coreServices.uxDesign.features"),
-      gradient: "from-orange-500 via-orange-600 to-red-500",
-      technologies: getTranslationArray("coreServices.uxDesign.technologies"),
-    },
+  const services = [
+    { key: "website", icon: Globe },
+    { key: "custom", icon: Wrench },
+    { key: "mobile", icon: Smartphone },
+    { key: "saas", icon: Cloud },
+    { key: "automation", icon: Workflow },
+    { key: "ai", icon: Bot },
   ];
-  const additionalServices = [
-    {
-      icon: <Database className="h-8 w-8" />,
-      title: t("specializedServices.dataManagement.title"),
-      description: t("specializedServices.dataManagement.description"),
-      color: "text-blue-500",
-    },
-    {
-      icon: <Cloud className="h-8 w-8" />,
-      title: t("specializedServices.cloudHosting.title"),
-      description: t("specializedServices.cloudHosting.description"),
-      color: "text-green-500",
-    },
-    {
-      icon: <Shield className="h-8 w-8" />,
-      title: t("specializedServices.systemIntegration.title"),
-      description: t("specializedServices.systemIntegration.description"),
-      color: "text-purple-500",
-    },
-    {
-      icon: <Settings className="h-8 w-8" />,
-      title: t("specializedServices.technicalConsulting.title"),
-      description: t("specializedServices.technicalConsulting.description"),
-      color: "text-orange-500",
-    },
-  ];
-  const processSteps = [
-    {
-      number: "01",
-      title: t("developmentProcess.steps.discovery.title"),
-      description: t("developmentProcess.steps.discovery.description"),
-      icon: <Lightbulb className="h-6 w-6" />,
-    },
-    {
-      number: "02",
-      title: t("developmentProcess.steps.planning.title"),
-      description: t("developmentProcess.steps.planning.description"),
-      icon: <Target className="h-6 w-6" />,
-    },
-    {
-      number: "03",
-      title: t("developmentProcess.steps.development.title"),
-      description: t("developmentProcess.steps.development.description"),
-      icon: <Code className="h-6 w-6" />,
-    },
-    {
-      number: "04",
-      title: t("developmentProcess.steps.testing.title"),
-      description: t("developmentProcess.steps.testing.description"),
-      icon: <CheckCircle className="h-6 w-6" />,
-    },
-    {
-      number: "05",
-      title: t("developmentProcess.steps.deployment.title"),
-      description: t("developmentProcess.steps.deployment.description"),
-      icon: <Rocket className="h-6 w-6" />,
-    },
-    {
-      number: "06",
-      title: t("developmentProcess.steps.support.title"),
-      description: t("developmentProcess.steps.support.description"),
-      icon: <Heart className="h-6 w-6" />,
-    },
-  ];
-  const technologies = [
-    { name: t("technologies.list.webApps"), icon: "🌐" },
-    { name: t("technologies.list.mobileApps"), icon: "📱" },
-    { name: t("technologies.list.websites"), icon: "💻" },
-    { name: t("technologies.list.databases"), icon: "🗄️" },
-    { name: t("technologies.list.cloudHosting"), icon: "☁️" },
-    { name: t("technologies.list.security"), icon: "🔒" },
-    { name: t("technologies.list.performance"), icon: "⚡" },
-    { name: t("technologies.list.analytics"), icon: "📊" },
-    { name: t("technologies.list.ecommerce"), icon: "🛒" },
-    { name: t("technologies.list.automation"), icon: "🤖" },
-    { name: t("technologies.list.integrations"), icon: "🔗" },
-    { name: t("technologies.list.support"), icon: "🛠️" },
-  ];
+
+  const processSteps = ["0", "1", "2", "3", "4", "5"];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="px-6 py-20 md:py-32 relative">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-20">
-          <motion.div className="absolute top-10 right-10 text-primary/30" animate={float} style={{ transformStyle: "preserve-3d" }}>
-            <Settings className="h-16 w-16" />
-          </motion.div>
-          <motion.div
-            className="absolute bottom-20 left-10 text-accent/30"
-            animate={{
-              ...float.animate as any,
-              transition: { ...float.animate.transition, delay: 1 },
+    <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* Hero */}
+      <section className="relative h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, var(--primary) 1px, transparent 1px), linear-gradient(to bottom, var(--primary) 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
             }}
-            style={{ transformStyle: "preserve-3d" }}>
-            <Code className="h-12 w-12" />
-          </motion.div>
-        </div>{" "}
-        <div className="max-w-6xl mx-auto text-center relative z-10">
-          <motion.div initial="initial" animate="animate" variants={stagger} className="space-y-8">
-            <motion.div variants={fadeInUp} className="space-y-4">
-              <Badge variant="secondary" className="mb-4 text-sm px-4 py-2">
-                {t("badge")}
-              </Badge>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent leading-tight">
-                {t("hero.title")}
-                <br />
-                <span className="bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">{t("hero.titleHighlight")}</span>
-              </h1>{" "}
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">{t("hero.description")}</p>
-            </motion.div>
+          />
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]"
+            style={{ background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)" }}
+          />
+          <div
+            className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]"
+            style={{ background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)" }}
+          />
+        </div>
 
-            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
-              <Link href="#services" className={buttonVariants({ size: "lg" })}>
-                {t("hero.exploreServices")}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-              <Link href="/contact" className={buttonVariants({ variant: "secondary", size: "lg" })}>
-                {t("hero.getQuote")}
-                <MessageSquare className="ml-2 h-4 w-4" />
-              </Link>
-            </motion.div>
-          </motion.div>
+        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+          <AnimatedSection>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
+              {t("badge")}
+            </span>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
+              {t("hero.title")}{" "}
+              <span className="text-primary">{t("hero.titleHighlight")}</span>
+            </h1>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              {t("hero.description")}
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.3}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+              <TrackedLink
+                href="/contact"
+                eventName="cta_click"
+                eventParams={{ cta_name: "book_a_call", cta_location: "services_hero", destination: "/contact" }}
+                className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:shadow-[0_0_30px_rgba(217,255,3,0.4)] hover:scale-105 transition-all duration-300"
+              >
+                {t("hero.ctaPrimary")}
+                <ArrowRight className="size-4" />
+              </TrackedLink>
+              <TrackedLink
+                href="/portfolio"
+                eventName="cta_click"
+                eventParams={{ cta_name: "see_our_work", cta_location: "services_hero", destination: "/portfolio" }}
+                className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold rounded-xl border border-muted-foreground/30 text-foreground hover:border-primary/50 hover:text-primary transition-all duration-300"
+              >
+                {t("hero.ctaSecondary")}
+              </TrackedLink>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.5}>
+            <div className="pt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-muted-foreground text-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl font-bold text-primary">{t("hero.statProducts")}</span>
+                <span>{t("hero.statProductsLabel")}</span>
+              </div>
+              <div className="hidden sm:block w-px h-6 bg-muted-foreground/20" />
+              <div className="flex items-center gap-2">
+                <span className="text-2xl font-bold text-primary">{t("hero.statSatisfaction")}</span>
+                <span>{t("hero.statSatisfactionLabel")}</span>
+              </div>
+              <div className="hidden sm:block w-px h-6 bg-muted-foreground/20" />
+              <div className="flex items-center gap-2">
+                <span className="text-2xl font-bold text-primary">{t("hero.statResponse")}</span>
+                <span>{t("hero.statResponseLabel")}</span>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Main Services Section */}
-      <section id="services" className="px-6 py-20 relative">
+      {/* Services */}
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {" "}
-          <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-16">
-            <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {t("coreServices.title")}
-              </h2>{" "}
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("coreServices.subtitle")}</p>
-            </motion.div>
+          <AnimatedSection className="text-center space-y-4 mb-16">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
+              {t("services.badge")}
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+              {t("services.title")}{" "}
+              <span className="text-primary">{t("services.titleHighlight")}</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              {t("services.description")}
+            </p>
+          </AnimatedSection>
 
-            <motion.div variants={stagger} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {mainServices.map((service, index) => (
-                <motion.div key={index} variants={fadeInUp}>
-                  <Card className="h-full group hover:shadow-2xl transition-all duration-500 border-0 bg-card/50 backdrop-blur-sm relative overflow-hidden">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                    />
-                    <CardHeader className="relative z-10">
-                      <div
-                        className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                        {service.icon}
-                      </div>
-                      <CardTitle className="text-2xl mb-3">{service.title}</CardTitle>
-                      <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                    </CardHeader>
-                    <CardContent className="relative z-10 space-y-6">
-                      <div className="space-y-3">
-                        {service.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center space-x-3">
-                            <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                            <span className="text-sm text-muted-foreground">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="flex flex-wrap gap-2 pt-4 border-t">
-                        {service.technologies.map((tech, techIndex) => (
-                          <Badge key={techIndex} variant="secondary" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+          <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {services.map(({ key, icon: Icon }) => (
+              <StaggerItem key={key}>
+                <div className="group h-full p-6 sm:p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-500 hover:-translate-y-1 hover:glow-xs">
+                  <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors duration-300">
+                    <Icon className="size-6 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    {t(`services.items.${key}.title`)}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {t(`services.items.${key}.description`)}
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Additional Services */}
-      <section className="px-6 py-20 bg-muted/30 relative">
-        <div className="max-w-6xl mx-auto">
-          {" "}
-          <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-12">
-            {" "}
-            <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">{t("specializedServices.title")}</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("specializedServices.subtitle")}</p>
-            </motion.div>
-            <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {additionalServices.map((service, index) => (
-                <motion.div key={index} variants={fadeInUp}>
-                  <Card className="text-center p-8 group hover:shadow-xl transition-all duration-300 border-0 bg-card/50 backdrop-blur-sm">
-                    <div className={`${service.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>{service.icon}</div>
-                    <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground">{service.description}</p>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+      {/* Process */}
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-surface">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection className="text-center space-y-4 mb-16">
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
+              {t("process.badge")}
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
+              {t("process.title")}{" "}
+              <span className="text-primary">{t("process.titleHighlight")}</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              {t("process.description")}
+            </p>
+          </AnimatedSection>
+
+          <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6">
+            {processSteps.map((stepKey) => (
+              <StaggerItem key={stepKey}>
+                <div className="relative text-center lg:text-left">
+                  <div className="size-16 rounded-full bg-card border border-primary/30 flex items-center justify-center mx-auto lg:mx-0 mb-5 relative z-10">
+                    <span className="text-lg font-bold text-primary">
+                      {`0${Number(stepKey) + 1}`}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    {t(`process.steps.${stepKey}.title`)}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {t(`process.steps.${stepKey}.description`)}
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Development Process */}
-      <section className="px-6 py-20 relative">
-        <div className="max-w-6xl mx-auto">
-          {" "}
-          <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-16">
-            <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">{t("developmentProcess.title")}</h2>{" "}
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("developmentProcess.subtitle")}</p>
-            </motion.div>
+      {/* CTA */}
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-[0.07] blur-[150px] bg-primary" />
+        </div>
 
-            <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {processSteps.map((step, index) => (
-                <motion.div key={index} variants={fadeInUp}>
-                  <Card className="p-6 h-full group hover:shadow-lg transition-all duration-300 border-0 bg-card/50 backdrop-blur-sm relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="space-y-4">
-                      <div className="flex items-center space-x-4">
-                        <div className="text-3xl font-bold text-primary/30">{step.number}</div>
-                        <div className="bg-primary/10 p-2 rounded-lg text-primary">{step.icon}</div>
-                      </div>
-                      <h3 className="text-xl font-semibold">{step.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
+        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
+          <AnimatedSection>
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight leading-tight">
+              {t("cta.title")}{" "}
+              <span className="text-primary">{t("cta.titleHighlight")}</span>
+            </h2>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto">
+              {t("cta.description")}
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <TrackedLink
+                href="/contact"
+                eventName="cta_click"
+                eventParams={{ cta_name: "book_a_call", cta_location: "services_cta", destination: "/contact" }}
+                className="inline-flex items-center gap-2 px-10 py-5 text-lg font-semibold rounded-xl bg-primary text-primary-foreground hover:shadow-[0_0_40px_rgba(217,255,3,0.5)] hover:scale-105 transition-all duration-300"
+              >
+                {t("cta.button")}
+                <Rocket className="size-5" />
+              </TrackedLink>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.3}>
+            <p className="text-sm text-muted-foreground/60">
+              {t("cta.emailText")}{" "}
+              <TrackedLink
+                href={`mailto:${t("cta.email")}`}
+                isExternal
+                eventName="email_click"
+                eventParams={{ email_address: t("cta.email") }}
+                className="text-primary hover:underline"
+              >
+                {t("cta.email")}
+              </TrackedLink>
+            </p>
+          </AnimatedSection>
         </div>
       </section>
-
-      {/* Pricing Section */}
-      {/* <section className="px-6 py-20 bg-muted/30 relative hidden">
-        <div className="max-w-6xl mx-auto">
-          <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-16">
-            <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">Project Packages</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Flexible packages designed to meet different business needs and budgets. All pricing is customized based on your specific requirements.
-              </p>
-            </motion.div>
-
-            <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {pricingTiers.map((tier, index) => (
-                <motion.div key={index} variants={fadeInUp}>
-                  <Card className={`relative overflow-hidden border-0 bg-card/50 backdrop-blur-sm ${tier.popular ? 'ring-2 ring-primary shadow-2xl scale-105' : ''} hover:shadow-xl transition-all duration-300`}>
-                    {tier.popular && (
-                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-primary to-accent p-2 text-center">
-                        <span className="text-white text-sm font-semibold">Most Popular</span>
-                      </div>
-                    )}
-                    <CardHeader className={tier.popular ? 'pt-12' : ''}>
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${tier.gradient} flex items-center justify-center text-white mb-4`}>
-                        <Star className="h-8 w-8" />
-                      </div>
-                      <CardTitle className="text-2xl">{tier.name}</CardTitle>
-                      <div className="space-y-2">
-                        <div className="text-3xl font-bold">{tier.price}</div>
-                        <p className="text-muted-foreground text-sm">{tier.description}</p>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      {tier.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center space-x-3">
-                          <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          <span className="text-sm">{feature}</span>
-                        </div>
-                      ))}
-                      <Button className="w-full mt-6" variant={tier.popular ? "default" : "outline"}>
-                        Get Started
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section> */}
-
-      {/* Technology Stack */}
-      <section className="px-6 py-20 relative">
-        <div className="max-w-6xl mx-auto">
-          {" "}
-          <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-12">
-            <motion.div variants={fadeInUp} className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold">{t("technologies.title")}</h2>{" "}
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("technologies.subtitle")}</p>
-            </motion.div>
-
-            <motion.div variants={stagger} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-              {technologies.map((tech, index) => (
-                <motion.div key={index} variants={fadeInUp}>
-                  <Card className="p-6 text-center group hover:shadow-lg transition-all duration-300 border-0 bg-card/50 backdrop-blur-sm hover:scale-105">
-                    <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">{tech.icon}</div>
-                    <h3 className="text-sm font-medium">{tech.name}</h3>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="px-6 py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 relative">
-        {" "}
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="space-y-8">
-            <motion.div variants={fadeInUp} className="space-y-4">
-              <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {t("cta.title")}
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("cta.description")}</p>
-            </motion.div>
-
-            <motion.div variants={fadeInUp} className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className={buttonVariants({ size: "lg" })}>
-                {t("cta.startProject")}
-                <Rocket className="ml-2 h-4 w-4" />
-              </Link>
-              <Link href="/about" className={buttonVariants({ variant: "secondary", size: "lg" })}>
-                {t("cta.learnMore")}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+    </main>
   );
 }

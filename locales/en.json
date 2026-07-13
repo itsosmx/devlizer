@@ -228,161 +228,71 @@
   "ServicesPage": {
     "badge": "Our Services",
     "hero": {
-      "title": "Building Digital",
-      "titleHighlight": "Excellence",
-      "description": "Professional websites and mobile apps that help your business grow. Building solutions with modern technology and best practices.",
-      "exploreServices": "Explore Services",
-      "getQuote": "Get Quote"
+      "title": "End-to-End Development",
+      "titleHighlight": "Services",
+      "description": "From websites and mobile apps to SaaS platforms, automation, and AI — we build digital products that scale your business.",
+      "ctaPrimary": "Book a Call",
+      "ctaSecondary": "See Our Work",
+      "statProducts": "50+",
+      "statProductsLabel": "Products Shipped",
+      "statSatisfaction": "100%",
+      "statSatisfactionLabel": "Client Satisfaction",
+      "statResponse": "24h",
+      "statResponseLabel": "Response Time"
     },
-    "coreServices": {
-      "title": "Core Services",
-      "subtitle": "Comprehensive business solutions using modern technology to help you succeed.",
-      "professionalWebsites": {
-        "title": "Professional Websites",
-        "description": "Complete business websites that attract customers and drive sales, built with modern technology for reliable performance.",
-        "features": {
-          "0": "Custom website design and development",
-          "1": "Business-focused backend systems",
-          "2": "Customer inquiry management",
-          "3": "Database and content management",
-          "4": "User authentication and security",
-          "5": "Performance optimization"
+    "services": {
+      "badge": "What We Build",
+      "title": "Our",
+      "titleHighlight": "Services",
+      "description": "Full-spectrum development capabilities to take your product from idea to market.",
+      "items": {
+        "website": {
+          "title": "Website Development",
+          "description": "High-performance, conversion-focused websites built with modern frameworks and SEO best practices."
         },
-        "technologies": {
-          "0": "Modern Web Tech",
-          "1": "Content Management",
-          "2": "Security",
-          "3": "Performance"
-        }
-      },
-      "mobileApplications": {
-        "title": "Mobile Applications",
-        "description": "Mobile apps that work on both iPhone and Android, helping you reach customers wherever they are.",
-        "features": {
-          "0": "Mobile app development",
-          "1": "Works on iPhone and Android",
-          "2": "App store optimization",
-          "3": "Push notifications",
-          "4": "App store submission",
-          "5": "Performance optimization"
+        "custom": {
+          "title": "Custom Digital Solutions",
+          "description": "Tailored software systems designed to solve your unique business challenges and streamline operations."
         },
-        "technologies": {
-          "0": "Mobile Development",
-          "1": "App Stores",
-          "2": "Notifications",
-          "3": "Performance"
-        }
-      },
-      "businessSystems": {
-        "title": "Business Systems",
-        "description": "Powerful backend systems that manage your business data, customer information, and automated processes.",
-        "features": {
-          "0": "Business logic and automation",
-          "1": "Customer management systems",
-          "2": "Data management and reporting",
-          "3": "User authentication and security",
-          "4": "Third-party service integration",
-          "5": "Cloud hosting and deployment"
+        "mobile": {
+          "title": "Mobile App Development",
+          "description": "Native-feel iOS and Android apps using React Native with analytics and push notifications baked in."
         },
-        "technologies": {
-          "0": "Business Systems",
-          "1": "Data Management",
-          "2": "Cloud Hosting",
-          "3": "Security"
-        }
-      },
-      "uxDesign": {
-        "title": "User Experience Design",
-        "description": "Beautiful, easy-to-use interfaces that customers love, focusing on user experience and business results.",
-        "features": {
-          "0": "User interface design",
-          "1": "Responsive design for all devices",
-          "2": "User experience optimization",
-          "3": "Modern design frameworks",
-          "4": "Performance optimization",
-          "5": "Works on all browsers"
+        "saas": {
+          "title": "SaaS Product Development",
+          "description": "End-to-end SaaS platforms with scalable architecture, multi-tenant support, and subscription billing."
         },
-        "technologies": {
-          "0": "UI Design",
-          "1": "UX Optimization",
-          "2": "Responsive Design",
-          "3": "Modern Frameworks"
+        "automation": {
+          "title": "Business Automation",
+          "description": "Intelligent workflows that eliminate manual tasks, connect your stack, and boost operational efficiency."
+        },
+        "ai": {
+          "title": "AI Integration",
+          "description": "Custom AI copilots, LLM-powered chatbots, and smart data pipelines trained on your business data."
         }
       }
     },
-    "specializedServices": {
-      "title": "Specialized Services",
-      "subtitle": "Additional expertise in database design, cloud deployment, and technical architecture.",
-      "dataManagement": {
-        "title": "Data Management",
-        "description": "Secure database systems with optimization and data organization for your business."
-      },
-      "cloudHosting": {
-        "title": "Cloud Hosting",
-        "description": "Reliable cloud hosting with scalable infrastructure and maintenance services."
-      },
-      "systemIntegration": {
-        "title": "System Integration",
-        "description": "Connect your business systems and integrate with third-party services."
-      },
-      "technicalConsulting": {
-        "title": "Technical Consulting",
-        "description": "Strategic planning, system review, and technical problem solving for your business."
-      }
-    },
-    "developmentProcess": {
-      "title": "Our Development Process",
-      "subtitle": "A proven development process that ensures high-quality business solutions from planning to launch.",
+    "process": {
+      "badge": "How We Work",
+      "title": "Our",
+      "titleHighlight": "Process",
+      "description": "A proven development workflow that keeps projects on track and stakeholders in the loop.",
       "steps": {
-        "discovery": {
-          "title": "Discovery",
-          "description": "We start by understanding your business, goals, and challenges through detailed consultation."
-        },
-        "planning": {
-          "title": "Planning",
-          "description": "Strategic planning and technical architecture design tailored to your requirements."
-        },
-        "development": {
-          "title": "Development",
-          "description": "Efficient development process with regular updates and collaborative feedback loops."
-        },
-        "testing": {
-          "title": "Testing",
-          "description": "Comprehensive testing to ensure quality, performance, and security standards."
-        },
-        "deployment": {
-          "title": "Deployment",
-          "description": "Smooth deployment and launch with ongoing monitoring and optimization."
-        },
-        "support": {
-          "title": "Support",
-          "description": "Continuous support, maintenance, and feature enhancements as needed."
-        }
-      }
-    },
-    "technologies": {
-      "title": "Technologies We Use",
-      "subtitle": "We use reliable and proven technologies to build solutions that work perfectly for your business.",
-      "list": {
-        "webApps": "Web Apps",
-        "mobileApps": "Mobile Apps",
-        "websites": "Websites",
-        "databases": "Databases",
-        "cloudHosting": "Cloud Hosting",
-        "security": "Security",
-        "performance": "Performance",
-        "analytics": "Analytics",
-        "ecommerce": "E-commerce",
-        "automation": "Automation",
-        "integrations": "Integrations",
-        "support": "Support"
+        "0": { "title": "Discover", "description": "Deep-dive into your business, users, and technical requirements." },
+        "1": { "title": "Plan", "description": "Strategic planning and technical architecture tailored to your goals." },
+        "2": { "title": "Develop", "description": "Iterative development with weekly demos, code reviews, and QA." },
+        "3": { "title": "Test", "description": "Comprehensive testing for quality, performance, and security standards." },
+        "4": { "title": "Deploy", "description": "Smooth launch with monitoring, optimization, and growth setup." },
+        "5": { "title": "Support", "description": "Continuous maintenance, updates, and feature enhancements." }
       }
     },
     "cta": {
-      "title": "Ready to Start Your Project?",
-      "description": "Let's discuss your vision and create a custom solution that drives your business forward. Get in touch for a free consultation.",
-      "startProject": "Start Your Project",
-      "learnMore": "Learn More About Us"
+      "title": "Ready to Start Your",
+      "titleHighlight": "Next Project?",
+      "description": "Let's discuss how we can help you build, launch, and scale your digital product.",
+      "button": "Book a Call",
+      "emailText": "Or email us directly at",
+      "email": "hi@devlizer.com"
     }
   },
   "ContactPage": {

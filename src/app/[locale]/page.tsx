@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import TrackedLink from "@/components/blocks/tracked-link";
 import {
   Globe,
   Wrench,
@@ -112,19 +113,23 @@ export default async function HomePage({
 
           <AnimatedSection delay={0.3}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-              <Link
+              <TrackedLink
                 href="/contact"
+                eventName="cta_click"
+                eventParams={{ cta_name: "start_your_project", cta_location: "home_hero", destination: "/contact" }}
                 className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:shadow-[0_0_30px_rgba(217,255,3,0.4)] hover:scale-105 transition-all duration-300"
               >
                 {t("hero.ctaPrimary")}
                 <ArrowRight className="size-4" />
-              </Link>
-              <Link
+              </TrackedLink>
+              <TrackedLink
                 href="/portfolio"
+                eventName="cta_click"
+                eventParams={{ cta_name: "view_our_work", cta_location: "home_hero", destination: "/portfolio" }}
                 className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold rounded-xl border border-muted-foreground/30 text-foreground hover:border-primary/50 hover:text-primary transition-all duration-300"
               >
                 {t("hero.ctaSecondary")}
-              </Link>
+              </TrackedLink>
             </div>
           </AnimatedSection>
 
@@ -302,10 +307,13 @@ export default async function HomePage({
             <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.slice(0, 3).map((project: any) => (
                 <StaggerItem key={project.slug}>
-                  <a
+                  <TrackedLink
                     href={project.demoUrl || `#`}
+                    isExternal={!!project.demoUrl}
                     target={project.demoUrl ? "_blank" : undefined}
                     rel={project.demoUrl ? "noopener noreferrer" : undefined}
+                    eventName="project_view"
+                    eventParams={{ project_name: project.name, project_url: project.demoUrl || "" }}
                     className="group block rounded-2xl bg-card border border-border/50 hover:border-primary/20 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:glow-xs"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
@@ -346,7 +354,7 @@ export default async function HomePage({
                         </div>
                       )}
                     </div>
-                  </a>
+                  </TrackedLink>
                 </StaggerItem>
               ))}
             </StaggerContainer>
@@ -385,13 +393,15 @@ export default async function HomePage({
                     </li>
                   ))}
                 </ul>
-                <Link
+                <TrackedLink
                   href="/contact"
+                  eventName="cta_click"
+                  eventParams={{ cta_name: "get_ai_solutions", cta_location: "home_ai_highlight", destination: "/contact" }}
                   className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:shadow-[0_0_20px_rgba(217,255,3,0.4)] hover:scale-105 transition-all duration-300"
                 >
                   {t("aiHighlight.cta")}
                   <ArrowRight className="size-4" />
-                </Link>
+                </TrackedLink>
               </div>
             </AnimatedSection>
 
@@ -503,25 +513,30 @@ export default async function HomePage({
 
           <AnimatedSection delay={0.2}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Link
+              <TrackedLink
                 href="/contact"
+                eventName="cta_click"
+                eventParams={{ cta_name: "lets_build", cta_location: "home_final_cta", destination: "/contact" }}
                 className="inline-flex items-center gap-2 px-10 py-5 text-lg font-semibold rounded-xl bg-primary text-primary-foreground hover:shadow-[0_0_40px_rgba(217,255,3,0.5)] hover:scale-105 transition-all duration-300"
               >
                 {t("finalCta.button")}
                 <ArrowRight className="size-5" />
-              </Link>
+              </TrackedLink>
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
             <p className="text-sm text-muted-foreground/60">
               {t("finalCta.emailText")}{" "}
-              <a
+              <TrackedLink
                 href={`mailto:${t("finalCta.email")}`}
+                isExternal
+                eventName="email_click"
+                eventParams={{ email_address: t("finalCta.email") }}
                 className="text-primary hover:underline"
               >
                 {t("finalCta.email")}
-              </a>
+              </TrackedLink>
             </p>
           </AnimatedSection>
         </div>

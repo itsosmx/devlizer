@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Mail, MapPin, Clock, Send, MessageCircle, CheckCircle, Globe, Zap, Heart } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
+import { analytics } from "@/lib/analytics";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { SelectValue } from "@radix-ui/react-select";
 
@@ -57,8 +58,11 @@ export default function ContactPage() {
     try {
       event.preventDefault();
       const formData = new FormData(event.currentTarget);
+      const projectType = formData.get("projectType") as string | undefined;
+      const budget = formData.get("budget") as string | undefined;
       toast.loading(t("form.sending"), { id: "contact-form" });
       setIsSubmitting(true);
+      analytics.contactFormSubmit(projectType, budget);
 
       const job = await fetch("/api", {
         method: "POST",
@@ -72,6 +76,7 @@ export default function ContactPage() {
 
       toast.success(response.message, { id: "contact-form" });
       setIsSubmitted(true);
+      analytics.contactFormSuccess(projectType);
 
       new Promise((resolve) => setTimeout(resolve, 2000)).then(() => {
         setIsSubmitting(false);
@@ -79,6 +84,7 @@ export default function ContactPage() {
     } catch (error: any) {
       toast.error(error?.message, { id: "contact-form" });
       setIsSubmitting(false);
+      analytics.contactFormError(error?.message || "unknown");
     }
   }
   const contactInfo = [
@@ -401,7 +407,7 @@ export default function ContactPage() {
                       <h3 className="text-lg font-semibold">{info.title}</h3>
                       <p className="text-primary font-medium mt-1">
                         {info.link !== "#" ? (
-                          <a href={info.link} className="hover:underline">
+                          <a href={info.link} onClick={() => analytics.emailClick("hello@devlizer.com")} className="hover:underline">
                             {info.value}
                           </a>
                         ) : (
@@ -425,6 +431,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={() => analytics.socialClick(social.name)}
                       className={`flex items-center gap-2 px-4 py-2.5 rounded-full bg-muted/50 border border-border hover:border-primary/50 hover:bg-muted transition-all duration-300 ${social.color}`}>
                       {social.icon}
                       <span className="text-sm font-medium">{social.name}</span>

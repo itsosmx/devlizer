@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { analytics } from "@/lib/analytics";
 
 export default function AboutPage() {
   const t = useTranslations("AboutPage");
@@ -162,6 +163,7 @@ export default function AboutPage() {
               style={{ transformStyle: "preserve-3d" }}>
               <Link
                 href="#story"
+                onClick={() => analytics.ctaClick("discover_story", "about_hero", "#story")}
                 className={buttonVariants({
                   size: "lg",
                   className: "shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden",
@@ -427,6 +429,7 @@ export default function AboutPage() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} style={{ transformStyle: "preserve-3d" }}>
               <Link
                 href="/contact"
+                onClick={() => analytics.ctaClick("start_project", "about_cta", "/contact")}
                 className={buttonVariants({
                   size: "lg",
                   className: "text-lg px-8 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 relative overflow-hidden",

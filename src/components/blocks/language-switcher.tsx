@@ -7,6 +7,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { analytics } from "@/lib/analytics";
 
 const languages = [
   { code: "en", name: "English" },
@@ -21,6 +22,7 @@ export default function LanguageSwitcher() {
   const currentLanguage = languages.find((lang) => lang.code === locale);
 
   const handleLanguageChange = (newLocale: string) => {
+    analytics.languageChange(locale, newLocale);
     router.replace(pathname, { locale: newLocale });
   };
 

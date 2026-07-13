@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { analytics } from "@/lib/analytics";
 
 export default function Header() {
   const t = useTranslations("Navigation");
@@ -42,6 +43,7 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
+            onClick={() => analytics.navClick("logo_home", "header")}
             className="text-xl sm:text-2xl font-bold tracking-tight text-foreground hover:text-primary transition-colors duration-300"
           >
             Devlizer
@@ -53,6 +55,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => analytics.navClick(link.label, "header")}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
               >
                 {link.label}
@@ -64,6 +67,7 @@ export default function Header() {
           <div className="hidden md:block">
             <Link
               href="/contact"
+              onClick={() => analytics.ctaClick("header_cta", "header", "/contact")}
               className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:shadow-[0_0_20px_rgba(217,255,3,0.4)] hover:scale-105 transition-all duration-300"
             >
               {t("cta")}
@@ -96,7 +100,10 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => {
+                    setMobileOpen(false);
+                    analytics.navClick(link.label, "header_mobile");
+                  }}
                   className="block text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-300"
                 >
                   {link.label}
@@ -104,7 +111,10 @@ export default function Header() {
               ))}
               <Link
                 href="/contact"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => {
+                  setMobileOpen(false);
+                  analytics.ctaClick("header_cta", "header_mobile", "/contact");
+                }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:shadow-[0_0_20px_rgba(217,255,3,0.4)] transition-all duration-300 mt-2"
               >
                 {t("cta")}

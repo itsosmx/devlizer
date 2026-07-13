@@ -59,7 +59,6 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId="G-CXXZE4SD75" />}
       <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${cairo.variable} antialiased scroll-smooth dark`}>
         <DirectionProvider dir={locale === "ar" ? "rtl" : "ltr"}>
           <StructuredData data={structureData} />
@@ -70,9 +69,10 @@ export default async function RootLayout({
             <FloatingContacts />
           </NextIntlClientProvider>
           <Toaster />
-          {/* <script src="https://embed.widgetease.com/embed.js?t=A8sGc37kXLvYPDE-luVX11hdeKXbOomK&v=1" async></script> */}
         </DirectionProvider>
       </body>
+      <GoogleAnalytics gaId="G-CXXZE4SD75" />
+      
     </html>
   );
 }

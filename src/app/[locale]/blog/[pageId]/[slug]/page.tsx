@@ -8,11 +8,6 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { generateArticleMetadata } from "@/lib/metadata";
 
-// @next-codemod-ignore Cache Components adoption: this segment temporarily allows blocking.
-// Remove this opt-out after verifying the segment passes validation without it.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
-
 export async function generateMetadata({ params }: { params: Promise<{ pageId: string; slug: string }> }) {
   const { pageId, slug } = await params;
   const post = await getBlogPost(slug);

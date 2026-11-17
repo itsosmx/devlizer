@@ -3,6 +3,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 import { withPayload } from '@payloadcms/next/withPayload'
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ['127.0.0.1'],
   images: {
     remotePatterns: [
       {

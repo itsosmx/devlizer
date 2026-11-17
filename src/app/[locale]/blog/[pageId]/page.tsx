@@ -3,10 +3,6 @@ import { PostCard } from "@/components/blocks/post-card";
 import { notFound } from "next/navigation";
 import { generatePageMetadata } from "@/lib/metadata";
 
-// @next-codemod-ignore Cache Components adoption: this segment temporarily allows blocking.
-// Remove this opt-out after verifying the segment passes validation without it.
-// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
-export const instant = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ pageId: string }> }) {
   const { pageId } = await params;

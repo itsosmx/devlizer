@@ -26,6 +26,11 @@ import {
 import { getProjects } from "@/services/data";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/blocks/animated-section";
 
+// @next-codemod-ignore Cache Components adoption: this segment temporarily allows blocking.
+// Remove this opt-out after verifying the segment passes validation without it.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
+
 /* ------------------------------------------------------------------ */
 /*  Hero Background (rendered server-side)                              */
 /* ------------------------------------------------------------------ */

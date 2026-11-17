@@ -15,6 +15,11 @@ import { generateStructuredData } from "@/lib/seo";
 import { DirectionProvider } from "@/components/ui/direction";
 import FloatingContacts from "@/components/blocks/floating-contacts";
 
+// @next-codemod-ignore Cache Components adoption: this segment temporarily allows blocking.
+// Remove this opt-out after verifying the segment passes validation without it.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
+
 const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic"],

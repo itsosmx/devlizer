@@ -14,7 +14,7 @@
       "badge": "About Devlizer",
       "title": "Building the Future of",
       "titleHighlight": "Digital Experiences",
-      "description": "At Devlizer, we're not just building websites and mobile apps—we're building the future of digital experiences. Whether you're a startup with a bold idea or an established business aiming to level up, we help you bring your vision to life."
+      "description": "At Devlizer, we build websites and mobile apps, and we care about how people actually use them. Whether you're a startup with a bold idea or an established business aiming to level up, we help you bring your vision to life."
     },
     "journey": {
       "title": "Our",
@@ -35,8 +35,8 @@
       "title": "Our",
       "titleHighlight": "Mission",
       "intro": "Our mission is simple:",
-      "description": "empower businesses and entrepreneurs with technology that works",
-      "suffix": "—cleanly, reliably, and with purpose."
+      "description": "give businesses and entrepreneurs technology that works",
+      "suffix": ", built cleanly and reliably."
     },
     "values": {
       "title": "Our",
@@ -49,7 +49,7 @@
         },
         "collaboration": {
           "title": "Collaboration",
-          "description": "We work closely with our clients as partners, not just service providers."
+          "description": "We work closely with clients and treat their projects like our own."
         },
         "purpose": {
           "title": "Purpose",
@@ -102,7 +102,7 @@
       "badge": "Our Work",
       "title": "Our Latest",
       "titleHighlight": "Projects",
-      "description": "Discover our portfolio of innovative projects that showcase modern technology and expert craftsmanship."
+      "description": "A look at the products we've designed, built and shipped."
     },
     "stats": {
       "solutions": "Modern",
@@ -123,8 +123,8 @@
       "widgetEase": {
         "title": "Widget Ease",
         "subtitle": "Business Software",
-        "description": "Widget Ease is a business software solution designed to transform how businesses handle customer support. At its core, it's a smart, embeddable chat widget powered by AI, trained to provide human-like, context-aware responses 24/7.",
-        "longDescription": "The platform features a simple onboarding process for clients, allowing them to generate and install their widget in minutes. It also includes an intuitive admin dashboard where businesses can customize the assistant's tone, upload documentation, monitor conversations, and analyze performance metrics.",
+        "description": "Widget Ease changes how businesses handle customer support. It's an AI chat widget you embed on your site, trained on your content so it can answer customers 24/7.",
+        "longDescription": "The platform features a simple onboarding process for clients, allowing them to generate and install their widget in minutes. There's also an admin dashboard where businesses can customize the assistant's tone, upload documentation, monitor conversations, and analyze performance metrics.",
         "status": "Live",
         "year": "2025",
         "technologiesTitle": "Technologies Used",
@@ -149,8 +149,8 @@
       "joblizer": {
         "title": "Joblizer",
         "subtitle": "Job Matching Platform",
-        "description": "Skip the resume blackhole and get hired smarter. Joblizer revolutionizes how job seekers and recruiters connect by moving beyond outdated ATS systems and keyword matching.",
-        "longDescription": "An AI-powered job matching platform that intelligently connects job seekers with recruiters. Create your profile once, and let AI match you with suitable jobs. Features one-click applications, intelligent scoring, and detailed AI reports for both job seekers and employers. No more applying 100 times with the same details or filtered out by traditional ATS systems.",
+        "description": "Skip the resume black hole. Joblizer connects job seekers and recruiters without relying on old ATS filters and keyword matching.",
+        "longDescription": "Create your profile once and let AI match you with jobs that fit. Features one-click applications, intelligent scoring, and detailed AI reports for both job seekers and employers. No more typing the same details into 100 applications, or getting filtered out by an ATS.",
         "status": "Live",
         "year": "2025",
         "technologiesTitle": "Technologies Used",
@@ -175,8 +175,8 @@
       "menulizer": {
         "title": "Menulizer",
         "subtitle": "Restaurant Technology",
-        "description": "Create digital menus in minutes. Transform your restaurant with contactless QR code menus and seamless ordering that customers can access directly from their phones.",
-        "longDescription": "A comprehensive restaurant management solution that enables contactless dining experiences. Features instant QR code generation, direct ordering from phones, multi-language support, and real-time order management. Customers can browse beautiful mobile menus and place orders hassle-free, while restaurants manage everything from an intuitive dashboard.",
+        "description": "Create digital menus in minutes. Customers scan a QR code, browse your menu and order straight from their phones.",
+        "longDescription": "Menulizer handles contactless dining from start to finish. It includes instant QR code generation, direct ordering from phones, multi-language support, and real-time order management. Restaurants manage menus and orders from one dashboard.",
         "status": "Live",
         "year": "2025",
         "technologiesTitle": "Technologies Used",
@@ -201,8 +201,8 @@
       "comingSoon": {
         "title": "Coming Soon",
         "subtitle": "Next Project",
-        "description": "Exciting new projects are in development. Stay tuned for innovative solutions that will showcase modern website and mobile app development.",
-        "longDescription": "More amazing projects are being crafted using the latest technologies. Each project demonstrates expertise in creating powerful business solutions.",
+        "description": "We're working on new projects right now. Check back soon.",
+        "longDescription": "More products are on the way, built on the same stack and standards as our live work.",
         "status": "In Development",
         "year": "2025",
         "comingSoonLabel": "Coming Soon",
@@ -230,7 +230,7 @@
     "hero": {
       "title": "End-to-End Development",
       "titleHighlight": "Services",
-      "description": "From websites and mobile apps to SaaS platforms, automation, and AI — we build digital products that scale your business.",
+      "description": "Websites, mobile apps, SaaS platforms, automation and AI. We build the products your business needs to grow.",
       "ctaPrimary": "Book a Call",
       "ctaSecondary": "See Our Work",
       "statProducts": "50+",
@@ -252,7 +252,7 @@
         },
         "custom": {
           "title": "Custom Digital Solutions",
-          "description": "Tailored software systems designed to solve your unique business challenges and streamline operations."
+          "description": "Software built around how your business actually runs, so day-to-day work gets simpler."
         },
         "mobile": {
           "title": "Mobile App Development",
@@ -264,7 +264,7 @@
         },
         "automation": {
           "title": "Business Automation",
-          "description": "Intelligent workflows that eliminate manual tasks, connect your stack, and boost operational efficiency."
+          "description": "Workflows that take repetitive tasks off your team's plate and connect the tools you already use."
         },
         "ai": {
           "title": "AI Integration",
@@ -281,7 +281,7 @@
         "0": { "title": "Discover", "description": "Deep-dive into your business, users, and technical requirements." },
         "1": { "title": "Plan", "description": "Strategic planning and technical architecture tailored to your goals." },
         "2": { "title": "Develop", "description": "Iterative development with weekly demos, code reviews, and QA." },
-        "3": { "title": "Test", "description": "Comprehensive testing for quality, performance, and security standards." },
+        "3": { "title": "Test", "description": "We test for bugs, speed and security before anything goes live." },
         "4": { "title": "Deploy", "description": "Smooth launch with monitoring, optimization, and growth setup." },
         "5": { "title": "Support", "description": "Continuous maintenance, updates, and feature enhancements." }
       }
@@ -300,7 +300,7 @@
     "hero": {
       "title": "Let's Build Something",
       "titleHighlight": "Amazing Together",
-      "description": "Ready to transform your ideas into reality? I'm here to help you create exceptional digital experiences that help your business succeed.",
+      "description": "Have an idea? We'll help you turn it into a product your customers enjoy using.",
       "benefits": {
         "freeConsultation": "Free Consultation",
         "quickResponse": "Quick Response",
@@ -328,7 +328,7 @@
     },
     "form": {
       "title": "Send a Message",
-      "subtitle": "Tell me about your project and let's get started",
+      "subtitle": "Tell us about your project and let's get started",
       "fields": {
         "fullName": "Full Name",
         "emailAddress": "Email Address",
@@ -340,7 +340,7 @@
         "fullNamePlaceholder": "Your full name",
         "emailPlaceholder": "your.email@example.com",
         "subjectPlaceholder": "Brief description of your project",
-        "messagePlaceholder": "Tell me more about your project, goals, timeline, and any specific requirements..."
+        "messagePlaceholder": "Tell us about your project, goals, timeline and any specific requirements..."
       },
       "projectTypes": {
         "select": "Select a project type",
@@ -380,7 +380,7 @@
       "sendAnother": "Send another message",
       "success": {
         "title": "Message Sent!",
-        "description": "Thank you for reaching out. I'll get back to you within 24 hours."
+        "description": "Thanks for reaching out. We'll get back to you within 24 hours."
       }
     },
     "whyChoose": {
@@ -394,7 +394,7 @@
       }
     },
     "socialLinks": {
-      "title": "Connect With Me",
+      "title": "Connect With Us",
       "linkedin": "LinkedIn",
       "facebook": "Facebook",
       "twitter": "Twitter"
@@ -406,19 +406,19 @@
       "questions": {
         "timeline": {
           "question": "What's your typical project timeline?",
-          "answer": "Project timelines vary based on scope and complexity. Simple websites take 2-4 weeks, while complex applications can take 2-6 months. I'll provide a detailed timeline after discussing your requirements."
+          "answer": "Project timelines vary based on scope and complexity. Simple websites take 2-4 weeks, while complex applications can take 2-6 months. Once we've talked through your requirements, we'll give you a detailed timeline."
         },
         "international": {
           "question": "Do you work with international clients?",
-          "answer": "Absolutely! I work with clients worldwide and am experienced in remote collaboration. I'm flexible with time zones and communication preferences."
+          "answer": "Yes. We work with clients worldwide, fully remote, and we're flexible with time zones and how you like to communicate."
         },
         "solutions": {
           "question": "What kind of solutions do you create?",
-          "answer": "I create modern websites, mobile apps, and business software using the latest technologies. I focus on solutions that are reliable, user-friendly, and help your business grow."
+          "answer": "We build websites, mobile apps and business software. Our focus is software that's reliable, easy to use and helps your business grow."
         },
         "support": {
           "question": "Do you provide ongoing support?",
-          "answer": "Yes, I offer maintenance and support packages to keep your application running smoothly. This includes updates, bug fixes, and feature enhancements."
+          "answer": "Yes, we offer maintenance and support packages to keep your application running smoothly. This includes updates, bug fixes, and feature enhancements."
         }
       }
     }
@@ -427,7 +427,7 @@
     "hero": {
       "title": "We Build SaaS, Web & Mobile Products",
       "titleHighlight": "That Scale Businesses",
-      "description": "From enterprise platforms to startup MVPs and SME digital transformation — we engineer products that drive real growth.",
+      "description": "Enterprise platforms, startup MVPs, digital tools for SMEs. We build products that help businesses grow.",
       "ctaPrimary": "Book a Call",
       "ctaSecondary": "See Our Work",
       "statProducts": "50+",
@@ -449,7 +449,7 @@
         },
         "custom": {
           "title": "Custom Digital Solutions",
-          "description": "Tailored software systems designed to solve your unique business challenges and streamline operations."
+          "description": "Software built around how your business actually runs, so day-to-day work gets simpler."
         },
         "mobile": {
           "title": "Mobile App Development",
@@ -461,7 +461,7 @@
         },
         "automation": {
           "title": "Business Automation",
-          "description": "Intelligent workflows that eliminate manual tasks, connect your stack, and boost operational efficiency."
+          "description": "Workflows that take repetitive tasks off your team's plate and connect the tools you already use."
         },
         "ai": {
           "title": "AI Integration",
@@ -473,22 +473,22 @@
       "badge": "Why Us",
       "title": "Why",
       "titleHighlight": "Devlizer?",
-      "subtitle": "Technical excellence combined with business acumen — we build what actually moves the needle.",
+      "subtitle": "Strong engineering plus a clear head for business. We build what actually makes a difference.",
       "items": {
         "speed": {
-          "stat": "2–4x",
+          "stat": "2-4x",
           "label": "Faster Delivery",
-          "description": "Agile sprints and modular architecture ship features in weeks, not quarters."
+          "description": "Short sprints and modular code mean features ship in weeks."
         },
         "quality": {
           "stat": "99.9%",
           "label": "Uptime Target",
-          "description": "Production-grade infrastructure, automated testing, and robust CI/CD pipelines."
+          "description": "Production-grade infrastructure, automated tests and CI/CD on every project."
         },
         "ownership": {
           "stat": "End-to-End",
           "label": "Full Ownership",
-          "description": "From discovery to deployment and beyond — we handle the entire product lifecycle."
+          "description": "We handle the whole product, from first discovery call to launch and after."
         },
         "focus": {
           "stat": "50+",
@@ -513,13 +513,13 @@
       "badge": "Portfolio",
       "title": "Featured",
       "titleHighlight": "Work",
-      "description": "A selection of projects we have shipped for clients worldwide."
+      "description": "A few of the projects we've shipped for clients worldwide."
     },
     "aiHighlight": {
       "badge": "AI-Powered",
       "title": "Intelligence Tailored to",
       "titleHighlight": "Your Data",
-      "description": "We do not bolt on generic AI. We build custom copilots, chatbots, and intelligent workflows trained on your proprietary data — giving you a competitive edge that off-the-shelf tools cannot match.",
+      "description": "We don't bolt on generic AI. We build copilots, chatbots and workflows trained on your own data, so they know your business in a way off-the-shelf tools can't.",
       "features": {
         "0": "Custom LLM fine-tuning on your business data",
         "1": "RAG-powered knowledge bases and search",
@@ -531,7 +531,7 @@
       "badge": "Testimonials",
       "title": "Client",
       "titleHighlight": "Words",
-      "description": "Feedback from the teams we have partnered with.",
+      "description": "What the teams we've worked with say.",
       "items": {
         "0": { "quote": "Devlizer transformed our outdated internal tool into a modern SaaS platform in under 8 weeks. The quality and speed were exceptional.", "author": "Sarah Chen", "role": "CTO, FlowMetrics" },
         "1": { "quote": "Their AI integration expertise saved us months of development time. The custom copilot they built is now core to our product offering.", "author": "Marcus Johnson", "role": "Founder, DataPulse" },
@@ -541,7 +541,7 @@
     "finalCta": {
       "title": "Let's Build Your",
       "titleHighlight": "Next Product",
-      "description": "Whether you are starting from scratch or scaling an existing platform, we have the expertise to get you there faster.",
+      "description": "Starting from scratch or scaling a platform you already have? We'll help you get there faster.",
       "button": "Book a Call",
       "emailText": "Or email us directly at",
       "email": "hi@devlizer.com"

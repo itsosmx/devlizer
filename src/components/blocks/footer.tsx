@@ -14,6 +14,7 @@ export default function Footer() {
   const navLinks = [
     { label: navT("services"), href: "/services" },
     { label: navT("portfolio"), href: "/portfolio" },
+    { label: navT("studio"), href: "/studio" },
     { label: navT("about"), href: "/about" },
     { label: navT("contact"), href: "/contact" },
   ];

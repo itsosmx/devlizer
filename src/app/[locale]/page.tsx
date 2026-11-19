@@ -22,8 +22,10 @@ import {
   Code2,
   Cpu,
   Network,
+  Gamepad2,
 } from "lucide-react";
 import { getProjects } from "@/services/data";
+import { hayloop } from "@/lib/games";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/blocks/animated-section";
 
 /* ------------------------------------------------------------------ */
@@ -88,6 +90,8 @@ export default async function HomePage({
   const processSteps = ["0", "1", "2", "3"];
 
   const testimonialKeys = ["0", "1", "2"];
+
+  const studioVideo = hayloop.features.find((f) => f.key === "livestock")!.video;
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -363,7 +367,90 @@ export default async function HomePage({
       )}
 
       {/* ============================================================= */}
-      {/* 6. AI INTEGRATION HIGHLIGHT                                    */}
+      {/* 6. DEVLIZER STUDIO                                             */}
+      {/* ============================================================= */}
+      <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <Image src={hayloop.backgroundImage} alt="" fill sizes="100vw" className="object-cover opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/60 to-background" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <AnimatedSection direction="left" className="lg:order-2">
+              <div className="space-y-6">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full">
+                  <Gamepad2 className="size-3.5" />
+                  {t("studio.badge")}
+                </span>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+                  {t("studio.title")}{" "}
+                  <span className="text-primary">{t("studio.titleHighlight")}</span>
+                </h2>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  {t("studio.description")}
+                </p>
+
+                <div className="p-5 rounded-2xl bg-card/80 backdrop-blur-sm border border-border/50 space-y-2">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <h3 className="text-xl font-semibold text-foreground">{hayloop.name}</h3>
+                    <span className="text-xs font-medium text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-full">
+                      {t("studio.comingSoon")}
+                    </span>
+                  </div>
+                  <p className="text-sm font-medium text-foreground/80">{t("studio.gameTagline")}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t("studio.gameDescription")}</p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <TrackedLink
+                    href="/studio"
+                    eventName="cta_click"
+                    eventParams={{ cta_name: "explore_hayloop", cta_location: "home_studio", destination: "/studio" }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl bg-primary text-primary-foreground hover:shadow-[0_0_20px_rgba(217,255,3,0.4)] hover:scale-105 transition-all duration-300"
+                  >
+                    {t("studio.ctaExplore")}
+                    <ArrowRight className="size-4 rtl:rotate-180" />
+                  </TrackedLink>
+                  <TrackedLink
+                    href={hayloop.steamUrl}
+                    isExternal
+                    eventName="cta_click"
+                    eventParams={{ cta_name: "wishlist_steam", cta_location: "home_studio", destination: hayloop.steamUrl }}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl border border-muted-foreground/30 text-foreground hover:border-primary/50 hover:text-primary transition-all duration-300"
+                  >
+                    {t("studio.ctaWishlist")}
+                    <ExternalLink className="size-4" />
+                  </TrackedLink>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection direction="right" delay={0.2} className="lg:order-1">
+              <div className="rounded-3xl overflow-hidden border border-border/50 bg-card shadow-2xl">
+                <video
+                  className="w-full h-auto block"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster={studioVideo.poster}
+                  width={studioVideo.width}
+                  height={studioVideo.height}
+                  aria-label={hayloop.name}
+                >
+                  <source src={studioVideo.webm} type="video/webm" />
+                  <source src={studioVideo.mp4} type="video/mp4" />
+                </video>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================= */}
+      {/* 7. AI INTEGRATION HIGHLIGHT                                    */}
       {/* ============================================================= */}
       <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Background glow */}
@@ -444,7 +531,7 @@ export default async function HomePage({
       </section>
 
       {/* ============================================================= */}
-      {/* 7. TESTIMONIALS                                                */}
+      {/* 8. TESTIMONIALS                                                */}
       {/* ============================================================= */}
       <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-surface">
         <div className="max-w-7xl mx-auto">
@@ -490,7 +577,7 @@ export default async function HomePage({
       </section>
 
       {/* ============================================================= */}
-      {/* 8. FINAL CTA                                                   */}
+      {/* 9. FINAL CTA                                                   */}
       {/* ============================================================= */}
       <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">

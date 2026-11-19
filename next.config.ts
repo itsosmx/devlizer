@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'eu-west-2.graphassets.com',
         pathname: "/**"
+      },
+      {
+        protocol: 'https',
+        hostname: 'shared.akamai.steamstatic.com',
+        pathname: "/store_item_assets/steam/apps/**"
       }
     ]
   }

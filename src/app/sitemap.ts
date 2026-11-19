@@ -62,6 +62,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
       },
     },
+    {
+      url: `${baseUrl}/studio`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/studio`,
+          ar: `${baseUrl}/ar/studio`,
+        },
+      },
+    },
     ...blogPagesEntries,
     ...blogPostsEntries,
     // {

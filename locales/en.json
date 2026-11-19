@@ -545,6 +545,17 @@
       "button": "Book a Call",
       "emailText": "Or email us directly at",
       "email": "hi@devlizer.com"
+    },
+    "studio": {
+      "badge": "Devlizer Studio",
+      "title": "We build games",
+      "titleHighlight": "too",
+      "description": "Devlizer Studio is our game development arm. The same care we put into client products goes into worlds people want to spend hours in.",
+      "gameTagline": "Our first title: a cozy farming & ranching sim",
+      "gameDescription": "Grow crops, raise and breed animals, keep bees, process your harvest, and run your own shop in a living economy.",
+      "ctaExplore": "Explore Hayloop",
+      "ctaWishlist": "Wishlist on Steam",
+      "comingSoon": "Coming soon on Steam"
     }
   },
   "Navigation": {
@@ -554,6 +565,7 @@
     "portfolio": "Portfolio",
     "contact": "Contact",
     "apps": "Apps",
+    "studio": "Studio",
     "cta": "Let's talk"
   },
   "Footer": {
@@ -567,5 +579,71 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "blog": "Blog"
+  },
+  "StudioPage": {
+    "meta": {
+      "title": "Devlizer Studio - Hayloop",
+      "description": "Hayloop by Devlizer Studio: a cozy farming and ranching sim. Grow crops, raise and breed animals, keep bees, process goods, and run your own shop. Wishlist it on Steam."
+    },
+    "badge": "Devlizer Studio",
+    "hero": {
+      "tagline": "A cozy farming & ranching sim",
+      "description": "Grow a small plot into a thriving agricultural business. Plant and tend crops, raise animals, keep bees, process your harvest into valuable goods, open your shop, and automate your farm as it grows, all on your way to breeding prized horses.",
+      "ctaWishlist": "Wishlist on Steam",
+      "ctaExplore": "Explore the game"
+    },
+    "details": {
+      "status": "Status",
+      "statusValue": "Coming soon · Early Access",
+      "genre": "Genre",
+      "genreValue": "Simulation",
+      "platform": "Platform"
+    },
+    "features": {
+      "title": "Every system",
+      "titleHighlight": "feeds into another",
+      "description": "Crops become animal feed, animals provide goods and fertilizer, fertilizer boosts your crops, and everything can be processed, sold, or put back into the ranch.",
+      "items": {
+        "farming": {
+          "title": "Farming",
+          "description": "Start from the ground up: prepare the land, plant a wide variety of crops, and tend them through every stage of growth. Water, fertilize, and keep weeds under control to get the best harvests."
+        },
+        "livestock": {
+          "title": "Livestock & Breeding",
+          "description": "Raise animals, feed them well, and keep them healthy. Each one has its own needs, products, and genes. Bred animals inherit genes from their parents, and better genes mean better produce and higher prices."
+        },
+        "beekeeping": {
+          "title": "Beekeeping",
+          "description": "Honey is essential for many recipes. Build hives, upgrade them with more supers, and grow your worker bees to produce more honey."
+        },
+        "production": {
+          "title": "Production Chains, Crafting & Cooking",
+          "description": "Build processing stations to turn raw materials into higher-value goods. Mill, bake, cook, compost, craft, and more. Each new station opens up new products and recipes."
+        },
+        "villagers": {
+          "title": "Villagers & Offers",
+          "description": "Explore the valley and knock on villagers' doors to offer your products. They may accept or refuse, so find out what each of them wants."
+        },
+        "business": {
+          "title": "Run Your Own Business",
+          "description": "Rent a storefront, place shelves, and stock them with your own products. Serve customers quickly to build your reputation and bring more of them in."
+        },
+        "economy": {
+          "title": "A Real Economy",
+          "description": "Prices rise and fall with the market. Keep an eye on the charts and sell at the right moment, since villagers, your store, and vendors are all affected by the economy."
+        }
+      }
+    },
+    "gallery": {
+      "title": "Screenshots",
+      "alt": "{name} screenshot {index}"
+    },
+    "cta": {
+      "title": "Help us grow",
+      "titleHighlight": "Hayloop",
+      "description": "Wishlisting on Steam is the best way to support the game and get notified the moment it launches.",
+      "wishlist": "Wishlist on Steam",
+      "contact": "Work with us"
+    }
   }
 }
